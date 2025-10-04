@@ -41,18 +41,12 @@ func _physics_process(_delta: float) -> void:
 		else:
 			_move_to(player.position)
 			return
-			
-	print('tile pos ', tile_pos)
-	print('tile target ', tile_target)
 	
 	if (tile_pos.x != tile_target.x):
-		print('moving x')
 		_move_to(_tile_map.to_global(_tile_map.map_to_local(Vector2(tile_target.x, tile_pos.y))))
 	elif (tile_pos.y != tile_target.y):
-		print('moving y')
 		_move_to(_tile_map.to_global(_tile_map.map_to_local(Vector2(tile_pos.x, tile_target.y))))
 	else: 
-		print('else')
 		_move_to(player.position)
 
 func attack_player(body):
@@ -62,7 +56,6 @@ func attack_player(body):
 
 func _move_to(global_position: Vector2):
 	# position = Vector2(0, 0) + offset
-	print("moving to", global_position)
 	velocity = (global_position - position).normalized() * speed
 	move_and_slide()
 	
