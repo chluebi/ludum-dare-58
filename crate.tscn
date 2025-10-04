@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dwklrk08g7n6" path="res://crate.png" id="1_uep05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0jf"]
-size = Vector2(14.000004, 12.499998)
+size = Vector2(12.800003, 12.700002)
 
 [node name="Crate" type="StaticBody2D" groups=["static_obstacles"]]
 scale = Vector2(10, 10)

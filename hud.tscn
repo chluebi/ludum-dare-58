@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4s8ah7fjsuyp"]
 
-[ext_resource type="Script" uid="uid://cd34fatirlnop" path="res://hotbar.gd" id="1_8sq4i"]
+[ext_resource type="Script" path="res://hotbar.gd" id="1_8sq4i"]
 
 [node name="HUD" type="CanvasLayer"]
 

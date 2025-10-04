@@ -7,7 +7,7 @@ const POTION_SCENE = preload("res://potion.tscn")
 @onready var potion := POTION_SCENE.instantiate()
 
 func _ready() -> void:
-	add_child(potion) 
+	add_child(potion)
 	potion.position = position
 	potion.set_potion_type(randi_range(0, 6))
 	

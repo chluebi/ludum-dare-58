@@ -49,10 +49,6 @@ func _process(delta):
 			attack_timer = 0
 	if Input.is_action_just_pressed("ui_accept"):
 		big_fire = !big_fire
-		var potion = POTION_SCENE.instantiate()
-		potion.position = position
-		potion.set_potion_type(randi_range(0, 6))
-		get_parent().add_child(potion)
 	var acceleration_vec = Vector2.ZERO
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("move_right"):
 		acceleration_vec.x += 1
@@ -71,3 +67,6 @@ func _process(delta):
 		velocity = velocity.normalized() * MAX_SPEED # make sure that we never extrapolate, i.e. go faster than max_speed
 	
 	move_and_slide()
+
+func on_potion_pickup(pot):
+	print(pot.current_type)

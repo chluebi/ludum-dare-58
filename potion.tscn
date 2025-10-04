@@ -11,7 +11,9 @@ region = Rect2(0, 10, 29, 8)
 radius = 59.008472
 
 [node name="potion" type="Area2D"]
-monitoring = false
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 script = ExtResource("1_174ht")
 current_type = 2
 

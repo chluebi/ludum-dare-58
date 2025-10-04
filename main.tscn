@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bpype5vdrgnek"]
+[gd_scene load_steps=12 format=4 uid="uid://bpype5vdrgnek"]
 
 [ext_resource type="Texture2D" uid="uid://b75j101henfac" path="res://test_background.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="2_0xm2m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://rnjhn3gu636t" path="res://tile_map_layer.gd" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://nhwhlhpm51nv" path="res://crate.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dog1poe2ison0" path="res://enemy.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://wmwgnv10gs56" path="res://cauldron.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://b4s8ah7fjsuyp" path="res://hud.tscn" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://cbnnke38dp7y2" path="res://enemy_spawner.gd" id="8_kek77"]
 
@@ -74,6 +75,12 @@ position = Vector2(550, 68)
 
 [node name="player" parent="Environment" instance=ExtResource("2_0xm2m")]
 position = Vector2(114, 190)
+
+[node name="cauldron" parent="Environment" instance=ExtResource("7_kek77")]
+position = Vector2(879.99994, 397.99997)
+
+[node name="cauldron2" parent="Environment" instance=ExtResource("7_kek77")]
+position = Vector2(1363, 402)
 
 [node name="HUD" parent="." instance=ExtResource("8_5vw27")]
 

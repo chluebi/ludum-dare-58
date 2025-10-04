@@ -43,7 +43,7 @@ func on_collision(body):
 	particles.position = position
 	particles.direction = direction
 	particles.emitting = true
-	get_parent().add_child(particles)
+	get_parent().get_parent().add_child(particles)
 	if "health" in body:
 		if body.health.take_damage(damage) and big:
 			return

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://wmwgnv10gs56"]
+
+[ext_resource type="Script" uid="uid://digbukh8ije7" path="res://cauldron.gd" id="1_0t22i"]
+[ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_5qdwy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t22i"]
+atlas = ExtResource("1_5qdwy")
+region = Rect2(0, 18, 25, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0jf"]
+size = Vector2(12.800003, 12.700002)
+
+[node name="cauldron" type="StaticBody2D" groups=["static_obstacles"]]
+scale = Vector2(10, 10)
+script = ExtResource("1_0t22i")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0t22i")
+region_enabled = true
+region_rect = Rect2(0, 0, 13, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.8146962e-07, 0.049999993)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_mo0jf")
