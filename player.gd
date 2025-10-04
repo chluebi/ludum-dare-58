@@ -9,6 +9,7 @@ var POTION_SCENE = preload("res://potion.tscn")
 const HEALTH_SCRIPT = preload("./health.gd")
 
 var health = HEALTH_SCRIPT.new()
+var big_fire = false
 
 func on_death():
 	print("player died, game is over")
@@ -16,17 +17,22 @@ func on_death():
 func _ready() -> void:
 	health.death_signal.connect(on_death)
 
+func spawn_fireball(aim_direction):
+	var fireball = FIREBALL_SCENE.instantiate()
+	fireball.position = position + BOOK.position
+	fireball.direction = aim_direction
+	if big_fire:
+		fireball.big = true
+	get_parent().add_child(fireball)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	health.animate_damage(self, delta)
 	var aim_direction = (get_global_mouse_position() - position).normalized()
 	BOOK.position = aim_direction * BOOK_DISTANCE
 	if Input.is_action_just_pressed("shoot"):
-		var fireball = FIREBALL_SCENE.instantiate()
-		fireball.position = position + BOOK.position
-		fireball.direction = aim_direction
-		get_parent().add_child(fireball)
+		spawn_fireball(aim_direction)
 	if Input.is_action_just_pressed("ui_accept"):
+		big_fire = !big_fire
 		var potion = POTION_SCENE.instantiate()
 		potion.position = position
 		potion.set_potion_type(randi_range(0, 6))

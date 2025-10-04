@@ -18,7 +18,8 @@ script = ExtResource("1_olwj8")
 [node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_olwj8")
-hframes = 4
+region_enabled = true
+region_rect = Rect2(-0.035758972, 0.35620213, 3.694271, 2.652296)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sf4mh")
