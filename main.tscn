@@ -39,11 +39,11 @@ position = Vector2(160.00003, 3.0517578e-05)
 position = Vector2(480, 160)
 
 [node name="Crate3" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(160.00003, 320)
+position = Vector2(320, 329)
 
 [node name="Crate4" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(1.5258789e-05, 320)
 
 [node name="Enemy" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(560, 80.00001)
+position = Vector2(560, 80)
 script = ExtResource("6_7mycd")
