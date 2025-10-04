@@ -13,7 +13,7 @@ const ARRIVE_DISTANCE: float = 10.0
 
 var _velocity := Vector2()
 
-@onready var _tile_map: PathFindAStar = $"../TileMapLayer"
+@onready var _tile_map: PathFindAStar = $"../../TileMapLayer"
 @onready var player = $"../player"
 
 var attack_target = null
