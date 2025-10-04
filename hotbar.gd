@@ -19,7 +19,7 @@ func render_slots(is_empty: Array[bool], entries: Array[Constants.potion_type], 
 	for i in range(len(is_empty)):
 		var new_slot = slot_scene.instantiate()
 		new_slot.setup(i, is_empty[i], entries[i], i == current_slot_index)
-		slot_container.add_child(new_slot)
+		slot_container.add_child.call_deferred(new_slot)
 		slots.append(new_slot)
 	
 
