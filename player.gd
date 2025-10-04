@@ -12,7 +12,7 @@ const PLAYER_DEATH_SCRIPT = preload("res://death.gd")
 const ATTACK_INTERVAL = 0.7
 var attack_timer = 0.0
 
-var health = HEALTH_SCRIPT.new(1)
+var health = HEALTH_SCRIPT.new(100)
 var big_fire = false
 
 func on_death():

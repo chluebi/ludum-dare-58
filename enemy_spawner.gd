@@ -5,7 +5,7 @@ const ALLOWED_REGION = Rect2(0,0,2400, 1500)
 const ENEMY_SCENE = preload("res://enemy.tscn")
 @onready var player = $"../player"
 var camera_region = Rect2(0,0,1152,648)
-var spawn_timer = 0
+var spawn_timer = 10
 
 func spawn_enemy(pos):
 	var enemy = ENEMY_SCENE.instantiate()
