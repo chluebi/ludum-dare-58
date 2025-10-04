@@ -1,22 +1,26 @@
 extends Control
 
-var slot_index := 0
-const POTION_SCENE = preload("res://potion_sprite.tscn")
 
-@onready var selector: AnimatedSprite2D = $Selector # Assuming $Selector is the path to your AnimatedSprite2D
-@onready var potion := POTION_SCENE.instantiate()
 
-func _ready() -> void:
-	add_child(potion)
-	potion.position = position
-	potion.set_potion_type(randi_range(0, 6))
+const POTION_SCENE = preload("res://potion.tscn")
+
+
+func setup(slot_index: int, is_empty: bool, potion_type: int, selected: bool) -> void:
+	var selector: AnimatedSprite2D = $Selector
 	
-	potion.scale = Vector2(9, 9)
-
-func select_slot():
-	selector.show() 
-	selector.play("selected")
-
-func deselect_slot():
-	selector.stop()
-	selector.play("default")
+	if selected:
+		selector.show() 
+		selector.play("selected")
+	else:
+		selector.stop()
+		selector.play("default")
+	
+	if !is_empty:
+		var potion = POTION_SCENE.instantiate()
+		
+		add_child(potion)
+		potion.position = position
+		potion.set_potion_type(potion_type)
+		
+		potion.scale = Vector2(0.9, 0.9)
+	
