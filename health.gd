@@ -1,9 +1,12 @@
-var max_health = 100
-var current_health = max_health
+var max_health
+var current_health
 var animation_timer = -1
 signal death_signal
 
-
+func _init(mh):
+	max_health = mh
+	current_health = max_health
+	
 func animate_damage(body: Node2D, delta):
 	if animation_timer == -1:
 		return

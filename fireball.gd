@@ -32,10 +32,10 @@ func _process(delta: float) -> void:
 		animation_frame %= 4
 		SPRITE.region_rect = frame_to_rect(animation_frame)
 	position += direction * SPEED * delta
-	if position.x < WORLD_BOUND_MIN.x or position.x > WORLD_BOUND_MAX.x:
-		queue_free()
-	elif position.y < WORLD_BOUND_MIN.y or position.y > WORLD_BOUND_MAX.y:
-		queue_free()
+	#if position.x < WORLD_BOUND_MIN.x or position.x > WORLD_BOUND_MAX.x:
+		#queue_free()
+	#elif position.y < WORLD_BOUND_MIN.y or position.y > WORLD_BOUND_MAX.y:
+		#queue_free()
 	
 func on_collision(body):
 	if "health" in body:

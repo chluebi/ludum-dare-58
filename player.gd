@@ -4,15 +4,25 @@ extends CharacterBody2D
 @export var ACCELERATION = 20
 @onready var BOOK = $book
 const BOOK_DISTANCE = 50
-var FIREBALL_SCENE = preload("res://fireball.tscn")
-var POTION_SCENE = preload("res://potion.tscn")
-const HEALTH_SCRIPT = preload("./health.gd")
+const FIREBALL_SCENE = preload("res://fireball.tscn")
+const POTION_SCENE = preload("res://potion.tscn")
+const HEALTH_SCRIPT = preload("res://health.gd")
+const PLAYER_DEATH_SCRIPT = preload("res://death.gd")
 
-var health = HEALTH_SCRIPT.new()
+const ATTACK_INTERVAL = 0.7
+var attack_timer = 0.0
+
+var health = HEALTH_SCRIPT.new(1)
 var big_fire = false
 
 func on_death():
 	print("player died, game is over")
+	var l = func():
+		$CollisionShape2D.disabled = true
+		set_physics_process(false)
+		set_script(PLAYER_DEATH_SCRIPT)
+	l.call_deferred()
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health.death_signal.connect(on_death)
@@ -29,8 +39,11 @@ func _process(delta):
 	health.animate_damage(self, delta)
 	var aim_direction = (get_global_mouse_position() - position).normalized()
 	BOOK.position = aim_direction * BOOK_DISTANCE
-	if Input.is_action_just_pressed("shoot"):
-		spawn_fireball(aim_direction)
+	attack_timer += delta
+	if Input.is_action_pressed("shoot"):
+		if attack_timer >= ATTACK_INTERVAL:
+			spawn_fireball(aim_direction)
+			attack_timer = 0
 	if Input.is_action_just_pressed("ui_accept"):
 		big_fire = !big_fire
 		var potion = POTION_SCENE.instantiate()

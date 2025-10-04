@@ -3,7 +3,7 @@ extends CharacterBody2D
 const PathFindAStar = preload("./tile_map_layer.gd")
 const HEALTH_SCRIPT = preload("./health.gd")
 
-var health = HEALTH_SCRIPT.new()
+var health = HEALTH_SCRIPT.new(100)
 
 
 const MASS: float = 10.0
@@ -16,12 +16,22 @@ var _velocity := Vector2()
 @onready var _tile_map: PathFindAStar = $"../TileMapLayer"
 @onready var player = $"../player"
 
+var attack_target = null
+var attack_timer = 0
+const ATTACK_INTERVAL = 0.7
+
 func _ready() -> void:
 	$damage_hitbox.body_entered.connect(attack_player)
+	$damage_hitbox.body_exited.connect(stop_attacking)
 	health.death_signal.connect(on_death)
 
 func _process(delta: float) -> void:
 	health.animate_damage(self, delta)
+	if attack_target != null and "health" in attack_target:
+		attack_timer += delta
+		if attack_timer >= ATTACK_INTERVAL:
+			attack_target.health.take_damage(15)
+			attack_timer -= ATTACK_INTERVAL
 
 
 const offset := Vector2i(160, 160) * 0.5 # enemy is 16x16 scaled by 10
@@ -58,6 +68,12 @@ func _physics_process(_delta: float) -> void:
 func attack_player(body):
 	if "health" in body:
 		body.health.take_damage(15)
+		attack_target = body
+		attack_timer = 0
+
+func stop_attacking(body):
+	if body == attack_target:
+		attack_target = null
 
 
 func _move_to(global_position: Vector2):
@@ -67,4 +83,5 @@ func _move_to(global_position: Vector2):
 	move_and_slide()
 	
 func on_death():
-	print("i died")
+	#TODO: Add a nice death animation
+	queue_free()
