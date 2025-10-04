@@ -13,7 +13,7 @@ const ATTACK_INTERVAL = 0.7
 var attack_timer = 0.0
 
 var health = HEALTH_SCRIPT.new(100)
-var big_fire = false
+@onready var EFFECT_MANAGER = $"../../effect_manager"
 
 func on_death():
 	print("player died, game is over")
@@ -33,7 +33,7 @@ func spawn_fireball(aim_direction):
 	var fireball = FIREBALL_SCENE.instantiate()
 	fireball.position = position + BOOK.position
 	fireball.direction = aim_direction
-	if big_fire:
+	if EFFECT_MANAGER.is_active(Constants.potion_type.orange):
 		fireball.big = true
 		fireball.damage *= 2
 	get_parent().add_child(fireball)
@@ -47,8 +47,6 @@ func _process(delta):
 		if attack_timer >= ATTACK_INTERVAL:
 			spawn_fireball(aim_direction)
 			attack_timer = 0
-	if Input.is_action_just_pressed("ui_accept"):
-		big_fire = !big_fire
 	var acceleration_vec = Vector2.ZERO
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("move_right"):
 		acceleration_vec.x += 1
@@ -69,4 +67,5 @@ func _process(delta):
 	move_and_slide()
 
 func on_potion_pickup(pot):
-	print(pot.current_type)
+	EFFECT_MANAGER.activate(pot.type)
+	pot.queue_free()

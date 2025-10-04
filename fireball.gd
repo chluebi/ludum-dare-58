@@ -46,6 +46,7 @@ func on_collision(body):
 	get_parent().get_parent().add_child(particles)
 	if "health" in body:
 		if body.health.take_damage(damage) and big:
+			damage *= 2
 			return
 	
 	
