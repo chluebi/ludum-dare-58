@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0f2pjqc3hhvo"]
+[gd_scene load_steps=6 format=3 uid="uid://c0f2pjqc3hhvo"]
 
 [ext_resource type="Script" uid="uid://c14k57glxcn2a" path="res://potion.gd" id="1_174ht"]
 [ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_bcips"]
+[ext_resource type="Script" path="res://potion_sprite.gd" id="3_8parx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_174ht"]
 atlas = ExtResource("1_bcips")
@@ -21,6 +22,7 @@ scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_174ht")
 region_enabled = true
 region_rect = Rect2(0, 0, 5, 8)
+script = ExtResource("3_8parx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_174ht")
