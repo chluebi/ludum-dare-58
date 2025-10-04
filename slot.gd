@@ -5,7 +5,7 @@ extends Control
 const POTION_SCENE = preload("res://potion.tscn")
 
 
-func setup(slot_index: int, is_empty: bool, potion_type: int, selected: bool) -> void:
+func setup(slot_index: int, is_empty: bool, potion_type: Constants.potion_type, selected: bool) -> void:
 	var selector: AnimatedSprite2D = $Selector
 	
 	if selected:

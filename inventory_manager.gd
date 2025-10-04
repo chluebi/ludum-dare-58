@@ -5,7 +5,7 @@ const num_slots = 6
 
 var current_slot_index: int = 0
 var is_empty: Array[bool] = []
-var entries: Array[int] = []
+var entries: Array[Constants.potion_type] = []
 
 func _ready() -> void:
 	for i in range(num_slots):
@@ -33,7 +33,11 @@ func _input(event):
 			_select_slot_by_index(new_slot_index)
 			get_viewport().set_input_as_handled()
 			break
-			
+		
+		if event.is_action_pressed("drink"):
+			drink()
+			get_viewport().set_input_as_handled()
+			break
 			
 func _select_slot_by_index(slot: int):
 	current_slot_index = slot
@@ -42,3 +46,24 @@ func _select_slot_by_index(slot: int):
 func _update():
 	var hud = $"../HUD"
 	hud.render_slots(is_empty, entries, current_slot_index)
+
+
+func drink():
+	if is_empty[current_slot_index]:
+		return
+	
+	is_empty[current_slot_index] = true
+	var effect_manager = $"../effect_manager"
+	effect_manager.activate(entries[current_slot_index])
+	_update()
+	
+	
+func pickup_item(potion_type: Constants.potion_type) -> bool:
+	for i in range(num_slots):
+		if is_empty[i]:
+			is_empty[i] = false
+			entries[i] = potion_type
+			_update()
+			return true
+			
+	return false
