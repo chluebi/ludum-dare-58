@@ -13,4 +13,4 @@ func add_potion_effect(duration: float, t) -> void:
 	new_bar.setup(duration)
 	new_bar.set_potion_type(t)
 	
-	container.add_child(new_bar)
+	container.add_child.call_deferred(new_bar)

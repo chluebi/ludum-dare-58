@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0jaaf2cycxie"]
 
 [ext_resource type="Script" uid="uid://c4gqiunrmpee0" path="res://potion_bar.gd" id="1_fmjmd"]
-[ext_resource type="PackedScene" uid="uid://c6888bgnahqbh" path="res://potion.tscn" id="2_66aws"]
+[ext_resource type="PackedScene" uid="uid://byf16yhs85nnc" path="res://potion_sprite.tscn" id="3_66aws"]
 
 [node name="PotionBar" type="HBoxContainer"]
 offset_right = 292.0
@@ -29,9 +29,9 @@ localize_numeral_system = false
 custom_minimum_size = Vector2(40, 30)
 layout_mode = 2
 
-[node name="potion" parent="ColorRect/PotionBarElements/Icon" instance=ExtResource("2_66aws")]
+[node name="potion" parent="ColorRect/PotionBarElements/Icon" instance=ExtResource("3_66aws")]
 position = Vector2(23, 29)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(5, 5)
 
 [node name="ProgressBar" type="ProgressBar" parent="ColorRect/PotionBarElements"]
 custom_minimum_size = Vector2(0, 20)

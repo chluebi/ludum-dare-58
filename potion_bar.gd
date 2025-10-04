@@ -4,7 +4,7 @@ extends HBoxContainer
 var current_duration: float
 
 @onready var progress_bar: ProgressBar = $ColorRect/PotionBarElements/ProgressBar
-@onready var potion: Area2D = $ColorRect/PotionBarElements/Icon/potion
+@onready var potion: Sprite2D = $ColorRect/PotionBarElements/Icon/potion
 
 func setup(duration: float):
 	total_duration = duration
@@ -15,7 +15,7 @@ func setup(duration: float):
 	bar.value = duration
 
 func set_potion_type(t):
-	var potion: Area2D = $ColorRect/PotionBarElements/Icon/potion
+	var potion: Sprite2D = $ColorRect/PotionBarElements/Icon/potion
 	potion.set_potion_type(t)
 
 func _process(delta):

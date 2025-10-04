@@ -6,8 +6,9 @@ class EffectState:
 	func _init(d):
 		duration = d
 	
-	func start(time):
+	func start(time) -> float:
 		start_time = time
+		return duration
 	
 	func is_active(time) -> bool:
 		return start_time + duration > time
@@ -30,6 +31,6 @@ func is_active(color) -> bool:
 
 func activate(color: Constants.potion_type):
 	if color in effect_dictionary:
-		effect_dictionary[color].start(time)
+		var duration = effect_dictionary[color].start(time)
 		var hud := $"../HUD"
-		hud.add_potion_ui_effect(time, color)
+		hud.add_potion_ui_effect(duration, color)

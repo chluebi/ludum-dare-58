@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var BOOK = $book
 const BOOK_DISTANCE = 50
 const FIREBALL_SCENE = preload("res://fireball.tscn")
-const POTION_SCENE = preload("res://potion.tscn")
+#const POTION_SCENE = preload("res://potion_pickup.tscn")
 const HEALTH_SCRIPT = preload("res://health.gd")
 const PLAYER_DEATH_SCRIPT = preload("res://death.gd")
 
