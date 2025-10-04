@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://rnjhn3gu636t" path="res://tile_map_layer.gd" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://nhwhlhpm51nv" path="res://crate.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dog1poe2ison0" path="res://enemy.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" path="res://hud.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://b4s8ah7fjsuyp" path="res://hud.tscn" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://cbnnke38dp7y2" path="res://enemy_spawner.gd" id="8_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]

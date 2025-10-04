@@ -31,5 +31,5 @@ offset_bottom = 40.0
 script = ExtResource("3_hiqfk")
 
 [node name="Selector" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_1xsix")
