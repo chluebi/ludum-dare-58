@@ -57,6 +57,11 @@ func drink():
 	effect_manager.activate(entries[current_slot_index])
 	_update()
 	
+func drink_from_ground(potion_type: Constants.potion_type):
+	var effect_manager = $"../effect_manager"
+	effect_manager.activate(potion_type)
+	_update()
+	
 	
 func pickup_item(potion_type: Constants.potion_type) -> bool:
 	for i in range(num_slots):
@@ -65,5 +70,5 @@ func pickup_item(potion_type: Constants.potion_type) -> bool:
 			entries[i] = potion_type
 			_update()
 			return true
-			
+	
 	return false

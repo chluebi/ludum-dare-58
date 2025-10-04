@@ -16,6 +16,8 @@ var health = HEALTH_SCRIPT.new(100)
 @onready var EFFECT_MANAGER = $"../../effect_manager"
 @onready var INVENTORY_MANAGER = $"../../inventory_manager"
 
+var is_drinking: bool = false
+
 func on_death():
 	print("player died, game is over")
 	var l = func():
@@ -45,6 +47,11 @@ func _process(delta):
 	var aim_direction = (get_global_mouse_position() - position).normalized()
 	BOOK.position = aim_direction * BOOK_DISTANCE
 	attack_timer += delta
+	if Input.is_action_just_pressed("drink"):
+		is_drinking = true
+	if Input.is_action_just_released("drink"):
+		is_drinking = false
+	
 	if Input.is_action_pressed("shoot"):
 		if attack_timer >= ATTACK_INTERVAL:
 			spawn_fireball(aim_direction)
@@ -73,6 +80,9 @@ func _process(delta):
 	move_and_slide()
 
 func on_potion_pickup(pot):
-	var successful_pickup = INVENTORY_MANAGER.pickup_item(pot.type) 
+	var successful_pickup = INVENTORY_MANAGER.pickup_item(pot.type)
 	if successful_pickup:
+		pot.queue_free()
+	elif is_drinking:
+		INVENTORY_MANAGER.drink_from_ground(pot.type)
 		pot.queue_free()
