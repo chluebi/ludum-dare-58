@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dog1poe2ison0"]
+[gd_scene load_steps=6 format=3 uid="uid://dog1poe2ison0"]
 
+[ext_resource type="Script" uid="uid://dn6lltdaw57cg" path="res://enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://duiwgdhqxy3p0" path="res://skull.png" id="1_7k104"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4gyqm"]
@@ -20,6 +21,7 @@ size = Vector2(119, 100)
 radius = 94.13288
 
 [node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_4gyqm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(10, 10)

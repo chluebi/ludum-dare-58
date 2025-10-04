@@ -33,6 +33,7 @@ func spawn_fireball(aim_direction):
 	fireball.direction = aim_direction
 	if big_fire:
 		fireball.big = true
+		fireball.damage *= 2
 	get_parent().add_child(fireball)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

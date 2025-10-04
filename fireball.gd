@@ -9,6 +9,7 @@ var TIME_BETWEEN_ANIMATION_FRAMES = 0.2
 var timer = 0.0
 var big = false
 var animation_frame = 0
+var damage = 10
 @onready var SPRITE = $sprite
 static var PARTICLE_SCENE = preload("res://fireball_particles.tscn")
  
@@ -39,7 +40,7 @@ func _process(delta: float) -> void:
 	
 func on_collision(body):
 	if "health" in body:
-		body.health.take_damage(10)
+		body.health.take_damage(damage)
 	var particles = PARTICLE_SCENE.instantiate()
 	particles.position = position
 	particles.direction = direction
