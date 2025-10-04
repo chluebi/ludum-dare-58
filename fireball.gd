@@ -34,5 +34,4 @@ func on_collision(body):
 	particles.direction = direction
 	particles.emitting = true
 	get_parent().add_child(particles)
-	print("particles spawned", particles)
 	queue_free()
