@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://douxwd3qcg1hw"]
+
+[ext_resource type="Script" uid="uid://uvq622tei8aw" path="res://healthbar.gd" id="1_iywrq"]
+
+[node name="healthbar" type="Node2D"]
+script = ExtResource("1_iywrq")
+
+[node name="current" type="Line2D" parent="."]
+z_index = 8
+points = PackedVector2Array(-50, 0, -9, 0)
+default_color = Color(0.14790002, 0.87, 0.28028506, 1)
+
+[node name="max" type="Line2D" parent="."]
+z_index = 7
+points = PackedVector2Array(-50, 0, 50, 0)
+default_color = Color(0.16862746, 0, 0.1764706, 1)

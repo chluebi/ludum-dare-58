@@ -39,11 +39,14 @@ func _process(delta: float) -> void:
 		#queue_free()
 	
 func on_collision(body):
-	if "health" in body:
-		body.health.take_damage(damage)
 	var particles = PARTICLE_SCENE.instantiate()
 	particles.position = position
 	particles.direction = direction
 	particles.emitting = true
 	get_parent().add_child(particles)
+	if "health" in body:
+		if body.health.take_damage(damage) and big:
+			return
+	
+	
 	queue_free()

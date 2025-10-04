@@ -26,6 +26,8 @@ func on_death():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health.death_signal.connect(on_death)
+	health.health_percentage.connect($healthbar.set_health_percentage)
+	$healthbar.set_health_percentage(1.0)
 
 func spawn_fireball(aim_direction):
 	var fireball = FIREBALL_SCENE.instantiate()

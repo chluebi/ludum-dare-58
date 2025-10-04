@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dog1poe2ison0"]
+[gd_scene load_steps=7 format=3 uid="uid://dog1poe2ison0"]
 
 [ext_resource type="Script" uid="uid://dn6lltdaw57cg" path="res://enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://duiwgdhqxy3p0" path="res://skull.png" id="1_7k104"]
+[ext_resource type="PackedScene" uid="uid://douxwd3qcg1hw" path="res://healthbar.tscn" id="3_qi2p4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4gyqm"]
 animations = [{
@@ -39,3 +40,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_hitbox"]
 shape = SubResource("CircleShape2D_7k104")
+
+[node name="healthbar" parent="." instance=ExtResource("3_qi2p4")]
+position = Vector2(0, -80)

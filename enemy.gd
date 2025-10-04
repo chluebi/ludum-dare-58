@@ -24,6 +24,9 @@ func _ready() -> void:
 	$damage_hitbox.body_entered.connect(attack_player)
 	$damage_hitbox.body_exited.connect(stop_attacking)
 	health.death_signal.connect(on_death)
+	health.health_percentage.connect($healthbar.set_health_percentage)
+	$healthbar.set_color_enemy()
+	$healthbar.set_health_percentage(1.0)
 
 func _process(delta: float) -> void:
 	health.animate_damage(self, delta)
