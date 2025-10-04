@@ -14,6 +14,7 @@ var attack_timer = 0.0
 
 var health = HEALTH_SCRIPT.new(100)
 @onready var EFFECT_MANAGER = $"../../effect_manager"
+@onready var INVENTORY_MANAGER = $"../../inventory_manager"
 
 func on_death():
 	print("player died, game is over")
@@ -72,10 +73,6 @@ func _process(delta):
 	move_and_slide()
 
 func on_potion_pickup(pot):
-	var type = pot.type
-	if pot.type == Constants.potion_type.rainbow:
-		type = randi_range(0, Constants.potion_type.FINAL - 2)
-		if type >= Constants.potion_type.rainbow:
-			type += 1
-	EFFECT_MANAGER.activate(type)
-	pot.queue_free()
+	var successful_pickup = INVENTORY_MANAGER.pickup_item(pot.type) 
+	if successful_pickup:
+		pot.queue_free()
