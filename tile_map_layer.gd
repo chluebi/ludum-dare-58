@@ -27,8 +27,9 @@ func _ready() -> void:
 	_astar.update()
 
 	for pos in get_used_cells():
-		pass
-		# _astar.set_point_solid(pos)
+		if get_cell_tile_data(pos).get_custom_data("solid"):
+			if _astar.is_in_boundsv(pos):
+				_astar.set_point_solid(pos)
 
 	# Initial check for dynamic obstacles
 	_update_dynamic_obstacles()
@@ -55,7 +56,7 @@ func _update_dynamic_obstacles() -> void:
 			# Skip if the node type doesn't support global position
 			continue
 
-		var global_pos: Vector2 = node.global_position
+		var global_pos: Vector2 = node.global_position + Vector2(1, 1) # work against things that have it perfectly in top right corner
 		var map_pos: Vector2i = local_to_map(to_local(global_pos))
 
 		# Store the current position for later comparison and tracking
