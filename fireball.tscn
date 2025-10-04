@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://eil6wj2a31gs"]
+
+[ext_resource type="Script" uid="uid://cc8sdiroulwon" path="res://fireball.gd" id="1_olwj8"]
+[ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_sf4mh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olwj8"]
+atlas = ExtResource("1_sf4mh")
+region = Rect2(10, 0, 4, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sf4mh"]
+radius = 19.026299
+
+[node name="fireball" type="Area2D"]
+script = ExtResource("1_olwj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_olwj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sf4mh")

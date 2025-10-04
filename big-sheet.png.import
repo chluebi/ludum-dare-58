@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4qv50j8sclkn"
-path="res://.godot/imported/Wizard-2.png-813d373db12b64a451207b8a18d4c0dd.ctex"
+uid="uid://bfygts20gb638"
+path="res://.godot/imported/big-sheet.png-8b772b0a8234e913ae5501c386f7dca9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wizard-2.png"
-dest_files=["res://.godot/imported/Wizard-2.png-813d373db12b64a451207b8a18d4c0dd.ctex"]
+source_file="res://big-sheet.png"
+dest_files=["res://.godot/imported/big-sheet.png-8b772b0a8234e913ae5501c386f7dca9.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
