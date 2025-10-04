@@ -5,7 +5,7 @@ const POTION_BAR_SCENE = preload("res://potion_bar.tscn")
 @onready var container: VBoxContainer = $Anchor/DurationsContainer
 
 func _ready() -> void:
-	add_potion_effect(10, randi_range(0, 6))
+	pass
 
 func add_potion_effect(duration: float, t) -> void:
 	var new_bar = POTION_BAR_SCENE.instantiate()

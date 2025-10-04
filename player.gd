@@ -67,5 +67,5 @@ func _process(delta):
 	move_and_slide()
 
 func on_potion_pickup(pot):
-	EFFECT_MANAGER.activate(pot.type)
+	EFFECT_MANAGER.activate(pot.type) 
 	pot.queue_free()
