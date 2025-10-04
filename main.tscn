@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bpype5vdrgnek"]
+[gd_scene load_steps=11 format=4 uid="uid://bpype5vdrgnek"]
 
 [ext_resource type="Texture2D" uid="uid://b75j101henfac" path="res://test_background.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="2_0xm2m"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://rnjhn3gu636t" path="res://tile_map_layer.gd" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://nhwhlhpm51nv" path="res://crate.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dog1poe2ison0" path="res://enemy.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://b4s8ah7fjsuyp" path="res://hud.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" path="res://hud.tscn" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://cbnnke38dp7y2" path="res://enemy_spawner.gd" id="8_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("2_272bh")
@@ -75,3 +76,6 @@ position = Vector2(550, 68)
 position = Vector2(114, 190)
 
 [node name="HUD" parent="." instance=ExtResource("8_5vw27")]
+
+[node name="enemy_spawner" type="Node2D" parent="."]
+script = ExtResource("8_kek77")

@@ -3,14 +3,15 @@ extends Node2D
 const SPAWN_INTERVAL = 5.0
 const ALLOWED_REGION = Rect2(0,0,2400, 1500)
 const ENEMY_SCENE = preload("res://enemy.tscn")
-@onready var player = $"../player"
+@onready var player = $"../Environment/player"
+@onready var environment = $"../Environment"
 var camera_region = Rect2(0,0,1152,648)
 var spawn_timer = 10
 
 func spawn_enemy(pos):
 	var enemy = ENEMY_SCENE.instantiate()
 	enemy.position = pos
-	get_parent().add_child.call_deferred(enemy)
+	environment.add_child.call_deferred(enemy)
 
 func _process(delta: float) -> void:
 	spawn_timer += delta
