@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://c2kdbhpuexmur" path="res://floor1(1).png" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://rnjhn3gu636t" path="res://tile_map_layer.gd" id="3_272bh"]
-[ext_resource type="PackedScene" path="res://crate.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" path="res://enemy.tscn" id="5_lquwl"]
-[ext_resource type="Script" path="res://enemy.gd" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://nhwhlhpm51nv" path="res://crate.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dcsdixm0bcpt7" path="res://enemy.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://dn6lltdaw57cg" path="res://enemy.gd" id="6_7mycd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
 texture = ExtResource("2_1bvp3")
@@ -39,11 +39,11 @@ position = Vector2(160.00003, 3.0517578e-05)
 position = Vector2(480, 160)
 
 [node name="Crate3" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(160.00003, 320)
+position = Vector2(320, 329)
 
 [node name="Crate4" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(1.5258789e-05, 320)
 
 [node name="Enemy" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(560, 80.00001)
+position = Vector2(560, 80)
 script = ExtResource("6_7mycd")

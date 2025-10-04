@@ -17,21 +17,43 @@ func _ready() -> void:
 	pass
 
 
+
+const offset := Vector2i(160, 160) * 0.5 # enemy is 16x16 scaled by 10
+
 func _physics_process(_delta: float) -> void:
-	var path = _tile_map.find_path(position, player.position) 
+	var tile_pos := _tile_map.local_to_map(_tile_map.to_local(position))
+	var path = _tile_map.find_path(_tile_map.to_global(_tile_map.map_to_local(tile_pos)) - offset, player.position)
+	if len(path) < 1:
+		_move_to(player.position)
+		return
 	
-	if len(path) > 1:
-		var next_local_point = path[1]
-		
-		# Convert the TileMap's Local Point (next_local_point) to the final World Coordinate.
-		# This correctly applies the TileMap's global position AND the 10x scale.
-		var next_world_point = _tile_map.to_global(next_local_point)
-		
-		_move_to(next_world_point)
+	var tile_target := _tile_map.local_to_map(path[0])
+	
+	if (tile_pos == tile_target):
+		if len(path) > 1:
+			tile_target = _tile_map.local_to_map(path[1])
+		else:
+			_move_to(player.position)
+			return
+			
+	print('tile pos ', tile_pos)
+	print('tile target ', tile_target)
+	
+	if (tile_pos.x != tile_target.x):
+		print('moving x')
+		_move_to(_tile_map.to_global(_tile_map.map_to_local(Vector2(tile_target.x, tile_pos.y))))
+	elif (tile_pos.y != tile_target.y):
+		print('moving y')
+		_move_to(_tile_map.to_global(_tile_map.map_to_local(Vector2(tile_pos.x, tile_target.y))))
+	else: 
+		print('else')
+		_move_to(player.position)
 
 
 
 func _move_to(global_position: Vector2):
+	# position = Vector2(0, 0) + offset
+	print("moving to", global_position)
 	velocity = (global_position - position).normalized() * speed
 	move_and_slide()
 	

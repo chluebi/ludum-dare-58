@@ -23,7 +23,7 @@ func _ready() -> void:
 	_astar.offset = BASE_TILE_SIZE * 0.5 
 	_astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	_astar.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
-	_astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	_astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
 	_astar.update()
 
 	for pos in get_used_cells():
@@ -49,7 +49,7 @@ func _update_dynamic_obstacles() -> void:
 	var current_obstacle_positions: Dictionary = {}
 
 	# 1. Get all nodes in the 'static_obstacles' group
-	for node in get_tree().get_nodes_in_group("static_obstacles"):
+	for node in get_tree().get_nodes_in_group("static_obstacles") + get_tree().get_nodes_in_group("dynamic_obstacles"):
 		# Ensure the node has a global_position property (e.g., CharacterBody2D, Node2D)
 		if not node.has_method("get_global_position"):
 			# Skip if the node type doesn't support global position
