@@ -11,13 +11,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var acceleration_vec = Vector2.ZERO
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("move_right"):
 		acceleration_vec.x += 1
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("move_left"):
 		acceleration_vec.x -= 1
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("move_down"):
 		acceleration_vec.y += 1
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("move_up"):
 		acceleration_vec.y -= 1
 		
 	acceleration_vec = acceleration_vec.normalized()
