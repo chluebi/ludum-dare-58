@@ -56,9 +56,6 @@ func _update_dynamic_obstacles() -> void:
 			continue
 
 		var global_pos: Vector2 = node.global_position
-		print('global pos', global_pos) # e.g. 320, 320
-		print('to local', to_local(global_pos)) # e.g. 32, 32
-		print('local to map', local_to_map(to_local(global_pos))) # e.g. 2, 2
 		var map_pos: Vector2i = local_to_map(to_local(global_pos))
 
 		# Store the current position for later comparison and tracking
@@ -112,6 +109,10 @@ func find_path(global_start_point: Vector2i, global_end_point: Vector2i) -> Pack
 
 	_start_point = local_to_map(local_start_point)
 	_end_point = local_to_map(local_end_point)
+	if !_astar.is_in_bounds(_start_point.x, _start_point.y):
+		return PackedVector2Array()
+	if !_astar.is_in_bounds(_end_point.x, _end_point.y):
+		return PackedVector2Array()
 
 	# Check if start/end points are blocked by a dynamic obstacle.
 	if _astar.is_point_solid(_start_point) or _astar.is_point_solid(_end_point):
