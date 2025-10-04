@@ -19,6 +19,7 @@ size = Vector2(20, 50)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(10, 10)
@@ -28,3 +29,6 @@ offset = Vector2(12, 10)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 25)
 shape = SubResource("RectangleShape2D_sweqy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true

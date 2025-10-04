@@ -22,7 +22,8 @@ func _process(delta):
 		
 	acceleration_vec = acceleration_vec.normalized()
 	
-	assert(delta * ACCELERATION <= 1) # make sure that we never extrapolate, i.e. go faster than max_speed
 	velocity = lerp(velocity, acceleration_vec * MAX_SPEED, delta * ACCELERATION)
+	if (velocity.length() > MAX_SPEED):
+		velocity = velocity.normalized() * MAX_SPEED # make sure that we never extrapolate, i.e. go faster than max_speed
 	
 	move_and_slide()
