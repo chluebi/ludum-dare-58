@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var BOOK = $book
 const BOOK_DISTANCE = 50
 var FIREBALL_SCENE = preload("res://fireball.tscn")
+var POTION_SCENE = preload("res://potion.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +21,11 @@ func _process(delta):
 		fireball.position = position + BOOK.position
 		fireball.direction = aim_direction
 		get_parent().add_child(fireball)
+	if Input.is_action_just_pressed("ui_accept"):
+		var potion = POTION_SCENE.instantiate()
+		potion.position = position
+		potion.set_potion_type(randi_range(0, 6))
+		get_parent().add_child(potion)
 	var acceleration_vec = Vector2.ZERO
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("move_right"):
 		acceleration_vec.x += 1
