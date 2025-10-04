@@ -28,13 +28,11 @@ shape = SubResource("RectangleShape2D_sweqy")
 position_smoothing_enabled = true
 
 [node name="book" type="Sprite2D" parent="."]
-z_index = 6
 position = Vector2(40.999996, 18.999998)
 scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_onrkg")
 
 [node name="body" type="Sprite2D" parent="."]
-z_index = 5
 scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_i3pqv")
 offset = Vector2(0, -2)
