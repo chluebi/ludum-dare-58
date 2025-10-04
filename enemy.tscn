@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcsdixm0bcpt7"]
+
+[ext_resource type="Texture2D" uid="uid://duiwgdhqxy3p0" path="res://skull.png" id="1_7k104"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gyqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7k104")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(12, 10)
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(10, 10)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4gyqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qi2p4")
