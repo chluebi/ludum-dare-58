@@ -33,9 +33,10 @@ func spawn_fireball(aim_direction):
 	var fireball = FIREBALL_SCENE.instantiate()
 	fireball.position = position + BOOK.position
 	fireball.direction = aim_direction
-	if EFFECT_MANAGER.is_active(Constants.potion_type.orange):
+	var strength_bonus = EFFECT_MANAGER.activity_strength(Constants.potion_type.orange)
+	if strength_bonus > 0:
 		fireball.big = true
-		fireball.damage *= 2
+		fireball.damage *= 1 + strength_bonus
 	get_parent().add_child(fireball)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -61,8 +62,9 @@ func _process(delta):
 		acceleration_vec = acceleration_vec.normalized()
 	
 	var effective_max = MAX_SPEED
-	if EFFECT_MANAGER.is_active(Constants.potion_type.yellow):
-		effective_max *= 1.5
+	var mul = 1 + 0.5 * float(EFFECT_MANAGER.activity_strength(Constants.potion_type.yellow))
+	#if EFFECT_MANAGER.is_active(Constants.potion_type.yellow):
+	effective_max *= mul
 	velocity = lerp(velocity, acceleration_vec * effective_max, delta * ACCELERATION)
 	if (velocity.length() > effective_max):
 		velocity = velocity.normalized() * effective_max # make sure that we never extrapolate, i.e. go faster than max_speed

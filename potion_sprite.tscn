@@ -11,5 +11,5 @@ region = Rect2(0, 10, 29, 8)
 scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_174ht")
 region_enabled = true
-region_rect = Rect2(0, 0, 4.8, 8)
+region_rect = Rect2(0.1, 0, 4.8, 8)
 script = ExtResource("2_cqo5i")
