@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0jaaf2cycxie"]
+
+[ext_resource type="Script" uid="uid://c4gqiunrmpee0" path="res://potion_bar.gd" id="1_fmjmd"]
+[ext_resource type="PackedScene" uid="uid://c6888bgnahqbh" path="res://potion.tscn" id="2_66aws"]
+
+[node name="PotionBar" type="HBoxContainer"]
+offset_right = 292.0
+offset_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_fmjmd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 0.05882353)
+
+[node name="PotionBarElements" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+
+[node name="Icon" type="Control" parent="ColorRect/PotionBarElements"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="potion" parent="ColorRect/PotionBarElements/Icon" instance=ExtResource("2_66aws")]
+position = Vector2(23, 29)
+scale = Vector2(0.5, 0.5)
+
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect/PotionBarElements"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+fill_mode = 1
+show_percentage = false

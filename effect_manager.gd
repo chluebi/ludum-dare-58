@@ -31,3 +31,5 @@ func is_active(color) -> bool:
 func activate(color: Constants.potion_type):
 	if color in effect_dictionary:
 		effect_dictionary[color].start(time)
+		var hud := $"../HUD"
+		hud.add_potion_ui_effect(time, color)
