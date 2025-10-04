@@ -60,12 +60,20 @@ func _process(delta):
 	if acceleration_vec.length_squared() > 1:
 		acceleration_vec = acceleration_vec.normalized()
 	
-	velocity = lerp(velocity, acceleration_vec * MAX_SPEED, delta * ACCELERATION)
-	if (velocity.length() > MAX_SPEED):
-		velocity = velocity.normalized() * MAX_SPEED # make sure that we never extrapolate, i.e. go faster than max_speed
+	var effective_max = MAX_SPEED
+	if EFFECT_MANAGER.is_active(Constants.potion_type.yellow):
+		effective_max *= 1.5
+	velocity = lerp(velocity, acceleration_vec * effective_max, delta * ACCELERATION)
+	if (velocity.length() > effective_max):
+		velocity = velocity.normalized() * effective_max # make sure that we never extrapolate, i.e. go faster than max_speed
 	
 	move_and_slide()
 
 func on_potion_pickup(pot):
-	EFFECT_MANAGER.activate(pot.type)
+	var type = pot.type
+	if pot.type == Constants.potion_type.rainbow:
+		type = randi_range(0, Constants.potion_type.FINAL - 2)
+		if type >= Constants.potion_type.rainbow:
+			type += 1
+	EFFECT_MANAGER.activate(type)
 	pot.queue_free()

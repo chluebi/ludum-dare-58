@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 const POTION_DISTANCE = 150
-const POTION_INTERVAL = 5.0
+const POTION_INTERVAL = 2.0
 const POTION_SCENE = preload("res://potion.tscn")
 var timer = 0
 

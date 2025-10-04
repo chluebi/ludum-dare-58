@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPAWN_INTERVAL = 5.0
+const SPAWN_INTERVAL = 8.0
 const ALLOWED_REGION = Rect2(0,0,2400, 1500)
 const ENEMY_SCENE = preload("res://enemy.tscn")
 @onready var player = $"../Environment/player"
