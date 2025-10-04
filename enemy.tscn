@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcsdixm0bcpt7"]
+[gd_scene load_steps=5 format=3 uid="uid://dog1poe2ison0"]
 
 [ext_resource type="Texture2D" uid="uid://duiwgdhqxy3p0" path="res://skull.png" id="1_7k104"]
 
@@ -14,13 +14,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
-size = Vector2(12, 10)
+size = Vector2(119, 100)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k104"]
+radius = 94.13288
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(10, 10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_4gyqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="damage_hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_hitbox"]
+shape = SubResource("CircleShape2D_7k104")

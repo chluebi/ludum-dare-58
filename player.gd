@@ -6,14 +6,19 @@ extends CharacterBody2D
 const BOOK_DISTANCE = 50
 var FIREBALL_SCENE = preload("res://fireball.tscn")
 var POTION_SCENE = preload("res://potion.tscn")
+const HEALTH_SCRIPT = preload("./health.gd")
 
+var health = HEALTH_SCRIPT.new()
+
+func on_death():
+	print("player died, game is over")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	health.death_signal.connect(on_death)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	health.animate_damage(self, delta)
 	var aim_direction = (get_global_mouse_position() - position).normalized()
 	BOOK.position = aim_direction * BOOK_DISTANCE
 	if Input.is_action_just_pressed("shoot"):
