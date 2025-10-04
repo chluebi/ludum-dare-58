@@ -16,7 +16,6 @@ func _process(delta):
 	var aim_direction = (get_global_mouse_position() - position).normalized()
 	BOOK.position = aim_direction * BOOK_DISTANCE
 	if Input.is_action_just_pressed("shoot"):
-		print("shooting fireball")
 		var fireball = FIREBALL_SCENE.instantiate()
 		fireball.position = position + BOOK.position
 		fireball.direction = aim_direction

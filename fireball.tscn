@@ -5,17 +5,20 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olwj8"]
 atlas = ExtResource("1_sf4mh")
-region = Rect2(10, 0, 4, 4)
+region = Rect2(10, 0, 16, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sf4mh"]
 radius = 19.026299
 
 [node name="fireball" type="Area2D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_olwj8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_olwj8")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sf4mh")
