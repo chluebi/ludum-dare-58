@@ -4,6 +4,7 @@ const POTION_DISTANCE = 150
 const POTION_SCENE = preload("res://potion_pickup.tscn")
 
 
+@export var item_type: Constants.item_type
 
 @onready var player = $"../player"
 @onready var inventory_manager = $"../../inventory_manager"
@@ -14,7 +15,7 @@ var result_type = Constants.item_type.empty
 
 func _ready() -> void:
 	$CollectionRange.body_entered.connect(collect_item)
-	setup(Constants.item_type.firestone)
+	setup(item_type)
 	
 func collect_item(body):
 	if "type" in body:

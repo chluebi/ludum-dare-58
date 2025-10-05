@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1luisgeje8nh"]
+
+[ext_resource type="Script" uid="uid://cgdhyyrtnh6jm" path="res://stone_shelf.gd" id="1_eosq6"]
+[ext_resource type="Texture2D" uid="uid://co7t5hehavfq2" path="res://FlowerBed.png" id="2_eosq6"]
+[ext_resource type="PackedScene" uid="uid://lc1ycy0ilj02" path="res://item_source.tscn" id="3_x8x4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0jf"]
+size = Vector2(320, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eosq6"]
+size = Vector2(460, 420)
+
+[node name="FlowerBed" type="StaticBody2D" groups=["static_obstacles"]]
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("1_eosq6")
+item_type = 13
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_eosq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_mo0jf")
+
+[node name="Source" parent="." instance=ExtResource("3_x8x4h")]
+scale = Vector2(1.5, 1.5)
+
+[node name="CollectionRange" type="Area2D" parent="."]
+position = Vector2(-5.684342e-14, -5.684342e-14)
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionRange"]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_eosq6")

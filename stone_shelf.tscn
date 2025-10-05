@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dndsb0cfjtxsl"]
+[gd_scene load_steps=6 format=3 uid="uid://ci1p6hoypx4li"]
 
 [ext_resource type="Script" uid="uid://cgdhyyrtnh6jm" path="res://stone_shelf.gd" id="1_ttlqn"]
 [ext_resource type="Texture2D" uid="uid://d4ckrsjrtc30u" path="res://stone_shelf.png" id="2_ttlqn"]
@@ -14,6 +14,7 @@ scale = Vector2(10, 10)
 collision_layer = 255
 collision_mask = 255
 script = ExtResource("1_ttlqn")
+item_type = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.099999994, -2.6)
