@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://wmwgnv10gs56"]
+[gd_scene load_steps=7 format=3 uid="uid://wmwgnv10gs56"]
 
 [ext_resource type="Script" uid="uid://digbukh8ije7" path="res://cauldron.gd" id="1_0t22i"]
 [ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_5qdwy"]
+[ext_resource type="PackedScene" uid="uid://d0emiyo3ie8fq" path="res://recipe.tscn" id="3_q3ljf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0t22i"]
 atlas = ExtResource("1_5qdwy")
@@ -10,7 +11,10 @@ region = Rect2(0, 18, 25, 37)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0jf"]
 size = Vector2(12.800003, 12.700002)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3ljf"]
+
 [node name="cauldron" type="StaticBody2D" groups=["static_obstacles"]]
+position = Vector2(7.6293945e-06, 7.6293945e-06)
 scale = Vector2(10, 10)
 script = ExtResource("1_0t22i")
 metadata/_edit_group_ = true
@@ -21,6 +25,16 @@ region_enabled = true
 region_rect = Rect2(0, 0, 13, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.8146962e-07, 0.049999993)
+position = Vector2(-7.629394e-07, -7.599592e-07)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mo0jf")
+
+[node name="Recipe" parent="." instance=ExtResource("3_q3ljf")]
+follow_viewport_enabled = true
+
+[node name="CollectionRange" type="Area2D" parent="."]
+position = Vector2(-7.629394e-07, -7.629394e-07)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionRange"]
+shape = SubResource("CircleShape2D_q3ljf")

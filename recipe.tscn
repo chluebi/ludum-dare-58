@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0emiyo3ie8fq"]
+
+[ext_resource type="Texture2D" uid="uid://ctn52h7ljwwp5" path="res://arrow.png" id="1_6eiay"]
+[ext_resource type="Script" uid="uid://cah73jfphe1hw" path="res://recipe.gd" id="1_43k02"]
+[ext_resource type="PackedScene" uid="uid://d281lsqavd45o" path="res://item_sprite.tscn" id="1_p6tcl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6tcl"]
+bg_color = Color(0.60192096, 0.5099987, 0.30167386, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43k02"]
+bg_color = Color(0.6108047, 0.5973683, 0.58841664, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k52ho"]
+bg_color = Color(0.3445084, 0.3499424, 0.34183627, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Recipe" type="CanvasLayer"]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+script = ExtResource("1_43k02")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1.165, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -80.0
+offset_top = -30.0
+offset_right = 80.0
+offset_bottom = 30.0
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p6tcl")
+
+[node name="Empty" parent="Control" instance=ExtResource("1_p6tcl")]
+position = Vector2(15, 23)
+scale = Vector2(3, 3)
+
+[node name="Ingredient1" parent="Control" instance=ExtResource("1_p6tcl")]
+position = Vector2(38, 23)
+scale = Vector2(3, 3)
+
+[node name="Ingredient2" parent="Control" instance=ExtResource("1_p6tcl")]
+position = Vector2(61, 23)
+scale = Vector2(3, 3)
+
+[node name="Arrow" type="Sprite2D" parent="Control"]
+position = Vector2(101, 24)
+scale = Vector2(3, 3)
+texture = ExtResource("1_6eiay")
+
+[node name="Result" parent="Control" instance=ExtResource("1_p6tcl")]
+position = Vector2(139.99998, 24)
+scale = Vector2(3, 3)
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 49.0
+offset_right = 152.0
+offset_bottom = 54.0
+theme_override_styles/background = SubResource("StyleBoxFlat_43k02")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k52ho")
+step = 0.001
+show_percentage = false
