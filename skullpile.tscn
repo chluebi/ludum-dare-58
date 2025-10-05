@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://coq16sep4c0sq"]
+
+[ext_resource type="Script" uid="uid://b4swrg43307h8" path="res://skullpile.gd" id="1_vpa0d"]
+[ext_resource type="Texture2D" uid="uid://baemqp0i6do21" path="res://bonepile.png" id="2_vpa0d"]
+[ext_resource type="Texture2D" uid="uid://duae6wh5t64ah" path="res://bonepile-2.png" id="3_2m1su"]
+[ext_resource type="PackedScene" uid="uid://douxwd3qcg1hw" path="res://healthbar.tscn" id="3_5ea1c"]
+[ext_resource type="Texture2D" uid="uid://yxcmvyjd7kc8" path="res://bonepile-3.png" id="4_fgcl8"]
+[ext_resource type="Texture2D" uid="uid://drk58b3ps5r3y" path="res://bonepile-4.png" id="5_1o0pb"]
+[ext_resource type="Texture2D" uid="uid://c5u6bgaur86l" path="res://bonepile-5.png" id="6_bngng"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iifgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vpa0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2m1su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fgcl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1o0pb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bngng")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(119, 100)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k104"]
+radius = 94.13288
+
+[node name="Skullpile" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 7
+script = ExtResource("1_vpa0d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.9999999, -75.99999)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_iifgy")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="damage_hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_hitbox"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_7k104")
+
+[node name="healthbar" parent="." instance=ExtResource("3_5ea1c")]
+position = Vector2(0, -80)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

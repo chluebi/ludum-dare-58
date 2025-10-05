@@ -76,6 +76,11 @@ func stop_attacking(body):
 func _move_to(global_position: Vector2):
 	# position = Vector2(0, 0) + offset
 	velocity = (global_position - position).normalized() * speed
+	var sprite = $AnimatedSprite2D
+	if velocity.x > 0:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
 	move_and_slide()
 	
 func on_death():

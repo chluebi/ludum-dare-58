@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://dog1poe2ison0"]
 
 [ext_resource type="Script" uid="uid://dn6lltdaw57cg" path="res://enemy.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://duiwgdhqxy3p0" path="res://skull.png" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://tr6ftevfd4vs" path="res://skull(1).png" id="2_qi2p4"]
 [ext_resource type="PackedScene" uid="uid://douxwd3qcg1hw" path="res://healthbar.tscn" id="3_qi2p4"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4gyqm"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_iifgy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_7k104")
+"texture": ExtResource("2_qi2p4")
 }],
 "loop": true,
 "name": &"default",
@@ -21,14 +21,14 @@ size = Vector2(119, 100)
 [sub_resource type="CircleShape2D" id="CircleShape2D_7k104"]
 radius = 94.13288
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Skull" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_4gyqm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_4gyqm")
+sprite_frames = SubResource("SpriteFrames_iifgy")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
