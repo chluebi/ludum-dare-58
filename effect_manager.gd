@@ -24,12 +24,12 @@ class EffectState:
 			return 0
 	
 var effect_dictionary = {
-	Constants.potion_type.orange: EffectState.new(10),
-	Constants.potion_type.yellow: EffectState.new(5),
+	Constants.item_type.orange: EffectState.new(10),
+	Constants.item_type.yellow: EffectState.new(5),
 	#Constants.potion_type.green: EffectState.new(-1),
-	Constants.potion_type.blue: EffectState.new(6),
-	Constants.potion_type.purple: EffectState.new(15),
-	Constants.potion_type.pink: EffectState.new(3),
+	Constants.item_type.blue: EffectState.new(6),
+	Constants.item_type.purple: EffectState.new(15),
+	Constants.item_type.pink: EffectState.new(3),
 }
 
 var time = 0
@@ -42,12 +42,12 @@ func is_active(color) -> bool:
 func activity_strength(color) -> int:
 	return effect_dictionary[color].activity_strength(time)
 
-func activate(drinker, color: Constants.potion_type):
+func activate(drinker, color: Constants.item_type):
 	if color in effect_dictionary:
 		var duration = effect_dictionary[color].start(time)
 		var hud := $"../HUD"
 		hud.add_potion_ui_effect(duration, color)
 	
 	#immediate effects
-	if color == Constants.potion_type.green:
+	if color == Constants.item_type.green:
 		drinker.health.heal_damage(25)

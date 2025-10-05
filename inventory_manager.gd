@@ -5,7 +5,7 @@ const num_slots = 6
 
 var current_slot_index: int = 0
 var is_empty: Array[bool] = []
-var entries: Array[Constants.potion_type] = []
+var entries: Array[Constants.item_type] = []
 
 func _ready() -> void:
 	for i in range(num_slots):
@@ -49,15 +49,15 @@ func _update():
 
 @onready var player = $"../Environment/player"
 func drink():
-	if is_empty[current_slot_index]:
+	if is_empty[current_slot_index] or !Constants.is_drinkable_potion(entries[current_slot_index]):
 		return
 	
-	is_empty[current_slot_index] = true
+	entries[current_slot_index] = Constants.item_type.empty
 	var effect_manager = $"../effect_manager"
 	effect_manager.activate(player, entries[current_slot_index])
 	_update()
 	
-func drink_from_ground(potion_type: Constants.potion_type):
+func drink_from_ground(potion_type: Constants.item_type):
 	var effect_manager = $"../effect_manager"
 	effect_manager.activate(player, potion_type)
 	_update()
@@ -72,7 +72,7 @@ func remove_current_item() -> Variant:
 	return value
 
 	
-func pickup_item(potion_type: Constants.potion_type) -> bool:
+func pickup_item(potion_type: Constants.item_type) -> bool:
 	for i in range(num_slots):
 		if is_empty[i]:
 			is_empty[i] = false

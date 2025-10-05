@@ -11,7 +11,7 @@ var timer = 0
 func spawn_potion():
 	var r = randf_range(-PI, PI)
 	var pot = POTION_SCENE.instantiate()
-	pot.set_potion_type(Constants.random_type())
+	pot.set_potion_type(Constants.random_potion())
 	pot.position = Vector2.from_angle(r) * POTION_DISTANCE + position
 	#pot.body_entered.connect(player.on_pickup)
 	get_parent().add_child(pot)

@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var type: Constants.potion_type
+@export var type: Constants.item_type
 @onready var sprite = $sprite
 @onready var pickup = $Pickup
 
@@ -25,10 +25,10 @@ func _integrate_forces(state):
 	state.apply_central_force(drag_force)
 
 
-func set_potion_type(t: Constants.potion_type):
+func set_potion_type(t: Constants.item_type):
 	type = t
 	if is_node_ready():
-		sprite.set_potion_type(t)
+		sprite.set_item_type(t)
 
 
 func on_pickup(body: Node):

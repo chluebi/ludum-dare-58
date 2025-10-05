@@ -8,7 +8,7 @@ var slot_scene: PackedScene = preload(SLOT_SCENE_PATH)
 @onready var slot_container = $MarginContainer/SlotContainer
 
 
-func render_slots(is_empty: Array[bool], entries: Array[Constants.potion_type], current_slot_index):
+func render_slots(is_empty: Array[bool], entries: Array[Constants.item_type], current_slot_index):
 	assert(len(is_empty) == len(entries) and 0 <= current_slot_index and current_slot_index < len(is_empty))
 
 	if len(slots) == 0:

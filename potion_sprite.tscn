@@ -1,15 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://byf16yhs85nnc"]
+[gd_scene load_steps=5 format=3 uid="uid://byf16yhs85nnc"]
 
 [ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_ui28u"]
 [ext_resource type="Script" uid="uid://cm88000epeljp" path="res://potion_sprite.gd" id="2_cqo5i"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_174ht"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_f65a1"]
 atlas = ExtResource("1_ui28u")
-region = Rect2(0, 10, 29, 8)
+region = Rect2(0, 10, 33, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqo5i"]
+atlas = SubResource("AtlasTexture_f65a1")
+region = Rect2(0, 0, 33, 54)
 
 [node name="sprite" type="Sprite2D"]
 scale = Vector2(10, 10)
-texture = SubResource("AtlasTexture_174ht")
+texture = SubResource("AtlasTexture_cqo5i")
 region_enabled = true
 region_rect = Rect2(0.1, 0, 4.8, 8)
 script = ExtResource("2_cqo5i")
