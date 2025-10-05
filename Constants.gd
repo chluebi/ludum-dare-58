@@ -1,8 +1,7 @@
 class_name Constants
-enum potion_type {
-	orange, yellow, green, blue, rainbow, purple, pink,
-	FINAL
+enum item_type {
+	orange, yellow, green, blue, rainbow, purple, pink, empty
 }
 
-static func random_type() -> potion_type:
-	return randi_range(0, potion_type.FINAL - 1)
+static func random_potion() -> item_type:
+	return randi_range(0, item_type.empty - 1)
