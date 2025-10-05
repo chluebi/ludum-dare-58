@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0emiyo3ie8fq"]
+[gd_scene load_steps=8 format=3 uid="uid://d0emiyo3ie8fq"]
 
 [ext_resource type="Texture2D" uid="uid://ctn52h7ljwwp5" path="res://arrow.png" id="1_6eiay"]
 [ext_resource type="Script" uid="uid://cah73jfphe1hw" path="res://recipe.gd" id="1_43k02"]
@@ -26,13 +26,14 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="Recipe" type="CanvasLayer"]
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 0, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43k02"]
+size = Vector2(160, 60)
+
+[node name="Recipe" type="Node2D"]
+scale = Vector2(0.15, 0.15)
 script = ExtResource("1_43k02")
 
 [node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(1.165, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_left = -80.0
@@ -81,3 +82,10 @@ theme_override_styles/background = SubResource("StyleBoxFlat_43k02")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k52ho")
 step = 0.001
 show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_43k02")

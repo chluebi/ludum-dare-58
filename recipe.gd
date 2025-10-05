@@ -1,17 +1,16 @@
-extends CanvasLayer
+extends Node2D
 
 var brew_time = 10.0
 var current_brew_time = 0.0
 var brewing = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var bar = $Control/ProgressBar
+	
 	if brewing:
 		current_brew_time += delta
 		
@@ -19,11 +18,30 @@ func _process(delta: float) -> void:
 		bar.value = 100.0 * clampf(current_brew_time/brew_time, 0, 1)
 	else:
 		bar.hide()
+	
+
+	var should_be_transparent = false
+	var area_to_check = $Area2D
+	if area_to_check:
+		for body in area_to_check.get_overlapping_bodies():
+			if body.is_in_group("important_entities"):
+				should_be_transparent = true
+				break
+		
+		if not should_be_transparent:
+			for area in area_to_check.get_overlapping_areas():
+				if area.is_in_group("important_entities"):
+					should_be_transparent = true
+					break
+	
+	var alpha_value = 1.0
+	if should_be_transparent:
+		alpha_value = 0.5
+	$Control.modulate.a = alpha_value
 
 
 func move_to(x: float, y: float):
-	# because transform of Canvas Layer is set to 2
-	$Control.position = Vector2(x/2 - 80, (y-130)/2 - 30)
+	position = Vector2(0, -90*0.15)
 
 func setup(
 	empty_in: bool,

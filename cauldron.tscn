@@ -30,7 +30,6 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mo0jf")
 
 [node name="Recipe" parent="." instance=ExtResource("3_q3ljf")]
-follow_viewport_enabled = true
 
 [node name="CollectionRange" type="Area2D" parent="."]
 position = Vector2(-7.629394e-07, -7.629394e-07)
