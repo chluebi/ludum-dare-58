@@ -107,4 +107,3 @@ func _process(delta: float) -> void:
 				result_type,
 				brew_time)
 		
-	recipe.move_to(position.x, position.y)

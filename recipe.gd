@@ -40,8 +40,6 @@ func _process(delta: float) -> void:
 	$Control.modulate.a = alpha_value
 
 
-func move_to(x: float, y: float):
-	position = Vector2(0, -90*0.15)
 
 func setup(
 	empty_in: bool,

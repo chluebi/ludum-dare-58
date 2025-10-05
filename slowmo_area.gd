@@ -9,6 +9,8 @@ func _ready() -> void:
 	for obj in $"../Environment".get_children():
 		const RANGE = 500
 		if "slow_mo" in obj and (obj.position - position).length_squared() < radius * radius:
+			obj.modulate.r = 0.3
+			obj.modulate.g = 0.3
 			obj.slow_mo = slow_mo
 			affected.push_back(obj)
 	
@@ -22,5 +24,9 @@ func _process(delta: float) -> void:
 
 func unaffect():
 	for obj in affected:
-		obj.slow_mo = 1.0
+		# this fails if obj is freed while in slowmo
+		if obj:
+			obj.slow_mo = 1.0
+			obj.modulate.r = 1.0
+			obj.modulate.g = 1.0
 	queue_free()

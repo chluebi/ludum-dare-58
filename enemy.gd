@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 const PathFindAStar = preload("./tile_map_layer.gd")
 const HEALTH_SCRIPT = preload("./health.gd")
+const ITEM_SCENE = preload("res://potion_pickup.tscn")
 
 @export_range(1.0, 150.0, 1.0, "or_greater") var max_health: float = 100.0
-var health = HEALTH_SCRIPT.new(100)
+@onready var health = HEALTH_SCRIPT.new(max_health)
 
 
 const MASS: float = 10.0
@@ -18,6 +19,8 @@ var _velocity := Vector2()
 
 @onready var _tile_map: PathFindAStar = $"../../TileMapLayer"
 @onready var player = $"../player"
+
+@export var can_drop: Array[Constants.item_type] = []
 
 var attack_target = null
 var attack_timer = INF
@@ -93,5 +96,11 @@ func _move_to(global_position: Vector2):
 	move_and_slide()
 	
 func on_death():
-	#TODO: Add a nice death animation
+	var i = ITEM_SCENE.instantiate()
+	if len(can_drop) > 0:
+		var t = can_drop[randi_range(0, len(can_drop) - 1)]
+		i.set_potion_type(t)
+		i.position = position
+		i.linear_velocity = Vector2.from_angle(randf_range(-PI, PI)) * 30.0
+		get_parent().get_parent().add_child.call_deferred(i)
 	queue_free()

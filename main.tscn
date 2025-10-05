@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://coq16sep4c0sq" path="res://skullpile.tscn" id="8_ycdy4"]
 [ext_resource type="Script" uid="uid://b7tk7wyyonbao" path="res://effect_manager.gd" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://tfuqtyafw6be" path="res://inventory_manager.gd" id="11_efxa6"]
-[ext_resource type="Script" uid="uid://cfwmkj2ko26yv" path="res://cauldron_manager.gd" id="12_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://c21rcy2x0nae8" path="res://ghost.tscn" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://da6hjhpeubx5h" path="res://poison_trail.tscn" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://cfwmkj2ko26yv" path="res://cauldron_manager.gd" id="12_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bssldjs2broyd" path="res://ghost.tscn" id="13_ycdy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("2_272bh")
