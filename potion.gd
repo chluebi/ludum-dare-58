@@ -28,7 +28,7 @@ func _integrate_forces(state):
 func set_potion_type(t: Constants.item_type):
 	type = t
 	if is_node_ready():
-		sprite.set_potion_type(t)
+		sprite.set_item_type(t)
 
 
 func on_pickup(body: Node):
