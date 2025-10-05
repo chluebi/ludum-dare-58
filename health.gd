@@ -2,6 +2,7 @@ var max_health: float
 var current_health: float
 var animation_timer = -1
 signal death_signal
+signal damaged_signal
 signal health_percentage
 
 func _init(mh):
@@ -26,9 +27,12 @@ func animate_damage(body: Node2D, delta):
 
 	
 func take_damage(amount) -> bool:
+	if amount <= 0:
+		return false
 	current_health -= amount
 	animation_timer = 0
 	health_percentage.emit(current_health * 1.0 / max_health)
+	damaged_signal.emit()
 	if current_health <= 0:
 		death_signal.emit()
 		return true

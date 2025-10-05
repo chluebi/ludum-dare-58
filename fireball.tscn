@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://eil6wj2a31gs"]
+[gd_scene load_steps=7 format=3 uid="uid://eil6wj2a31gs"]
 
 [ext_resource type="Script" uid="uid://cc8sdiroulwon" path="res://fireball.gd" id="1_olwj8"]
 [ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_sf4mh"]
+[ext_resource type="AudioStream" uid="uid://dm3g8f67guu67" path="res://sfx/hit_soft.wav" id="3_wdani"]
+[ext_resource type="AudioStream" uid="uid://bu3bb8105f2yc" path="res://sfx/hit_hard.wav" id="4_nix7o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olwj8"]
 atlas = ExtResource("1_sf4mh")
@@ -23,3 +25,9 @@ region_rect = Rect2(0, 0, 4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sf4mh")
+
+[node name="soft_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wdani")
+
+[node name="hard_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_nix7o")

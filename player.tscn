@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4vun81r65hwg"]
+[gd_scene load_steps=10 format=3 uid="uid://c4vun81r65hwg"]
 
 [ext_resource type="Script" uid="uid://601lsav1i4s2" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://douxwd3qcg1hw" path="res://healthbar.tscn" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="3_i3pqv"]
+[ext_resource type="AudioStream" uid="uid://qoh24wjqmu6f" path="res://sfx/take_damage.wav" id="4_hqtel"]
+[ext_resource type="AudioStream" uid="uid://dsfniaff5opjk" path="res://sfx/pickup.wav" id="4_sweqy"]
+[ext_resource type="AudioStream" uid="uid://bq4gykgvomiy7" path="res://sfx/shoot.wav" id="6_2hs0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sweqy"]
 size = Vector2(20, 50)
@@ -40,3 +43,12 @@ offset = Vector2(0, -2)
 
 [node name="healthbar" parent="." instance=ExtResource("3_hqtel")]
 position = Vector2(0, -80)
+
+[node name="pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_sweqy")
+
+[node name="damage_take_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hqtel")
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_2hs0m")

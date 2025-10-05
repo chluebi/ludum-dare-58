@@ -30,10 +30,13 @@ func on_death():
 		set_physics_process(false)
 		set_script(PLAYER_DEATH_SCRIPT)
 	l.call_deferred()
-	
+
+func on_damage_taken():
+	$damage_take_player.play()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health.death_signal.connect(on_death)
+	health.damaged_signal.connect(on_damage_taken)
 	health.health_percentage.connect($healthbar.set_health_percentage)
 	$healthbar.set_health_percentage(1.0)
 
@@ -43,6 +46,7 @@ func spawn_fireball(aim_direction):
 	fireball.direction = aim_direction
 	var strength_bonus = EFFECT_MANAGER.activity_strength(Constants.item_type.orange)
 	fireball.size = strength_bonus
+	$shoot.play()
 	get_parent().add_child(fireball)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -107,6 +111,7 @@ func _process(delta):
 func on_potion_pickup(pot):
 	var successful_pickup = INVENTORY_MANAGER.pickup_item(pot.type)
 	if successful_pickup:
+		$pickup.play()
 		pot.queue_free()
 	elif is_drinking:
 		INVENTORY_MANAGER.drink_from_ground(pot.type)

@@ -12,7 +12,8 @@ var animation_frame = 0
 var damage = 10
 @onready var SPRITE = $sprite
 static var PARTICLE_SCENE = preload("res://fireball_particles.tscn")
- 
+
+
 func frame_to_rect(animation_frame):
 	var x = 4.0 * animation_frame
 	return Rect2(x, 0, 4, 4)
@@ -50,10 +51,19 @@ func on_collision(body):
 	particles.direction = direction
 	particles.emitting = true
 	get_parent().get_parent().add_child(particles)
+	var audio
+	if size > 0:
+		audio = $hard_audio
+	else:
+		audio = $soft_audio
 	if "health" in body:
 		if body.health.take_damage(damage * (1 + size)) and size > 0:
 			damage *= 2
+			audio.play()
 			return
-	
-	
+	remove_child(audio)
+	get_parent().add_child(audio)
+	audio.position = position
+	audio.play()
+	audio.finished.connect(audio.queue_free)
 	queue_free()
