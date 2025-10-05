@@ -25,6 +25,7 @@ window/size/resizable=false
 
 static_obstacles=""
 dynamic_obstacles=""
+important_entities=""
 
 [input]
 
