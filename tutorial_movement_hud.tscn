@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://couv1s2el5sp8"]
+
+[ext_resource type="Texture2D" uid="uid://c78mt8t1ygvpa" path="res://keys.png" id="1_geklp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jl5vs"]
+bg_color = Color(0.60192096, 0.5099987, 0.30167386, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctslk"]
+atlas = ExtResource("1_geklp")
+region = Rect2(0, 0, 32, 48)
+
+[node name="TutorialMovementHUD" type="CanvasLayer"]
+
+[node name="ColorRect" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1299.0
+offset_bottom = -820.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jl5vs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 118.0
+offset_top = 26.0
+offset_right = 265.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
+text = "Use WASD to move"
+
+[node name="W" type="Sprite2D" parent="."]
+position = Vector2(53, 23)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ctslk")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="A" type="Sprite2D" parent="."]
+position = Vector2(23, 48)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ctslk")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="S" type="Sprite2D" parent="."]
+position = Vector2(51, 48)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ctslk")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="D" type="Sprite2D" parent="."]
+position = Vector2(80, 47)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ctslk")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)

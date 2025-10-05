@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://ded7p2ji4j251"]
+
+[ext_resource type="Texture2D" uid="uid://c78mt8t1ygvpa" path="res://keys.png" id="1_p5mag"]
+[ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="2_gsvmi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jl5vs"]
+bg_color = Color(0.60192096, 0.5099987, 0.30167386, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e63c6"]
+atlas = ExtResource("2_gsvmi")
+
+[node name="TutorialDrinkHUD" type="CanvasLayer"]
+
+[node name="ColorRect" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1168.0
+offset_bottom = -732.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jl5vs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 154.0
+offset_top = 7.0
+offset_right = 422.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
+text = "You have brewed your first potion!
+
+You can use it with F,
+but the goal is to leave while
+having collected as many potions
+as possible"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Q" type="Sprite2D" parent="."]
+position = Vector2(69, 78)
+scale = Vector2(2, 2)
+texture = ExtResource("1_p5mag")
+region_enabled = true
+region_rect = Rect2(16, 32, 16, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(67, 26.000002)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_e63c6")
+region_enabled = true
+region_rect = Rect2(0, 10, 5, 8)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(74, 133.00002)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_e63c6")
+region_enabled = true
+region_rect = Rect2(0, 10, 25, 8)

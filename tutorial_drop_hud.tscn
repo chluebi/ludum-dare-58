@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3erh8f10ff0c"]
+
+[ext_resource type="Texture2D" uid="uid://c78mt8t1ygvpa" path="res://keys.png" id="1_ftrnr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jl5vs"]
+bg_color = Color(0.60192096, 0.5099987, 0.30167386, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TutorialDropHUD" type="CanvasLayer"]
+
+[node name="ColorRect" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1187.0
+offset_bottom = -782.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jl5vs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 122.0
+offset_top = 8.0
+offset_right = 327.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
+text = "Drop items with Q into the cauldron
+
+Select items with numbers
+or mousescroll"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Q" type="Sprite2D" parent="."]
+position = Vector2(58, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ftrnr")
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(28, 86)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ftrnr")
+region_enabled = true
+region_rect = Rect2(0, 48, 16, 16)
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(58, 85)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ftrnr")
+region_enabled = true
+region_rect = Rect2(16, 48, 16, 16)
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(87, 85)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ftrnr")
+region_enabled = true
+region_rect = Rect2(0, 64, 16, 16)
