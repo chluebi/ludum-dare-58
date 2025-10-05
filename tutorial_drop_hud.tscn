@@ -9,23 +9,26 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="TutorialDropHUD" type="CanvasLayer"]
+[node name="TutorialDropHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -392.0
+offset_top = -126.0
+offset_right = -392.0
+offset_bottom = -126.0
 
 [node name="ColorRect" type="Panel" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1187.0
-offset_bottom = -782.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 391.0
+offset_bottom = 125.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jl5vs")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 122.0
-offset_top = 8.0
-offset_right = 327.0
-offset_bottom = 83.0
+layout_mode = 0
+offset_left = 103.0
+offset_top = 10.0
+offset_right = 382.0
+offset_bottom = 111.0
 theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
 text = "Drop items with Q into the cauldron
 

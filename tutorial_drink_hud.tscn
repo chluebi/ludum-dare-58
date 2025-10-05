@@ -13,23 +13,26 @@ corner_radius_bottom_left = 8
 [sub_resource type="AtlasTexture" id="AtlasTexture_e63c6"]
 atlas = ExtResource("2_gsvmi")
 
-[node name="TutorialDrinkHUD" type="CanvasLayer"]
+[node name="TutorialDrinkHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -444.0
+offset_top = -172.0
+offset_right = -176.0
+offset_bottom = -19.0
 
 [node name="ColorRect" type="Panel" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1168.0
-offset_bottom = -732.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 444.0
+offset_bottom = 172.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jl5vs")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 154.0
-offset_top = 7.0
-offset_right = 422.0
-offset_bottom = 160.0
+layout_mode = 0
+offset_left = 99.0
+offset_top = 5.0
+offset_right = 498.0
+offset_bottom = 158.0
 theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
 text = "You have brewed your first potion!
 

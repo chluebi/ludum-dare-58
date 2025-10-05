@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://e0cdf5w3sj71"]
+
+[ext_resource type="Script" uid="uid://cchmvrpualm86" path="res://tutorial_manager.gd" id="1_msvax"]
+[ext_resource type="PackedScene" uid="uid://couv1s2el5sp8" path="res://tutorial_movement_hud.tscn" id="2_08hqh"]
+[ext_resource type="PackedScene" uid="uid://c7quchk48gw23" path="res://tutorial_find_hud.tscn" id="3_08hqh"]
+[ext_resource type="PackedScene" uid="uid://dymk58iyb540v" path="res://tutorial_return_hud.tscn" id="4_0vw57"]
+[ext_resource type="PackedScene" uid="uid://b3erh8f10ff0c" path="res://tutorial_drop_hud.tscn" id="5_21v4s"]
+[ext_resource type="PackedScene" uid="uid://6res8aw4482b" path="res://tutorial_wait_hud.tscn" id="6_21v4s"]
+[ext_resource type="PackedScene" uid="uid://ded7p2ji4j251" path="res://tutorial_drink_hud.tscn" id="6_yb7sm"]
+[ext_resource type="PackedScene" uid="uid://y81rw14v3icr" path="res://tutorial_mouse_hud.tscn" id="7_wjgg5"]
+
+[node name="tutorial_manager" type="CanvasLayer"]
+script = ExtResource("1_msvax")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="Control"]
+scale = Vector2(2, 2)
+
+[node name="TutorialMovementHUD" parent="Control/Node2D" instance=ExtResource("2_08hqh")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.5
+offset_top = 147.0
+offset_right = 430.5
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialFindHUD" parent="Control/Node2D" instance=ExtResource("3_08hqh")]
+offset_left = 96.0
+offset_top = 127.0
+offset_right = 414.0
+offset_bottom = 225.0
+
+[node name="TutorialDropHUD" parent="Control/Node2D" instance=ExtResource("5_21v4s")]
+offset_left = 9.5
+offset_top = 101.0
+offset_right = 9.5
+offset_bottom = 101.0
+
+[node name="TutorialReturnHUD" parent="Control/Node2D" instance=ExtResource("4_0vw57")]
+offset_left = 139.5
+offset_top = 136.5
+offset_right = 396.5
+offset_bottom = 224.5
+
+[node name="TutorialWaitHUD" parent="Control/Node2D" instance=ExtResource("6_21v4s")]
+offset_left = 137.0
+offset_top = 137.0
+offset_right = 394.0
+offset_bottom = 225.0
+
+[node name="TutorialDrinkHUD" parent="Control/Node2D" instance=ExtResource("6_yb7sm")]
+offset_left = -43.5
+offset_top = 55.0
+offset_right = 224.5
+offset_bottom = 208.0
+
+[node name="TutorialMouseHUD" parent="Control/Node2D" instance=ExtResource("7_wjgg5")]
+offset_left = 3.5
+offset_top = 38.5
+offset_right = 400.5
+offset_bottom = 226.5

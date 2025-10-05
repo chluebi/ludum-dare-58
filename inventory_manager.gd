@@ -80,3 +80,9 @@ func pickup_item(potion_type: Constants.item_type) -> bool:
 			return true
 	
 	return false
+	
+func inventory_contains(potion_type: Constants.item_type) -> bool:
+	for i in range(num_slots):
+		if !is_empty[i] and entries[i] == potion_type:
+			return true
+	return false

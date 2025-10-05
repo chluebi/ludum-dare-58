@@ -14,6 +14,9 @@ func spawn_enemy(pos):
 	environment.add_child.call_deferred(enemy)
 
 func _process(delta: float) -> void:
+	if $"../tutorial_manager" and !$"../tutorial_manager".enemy_activity:
+		return
+	
 	spawn_timer += delta
 	if spawn_timer >= SPAWN_INTERVAL:
 		camera_region.position = player.position - camera_region.size / 2

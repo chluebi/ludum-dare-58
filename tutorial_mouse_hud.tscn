@@ -13,23 +13,28 @@ corner_radius_bottom_left = 8
 atlas = ExtResource("1_cbcx1")
 region = Rect2(0, 0, 32, 80)
 
-[node name="TutorialMouseHUD" type="CanvasLayer"]
+[node name="TutorialMouseHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -398.0
+offset_top = -190.0
+offset_right = -1.0
+offset_bottom = -2.0
 
 [node name="ColorRect" type="Panel" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1168.0
-offset_bottom = -732.0
+layout_mode = 0
+offset_right = 397.0
+offset_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jl5vs")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 154.0
-offset_top = 7.0
-offset_right = 422.0
-offset_bottom = 160.0
+layout_mode = 0
+offset_left = 57.0
+offset_top = 29.0
+offset_right = 454.0
+offset_bottom = 156.0
 theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
 text = "Better watch out, this
 basement is haunted!

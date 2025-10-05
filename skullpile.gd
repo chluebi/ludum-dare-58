@@ -43,6 +43,9 @@ func _process(delta: float) -> void:
 	
 
 func spawn_enemy(pos):
+	if $"../../tutorial_manager" and !$"../../tutorial_manager".enemy_activity:
+		return
+		
 	var enemy = ENEMY_SCENE.instantiate()
 	enemy.position = pos
 	get_parent().add_child.call_deferred(enemy)

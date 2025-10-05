@@ -13,23 +13,27 @@ corner_radius_bottom_left = 8
 atlas = ExtResource("1_geklp")
 region = Rect2(0, 0, 32, 48)
 
-[node name="TutorialMovementHUD" type="CanvasLayer"]
+[node name="TutorialMovementHUD" type="Control"]
+layout_mode = 3
+anchor_right = 0.09200001
+anchor_bottom = 0.080000006
+offset_left = -288.0
+offset_top = -76.0
+offset_right = -180.20001
+offset_bottom = -72.00001
 
 [node name="ColorRect" type="Panel" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1299.0
-offset_bottom = -820.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 76.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jl5vs")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 118.0
-offset_top = 26.0
-offset_right = 265.0
-offset_bottom = 49.0
+layout_mode = 0
+offset_left = 119.0
+offset_top = 25.0
+offset_right = 266.0
+offset_bottom = 48.0
 theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
 text = "Use WASD to move"
 
