@@ -18,7 +18,7 @@ var _obstacle_positions: Dictionary = {}
 func _ready() -> void:
 	# Region should match the size of the playable area plus one (in tiles).
 	# In this demo, the playable area is 17x9 tiles, so the rect size is 18x10.
-	_astar.region = Rect2i(0, 0, 18, 10)
+	_astar.region = Rect2i(0, 0, 30, 20)
 	_astar.cell_size = BASE_TILE_SIZE 
 	_astar.offset = BASE_TILE_SIZE * 0.5 
 	_astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
@@ -110,6 +110,7 @@ func find_path(global_start_point: Vector2i, global_end_point: Vector2i) -> Pack
 
 	_start_point = local_to_map(local_start_point)
 	_end_point = local_to_map(local_end_point)
+		
 	if !_astar.is_in_bounds(_start_point.x, _start_point.y):
 		return PackedVector2Array()
 	if !_astar.is_in_bounds(_end_point.x, _end_point.y):

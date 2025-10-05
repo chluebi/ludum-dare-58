@@ -62,16 +62,16 @@ script = ExtResource("3_272bh")
 y_sort_enabled = true
 
 [node name="Crate" parent="Environment" instance=ExtResource("4_1bvp3")]
-position = Vector2(160, 4.7683716e-07)
+position = Vector2(240, 79.99999)
 
 [node name="Crate2" parent="Environment" instance=ExtResource("4_1bvp3")]
-position = Vector2(640, 625)
+position = Vector2(560, 720)
 
 [node name="Crate3" parent="Environment" instance=ExtResource("4_1bvp3")]
-position = Vector2(1280.0001, 625)
+position = Vector2(1360, 720)
 
 [node name="Crate4" parent="Environment" instance=ExtResource("4_1bvp3")]
-position = Vector2(164.99998, 640)
+position = Vector2(240, 720)
 
 [node name="player" parent="Environment" instance=ExtResource("2_0xm2m")]
 position = Vector2(114, 190)
@@ -83,7 +83,7 @@ position = Vector2(560, 400)
 position = Vector2(2160, 560)
 
 [node name="Skullpile" parent="Environment" instance=ExtResource("8_ycdy4")]
-position = Vector2(1840, 1200)
+position = Vector2(2000, 1200)
 
 [node name="HUD" parent="." instance=ExtResource("8_5vw27")]
 
