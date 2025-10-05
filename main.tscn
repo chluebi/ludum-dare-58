@@ -82,7 +82,7 @@ position = Vector2(560, 400)
 position = Vector2(2160, 560)
 
 [node name="Skullpile" parent="Environment" instance=ExtResource("8_ycdy4")]
-position = Vector2(2000, 1200)
+position = Vector2(2000, 1360)
 
 [node name="Ghost" parent="Environment" instance=ExtResource("13_ycdy4")]
 z_index = 1
