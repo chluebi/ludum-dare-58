@@ -11,16 +11,15 @@ var slot_scene: PackedScene = preload(SLOT_SCENE_PATH)
 func render_slots(is_empty: Array[bool], entries: Array[Constants.potion_type], current_slot_index):
 	assert(len(is_empty) == len(entries) and 0 <= current_slot_index and current_slot_index < len(is_empty))
 
-	for child in slot_container.get_children():
-		child.queue_free()
-		
-	slots.clear()
-	
-	for i in range(len(is_empty)):
-		var new_slot = slot_scene.instantiate()
-		new_slot.setup(i, is_empty[i], entries[i], i == current_slot_index)
-		slot_container.add_child.call_deferred(new_slot)
-		slots.append(new_slot)
+	if len(slots) == 0:
+		for i in range(len(is_empty)):
+			var new_slot = slot_scene.instantiate()
+			new_slot.setup(i, is_empty[i], entries[i], i == current_slot_index)
+			slot_container.add_child.call_deferred(new_slot)
+			slots.append(new_slot)
+	else:
+		for i in range(len(is_empty)):
+			slots[i].setup(i, is_empty[i], entries[i], i == current_slot_index)
 	
 
 	
