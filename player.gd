@@ -114,8 +114,9 @@ func on_potion_pickup(pot):
 		pickup_sound()
 		pot.queue_free()
 	elif is_drinking:
-		INVENTORY_MANAGER.drink_from_ground(pot.type)
-		pot.queue_free()
+		if pot.type <= Constants.item_type.pink:
+			INVENTORY_MANAGER.drink_from_ground(pot.type)
+			pot.queue_free()
 
 func drink():
 	$drink.play()
