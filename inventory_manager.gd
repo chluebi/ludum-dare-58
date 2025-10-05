@@ -49,10 +49,10 @@ func _update():
 
 @onready var player = $"../Environment/player"
 func drink():
-	if is_empty[current_slot_index]:
+	if is_empty[current_slot_index] or !Constants.is_drinkable_potion(entries[current_slot_index]):
 		return
 	
-	is_empty[current_slot_index] = true
+	entries[current_slot_index] = Constants.item_type.empty
 	var effect_manager = $"../effect_manager"
 	effect_manager.activate(player, entries[current_slot_index])
 	_update()

@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_ui28u"]
 [ext_resource type="Script" uid="uid://cm88000epeljp" path="res://potion_sprite.gd" id="2_cqo5i"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_174ht"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqo5i"]
 atlas = ExtResource("1_ui28u")
-region = Rect2(0, 10, 29, 8)
+region = Rect2(-0.090862274, 10.01831, 33.070915, 7.9874907)
 
 [node name="sprite" type="Sprite2D"]
 scale = Vector2(10, 10)
-texture = SubResource("AtlasTexture_174ht")
+texture = SubResource("AtlasTexture_cqo5i")
 region_enabled = true
 region_rect = Rect2(0.1, 0, 4.8, 8)
 script = ExtResource("2_cqo5i")
