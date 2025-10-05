@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1luisgeje8nh"]
+[gd_scene load_steps=6 format=3 uid="uid://cem2pbe5lt302"]
 
 [ext_resource type="Script" uid="uid://cgdhyyrtnh6jm" path="res://stone_shelf.gd" id="1_eosq6"]
 [ext_resource type="Texture2D" uid="uid://co7t5hehavfq2" path="res://FlowerBed.png" id="2_eosq6"]
@@ -11,8 +11,9 @@ size = Vector2(320, 300)
 size = Vector2(460, 420)
 
 [node name="FlowerBed" type="StaticBody2D" groups=["static_obstacles"]]
-collision_layer = 255
-collision_mask = 255
+z_index = -1
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_eosq6")
 item_type = 13
 
