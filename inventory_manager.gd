@@ -47,19 +47,19 @@ func _update():
 	var hud = $"../HUD"
 	hud.render_slots(is_empty, entries, current_slot_index)
 
-
+@onready var player = $"../Environment/player"
 func drink():
 	if is_empty[current_slot_index]:
 		return
 	
 	is_empty[current_slot_index] = true
 	var effect_manager = $"../effect_manager"
-	effect_manager.activate(entries[current_slot_index])
+	effect_manager.activate(player, entries[current_slot_index])
 	_update()
 	
 func drink_from_ground(potion_type: Constants.potion_type):
 	var effect_manager = $"../effect_manager"
-	effect_manager.activate(potion_type)
+	effect_manager.activate(player, potion_type)
 	_update()
 	
 	

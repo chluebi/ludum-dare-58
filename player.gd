@@ -75,6 +75,9 @@ func _process(delta):
 	if (velocity.length() > effective_max):
 		velocity = velocity.normalized() * effective_max # make sure that we never extrapolate, i.e. go faster than max_speed
 	
+	var regen = float(EFFECT_MANAGER.activity_strength(Constants.potion_type.pink))
+	if regen > 0:
+		health.heal_damage(regen * delta * 15)
 	move_and_slide()
 
 func on_potion_pickup(pot):

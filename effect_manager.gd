@@ -42,8 +42,12 @@ func is_active(color) -> bool:
 func activity_strength(color) -> int:
 	return effect_dictionary[color].activity_strength(time)
 
-func activate(color: Constants.potion_type):
+func activate(drinker, color: Constants.potion_type):
 	if color in effect_dictionary:
 		var duration = effect_dictionary[color].start(time)
 		var hud := $"../HUD"
 		hud.add_potion_ui_effect(duration, color)
+	
+	#immediate effects
+	if color == Constants.potion_type.green:
+		drinker.health.heal_damage(25)
