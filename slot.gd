@@ -2,7 +2,6 @@ extends Control
 
 
 
-const POTION_SCENE = preload("res://potion.tscn")
 
 
 func setup(slot_index: int, is_empty: bool, potion_type: Constants.item_type, selected: bool) -> void:

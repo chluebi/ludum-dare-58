@@ -1,12 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0f2pjqc3hhvo"]
+[gd_scene load_steps=4 format=3 uid="uid://c0f2pjqc3hhvo"]
 
-[ext_resource type="Script" uid="uid://c14k57glxcn2a" path="res://potion.gd" id="1_174ht"]
-[ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_bcips"]
-[ext_resource type="Script" uid="uid://cm88000epeljp" path="res://potion_sprite.gd" id="3_8parx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_174ht"]
-atlas = ExtResource("1_bcips")
-region = Rect2(0, 10, 29, 8)
+[ext_resource type="Script" uid="uid://c14k57glxcn2a" path="res://potion_pickup.gd" id="1_174ht"]
+[ext_resource type="PackedScene" uid="uid://byf16yhs85nnc" path="res://item_sprite.tscn" id="2_174ht"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_174ht"]
 radius = 59.008472
@@ -17,13 +12,9 @@ collision_mask = 2
 mass = 0.1
 gravity_scale = 0.0
 script = ExtResource("1_174ht")
+type = null
 
-[node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(10, 10)
-texture = SubResource("AtlasTexture_174ht")
-region_enabled = true
-region_rect = Rect2(0, 0, 5, 8)
-script = ExtResource("3_8parx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Pickup" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_174ht")
+
+[node name="potion" parent="." instance=ExtResource("2_174ht")]

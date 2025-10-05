@@ -1,13 +1,12 @@
 extends RigidBody2D
 
 @export var type: Constants.item_type
-@onready var sprite = $sprite
 @onready var pickup = $Pickup
 
 var throw_cooldown = 0
 
 func _ready() -> void:
-	set_potion_type(type)
+	$sprite.set_item_type(type)
 	pickup.body_entered.connect(on_pickup)
 	
 func _process(delta: float) -> void:
@@ -27,8 +26,7 @@ func _integrate_forces(state):
 
 func set_potion_type(t: Constants.item_type):
 	type = t
-	if is_node_ready():
-		sprite.set_item_type(t)
+	$sprite.set_item_type(t)
 
 
 func on_pickup(body: Node):

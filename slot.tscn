@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://jogymqu084i3" path="res://Slot1.png" id="1_khion"]
 [ext_resource type="Texture2D" uid="uid://du6a2n7molvi6" path="res://Slot2.png" id="2_hiqfk"]
 [ext_resource type="Script" uid="uid://dkb32lw63brgl" path="res://slot.gd" id="3_hiqfk"]
-[ext_resource type="PackedScene" uid="uid://byf16yhs85nnc" path="res://potion_sprite.tscn" id="4_8ag6o"]
+[ext_resource type="PackedScene" uid="uid://byf16yhs85nnc" path="res://item_sprite.tscn" id="4_8ag6o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1xsix"]
 animations = [{

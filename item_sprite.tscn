@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://byf16yhs85nnc"]
+
+[ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_7mxwa"]
+[ext_resource type="Script" uid="uid://cm88000epeljp" path="res://item_sprite.gd" id="2_0bwhr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mxwa"]
+atlas = ExtResource("1_7mxwa")
+
+[node name="sprite" type="Sprite2D"]
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_7mxwa")
+region_enabled = true
+region_rect = Rect2(0.1, 10, 4.8, 8)
+script = ExtResource("2_0bwhr")
