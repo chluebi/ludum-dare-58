@@ -12,7 +12,6 @@ collision_mask = 2
 mass = 0.1
 gravity_scale = 0.0
 script = ExtResource("1_174ht")
-type = null
 
 [node name="Pickup" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_174ht")
