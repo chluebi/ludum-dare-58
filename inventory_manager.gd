@@ -51,10 +51,10 @@ func _update():
 func drink():
 	if is_empty[current_slot_index] or !Constants.is_drinkable_potion(entries[current_slot_index]):
 		return
-	
-	entries[current_slot_index] = Constants.item_type.empty
+		
 	var effect_manager = $"../effect_manager"
 	effect_manager.activate(player, entries[current_slot_index])
+	entries[current_slot_index] = Constants.item_type.empty
 	_update()
 	
 func drink_from_ground(potion_type: Constants.item_type):

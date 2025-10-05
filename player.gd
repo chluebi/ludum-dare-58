@@ -97,9 +97,9 @@ func _process(delta):
 	poison_timer += delta
 	if poison_timer >= POISON_INTERVAL:
 		poison_timer -= POISON_INTERVAL
-		var str = EFFECT_MANAGER.activity_strength(Constants.potion_type.purple)
-		if str > 0:
-			POISON_TRAIL.set_strength(str)
+		var strength = EFFECT_MANAGER.activity_strength(Constants.item_type.purple)
+		if strength > 0:
+			POISON_TRAIL.set_strength(strength)
 			POISON_TRAIL.update_carrier(position)
 		POISON_TRAIL.poison_tick()
 	move_and_slide()
