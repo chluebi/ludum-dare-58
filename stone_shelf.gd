@@ -14,7 +14,7 @@ var result_type = Constants.item_type.empty
 
 func _ready() -> void:
 	$CollectionRange.body_entered.connect(collect_item)
-	setup(Constants.item_type.empty)
+	setup(Constants.item_type.firestone)
 	
 func collect_item(body):
 	if "type" in body:
