@@ -9,7 +9,7 @@ const POTION_SCENE = preload("res://potion_pickup.tscn")
 const HEALTH_SCRIPT = preload("res://health.gd")
 const PLAYER_DEATH_SCRIPT = preload("res://death.gd")
 
-const THROW_FORCE = 300
+const THROW_FORCE = 1500
 const ATTACK_INTERVAL = 0.7
 var attack_timer = 0.0
 
@@ -111,7 +111,7 @@ func _process(delta):
 func on_potion_pickup(pot):
 	var successful_pickup = INVENTORY_MANAGER.pickup_item(pot.type)
 	if successful_pickup:
-		$pickup.play()
+		pickup_sound()
 		pot.queue_free()
 	elif is_drinking:
 		INVENTORY_MANAGER.drink_from_ground(pot.type)
@@ -119,3 +119,6 @@ func on_potion_pickup(pot):
 
 func drink():
 	$drink.play()
+
+func pickup_sound():
+	$pickup.play()

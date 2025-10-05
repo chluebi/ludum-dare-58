@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ci1p6hoypx4li"]
 
-[ext_resource type="Script" uid="uid://cgdhyyrtnh6jm" path="res://stone_shelf.gd" id="1_ttlqn"]
+[ext_resource type="Script" uid="uid://cgdhyyrtnh6jm" path="res://shelf.gd" id="1_ttlqn"]
 [ext_resource type="Texture2D" uid="uid://d4ckrsjrtc30u" path="res://stone_shelf.png" id="2_ttlqn"]
 [ext_resource type="PackedScene" uid="uid://lc1ycy0ilj02" path="res://item_source.tscn" id="3_yurn5"]
 

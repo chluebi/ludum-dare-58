@@ -8,7 +8,7 @@ func _ready() -> void:
 		false,
 		Constants.item_type.empty,
 		Constants.item_type.orange,
-		10.0
+		4.0
 	)
 	
 	$"../Environment/cauldron2".setup(
@@ -16,7 +16,7 @@ func _ready() -> void:
 		true,
 		Constants.item_type.bone,
 		Constants.item_type.yellow,
-		15.0
+		8.0
 	)
 
 
