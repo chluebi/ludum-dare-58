@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://da6hjhpeubx5h"]
+
+[ext_resource type="Script" uid="uid://bl8jmuwkcs16x" path="res://poison_trail.gd" id="1_rpu72"]
+
+[node name="poison_trail" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_rpu72")

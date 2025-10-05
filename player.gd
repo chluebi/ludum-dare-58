@@ -13,9 +13,13 @@ const THROW_FORCE = 300
 const ATTACK_INTERVAL = 0.7
 var attack_timer = 0.0
 
+const POISON_INTERVAL = 0.3
+var poison_timer = 0.0
+
 var health = HEALTH_SCRIPT.new(100)
 @onready var EFFECT_MANAGER = $"../../effect_manager"
 @onready var INVENTORY_MANAGER = $"../../inventory_manager"
+@onready var POISON_TRAIL = $"../../poison_trail"
 
 var is_drinking: bool = false
 
@@ -89,6 +93,15 @@ func _process(delta):
 	var regen = float(EFFECT_MANAGER.activity_strength(Constants.potion_type.pink))
 	if regen > 0:
 		health.heal_damage(regen * delta * 15)
+	
+	poison_timer += delta
+	if poison_timer >= POISON_INTERVAL:
+		poison_timer -= POISON_INTERVAL
+		var str = EFFECT_MANAGER.activity_strength(Constants.potion_type.purple)
+		if str > 0:
+			POISON_TRAIL.set_strength(str)
+			POISON_TRAIL.update_carrier(position)
+		POISON_TRAIL.poison_tick()
 	move_and_slide()
 
 func on_potion_pickup(pot):
