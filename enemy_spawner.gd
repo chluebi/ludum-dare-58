@@ -2,7 +2,7 @@ extends Node2D
 
 const SPAWN_INTERVAL = 8.0
 const ALLOWED_REGION = Rect2(0,0,2400, 1500)
-const ENEMY_SCENE = preload("res://enemy.tscn")
+const ENEMY_SCENE = preload("res://skull.tscn")
 @onready var player = $"../Environment/player"
 @onready var environment = $"../Environment"
 var camera_region = Rect2(0,0,1152,648)
