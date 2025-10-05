@@ -37,9 +37,7 @@ func spawn_fireball(aim_direction):
 	fireball.position = position + BOOK.position
 	fireball.direction = aim_direction
 	var strength_bonus = EFFECT_MANAGER.activity_strength(Constants.potion_type.orange)
-	if strength_bonus > 0:
-		fireball.big = true
-		fireball.damage *= 1 + strength_bonus
+	fireball.size = strength_bonus
 	get_parent().add_child(fireball)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olwj8"]
 atlas = ExtResource("1_sf4mh")
-region = Rect2(10, 0, 16, 4)
+region = Rect2(10, 0, 36, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sf4mh"]
 radius = 19.026299
@@ -19,7 +19,7 @@ script = ExtResource("1_olwj8")
 scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_olwj8")
 region_enabled = true
-region_rect = Rect2(-0.035758972, 0.35620213, 3.694271, 2.652296)
+region_rect = Rect2(0, 0, 4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sf4mh")

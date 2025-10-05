@@ -1,5 +1,5 @@
-var max_health
-var current_health
+var max_health: float
+var current_health: float
 var animation_timer = -1
 signal death_signal
 signal health_percentage
