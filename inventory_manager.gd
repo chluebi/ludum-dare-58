@@ -11,7 +11,6 @@ func _ready() -> void:
 	for i in range(num_slots):
 		is_empty.append(true)
 		entries.append(0)
-
 	_update()
 
 func _input(event):

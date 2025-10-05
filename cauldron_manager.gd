@@ -21,6 +21,7 @@ func _ready() -> void:
 	
 	$"../inventory_manager".pickup_item(Constants.item_type.empty)
 	$"../inventory_manager".pickup_item(Constants.item_type.firestone)
+	$"../inventory_manager".pickup_item(Constants.item_type.blue)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

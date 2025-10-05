@@ -51,12 +51,10 @@ func on_collision(body):
 	particles.direction = direction
 	particles.emitting = true
 	get_parent().get_parent().add_child(particles)
-	var audio
-	if size > 0:
-		audio = $hard_audio
-	else:
-		audio = $soft_audio
+	var audio = $soft_audio
 	if "health" in body:
+		if size > 0:
+			audio = $hard_audio
 		if body.health.take_damage(damage * (1 + size)) and size > 0:
 			damage *= 2
 			audio.play()

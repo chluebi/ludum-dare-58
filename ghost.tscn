@@ -16,8 +16,11 @@ radius = 98.0
 
 [node name="Ghost" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 6
 script = ExtResource("1_obmiq")
+speed = 180.0
+damage = 20.0
+can_go_through_walls = true
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)

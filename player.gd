@@ -116,3 +116,6 @@ func on_potion_pickup(pot):
 	elif is_drinking:
 		INVENTORY_MANAGER.drink_from_ground(pot.type)
 		pot.queue_free()
+
+func drink():
+	$drink.play()

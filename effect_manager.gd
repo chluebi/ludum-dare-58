@@ -1,5 +1,7 @@
 extends Node
 
+const SLOWMO = preload("res://slowmo_area.tscn")
+
 class EffectState:
 	var duration: float
 	var start_time: float = -INF
@@ -22,12 +24,13 @@ class EffectState:
 			return strength
 		else:
 			return 0
-	
+
+
 var effect_dictionary = {
 	Constants.item_type.orange: EffectState.new(10),
 	Constants.item_type.yellow: EffectState.new(5),
 	#Constants.potion_type.green: EffectState.new(-1),
-	Constants.item_type.blue: EffectState.new(6),
+	#Constants.item_type.blue: EffectState.new(6),
 	Constants.item_type.purple: EffectState.new(15),
 	Constants.item_type.pink: EffectState.new(3),
 }
@@ -43,6 +46,8 @@ func activity_strength(color) -> int:
 	return effect_dictionary[color].activity_strength(time)
 
 func activate(drinker, color: Constants.item_type):
+	if drinker.has_method("drink"):
+		drinker.drink()
 	if color in effect_dictionary:
 		var duration = effect_dictionary[color].start(time)
 		var hud := $"../HUD"
@@ -51,3 +56,7 @@ func activate(drinker, color: Constants.item_type):
 	#immediate effects
 	if color == Constants.item_type.green:
 		drinker.health.heal_damage(25)
+	if color == Constants.item_type.blue:
+		var s = SLOWMO.instantiate()
+		s.position = drinker.position
+		get_parent().add_child(s)

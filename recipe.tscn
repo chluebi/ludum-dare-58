@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d0emiyo3ie8fq"]
 
 [ext_resource type="Texture2D" uid="uid://ctn52h7ljwwp5" path="res://arrow.png" id="1_6eiay"]
-[ext_resource type="Script" uid="uid://cah73jfphe1hw" path="res://recipe.gd" id="1_43k02"]
+[ext_resource type="Script" path="res://recipe.gd" id="1_43k02"]
 [ext_resource type="PackedScene" uid="uid://d281lsqavd45o" path="res://item_sprite.tscn" id="1_p6tcl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6tcl"]

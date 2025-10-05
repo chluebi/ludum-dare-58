@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv5s6r5yjnstc"]
+
+[ext_resource type="Texture2D" uid="uid://8k6e1qw50uea" path="res://Slowmo.png" id="1_oe3nf"]
+[ext_resource type="Script" uid="uid://bafk2cudvfo5j" path="res://slowmo_area.gd" id="1_pegdh"]
+
+[node name="slowmo_area" type="Sprite2D"]
+modulate = Color(0.75686276, 0.75686276, 0.75686276, 0.7372549)
+scale = Vector2(10, 10)
+texture = ExtResource("1_oe3nf")
+offset = Vector2(0, -3)
+script = ExtResource("1_pegdh")
+radius = 550.0
