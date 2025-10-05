@@ -10,6 +10,7 @@ const MASS: float = 10.0
 const ARRIVE_DISTANCE: float = 10.0
 
 @export_range(10, 500, 0.1, "or_greater") var speed: float = 200.0
+@export_range(0, 100, 0.1) var damage: float = 15.0
 
 var _velocity := Vector2()
 
@@ -64,7 +65,7 @@ func _physics_process(_delta: float) -> void:
 
 func attack_player(body):
 	if "health" in body:
-		body.health.take_damage(15)
+		body.health.take_damage(damage)
 		attack_target = body
 		attack_timer = 0
 

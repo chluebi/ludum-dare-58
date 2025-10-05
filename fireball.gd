@@ -61,9 +61,11 @@ func on_collision(body):
 			damage *= 2
 			audio.play()
 			return
-	remove_child(audio)
-	get_parent().add_child(audio)
-	audio.position = position
-	audio.play()
-	audio.finished.connect(audio.queue_free)
+	# sometimes, the audio players are not ready when the collision happens, so this check avoids a crash
+	if audio:
+		remove_child(audio)
+		get_parent().add_child(audio)
+		audio.position = position
+		audio.play()
+		audio.finished.connect(audio.queue_free)
 	queue_free()

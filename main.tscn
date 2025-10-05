@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bpype5vdrgnek"]
+[gd_scene load_steps=16 format=4 uid="uid://bpype5vdrgnek"]
 
 [ext_resource type="Texture2D" uid="uid://b75j101henfac" path="res://test_background.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="2_0xm2m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b7tk7wyyonbao" path="res://effect_manager.gd" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://tfuqtyafw6be" path="res://inventory_manager.gd" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://da6hjhpeubx5h" path="res://poison_trail.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://c21rcy2x0nae8" path="res://ghost.tscn" id="13_ycdy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("2_272bh")
@@ -84,6 +85,9 @@ position = Vector2(2160, 560)
 
 [node name="Skullpile" parent="Environment" instance=ExtResource("8_ycdy4")]
 position = Vector2(2000, 1200)
+
+[node name="Ghost" parent="Environment" instance=ExtResource("13_ycdy4")]
+position = Vector2(1670, 395)
 
 [node name="HUD" parent="." instance=ExtResource("8_5vw27")]
 
