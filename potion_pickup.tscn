@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6888bgnahqbh"]
 
 [ext_resource type="Script" uid="uid://c14k57glxcn2a" path="res://potion_pickup.gd" id="1_f5fje"]
-[ext_resource type="PackedScene" uid="uid://byf16yhs85nnc" path="res://item_sprite.tscn" id="2_d2ggp"]
+[ext_resource type="PackedScene" uid="uid://d281lsqavd45o" path="res://item_sprite.tscn" id="2_d2ggp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5fje"]
 size = Vector2(49, 71)
@@ -11,7 +11,7 @@ radius = 59.008472
 
 [node name="potion_pickup" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 11
+collision_mask = 15
 mass = 0.1
 gravity_scale = 0.0
 script = ExtResource("1_f5fje")

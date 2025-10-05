@@ -7,13 +7,12 @@ size = Vector2(12.800003, 12.700002)
 
 [node name="Crate" type="StaticBody2D" groups=["static_obstacles"]]
 scale = Vector2(10, 10)
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(8, 6)
+position = Vector2(0.099999994, -2.6)
 texture = ExtResource("1_uep05")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.999998, 8.749998)
+position = Vector2(-5.293956e-23, 0)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mo0jf")

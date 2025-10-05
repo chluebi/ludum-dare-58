@@ -48,7 +48,7 @@ func spawn_enemy(pos):
 	get_parent().add_child.call_deferred(enemy)
 
 func _on_timer_timeout() -> void:
-	var r := randf_range(16, 32)
+	var r := randf_range(160, 320)
 	var phi := randf_range(0, 2 * PI)
 	
 	spawn_enemy(position + Vector2(r * sin(phi), r * cos(phi)))
