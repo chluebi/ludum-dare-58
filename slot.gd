@@ -15,12 +15,9 @@ func setup(slot_index: int, is_empty: bool, potion_type: Constants.potion_type, 
 		selector.stop()
 		selector.play("default")
 	
+	var potion = $potion
 	if !is_empty:
-		var potion = POTION_SCENE.instantiate()
-		
-		add_child(potion)
-		potion.position = position
+		potion.visible = true
 		potion.set_potion_type(potion_type)
-		
-		potion.scale = Vector2(0.9, 0.9)
-	
+	else:
+		potion.visible = false
