@@ -5,6 +5,7 @@ const PARTICLES = preload("res://poison_particles.tscn")
 
 const DURATION = 3.0
 var damage = 5
+var evil = false
 
 class EmittedPoint:
 	var shape
@@ -16,6 +17,8 @@ class EmittedPoint:
 		particles = PARTICLES.instantiate()
 		shape.position = pos
 		particles.position = pos
+		if parent.evil:
+			particles.material.set_shader_parameter("purple", Vector4(0.8, 0.2, 0.3, 0.8))
 		parent.add_child.call_deferred(shape)
 		parent.add_child.call_deferred(particles)
 		

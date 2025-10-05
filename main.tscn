@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bpype5vdrgnek"]
+[gd_scene load_steps=19 format=4 uid="uid://bpype5vdrgnek"]
 
 [ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://bw4v2c3mih1f1" path="res://floor1(5).png" id="2_272bh"]
@@ -8,11 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://b4s8ah7fjsuyp" path="res://hud.tscn" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://cbnnke38dp7y2" path="res://enemy_spawner.gd" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://coq16sep4c0sq" path="res://skullpile.tscn" id="8_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://vyidsfr10l6k" path="res://glass_shelf.tscn" id="9_vivmo"]
-[ext_resource type="PackedScene" uid="uid://dndsb0cfjtxsl" path="res://stone_shelf.tscn" id="10_2cqfq"]
+[ext_resource type="PackedScene" path="res://glass_shelf.tscn" id="9_vivmo"]
+[ext_resource type="PackedScene" path="res://stone_shelf.tscn" id="10_2cqfq"]
 [ext_resource type="Script" uid="uid://b7tk7wyyonbao" path="res://effect_manager.gd" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dnau6wk1cdf4h" path="res://mushroom.tscn" id="10_yaehf"]
 [ext_resource type="Script" uid="uid://tfuqtyafw6be" path="res://inventory_manager.gd" id="11_efxa6"]
-[ext_resource type="PackedScene" path="res://poison_trail.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://da6hjhpeubx5h" path="res://poison_trail.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://cfwmkj2ko26yv" path="res://cauldron_manager.gd" id="12_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bssldjs2broyd" path="res://ghost.tscn" id="13_ycdy4"]
 
@@ -93,6 +94,9 @@ position = Vector2(554.0002, 880)
 
 [node name="StoneShelf" parent="Environment" instance=ExtResource("10_2cqfq")]
 position = Vector2(245.00006, 1680.9999)
+
+[node name="Mushroom" parent="Environment" instance=ExtResource("10_yaehf")]
+position = Vector2(1210, 361)
 
 [node name="HUD" parent="." instance=ExtResource("8_5vw27")]
 

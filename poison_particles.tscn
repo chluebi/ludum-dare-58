@@ -6,6 +6,7 @@
 shader = ExtResource("1_pek08")
 shader_parameter/cell_amount = 20
 shader_parameter/period = Vector2(6, 6)
+shader_parameter/purple = Color(0.7, 0.2, 0.8, 0.8)
 
 [node name="poison_particles" type="CPUParticles2D"]
 material = SubResource("ShaderMaterial_labkj")

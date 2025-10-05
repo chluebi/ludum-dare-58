@@ -42,7 +42,7 @@ void vertex() {
 	// Called for every vertex the material is visible on.
 	//VERTEX += 30.0 * vec2(seamless_noise(VERTEX + 0.02 * vec2(TIME,TIME), 100.0 * period));
 }
-instance uniform vec4 purple : source_color = vec4(0.7, 0.2, 0.8, 0.8);
+uniform vec4 purple : source_color = vec4(0.7, 0.2, 0.8, 0.8);
 void fragment() {
 	// Called for every pixel the material is visible on.
 	float noise = seamless_noise(SCREEN_UV + .02 * vec2(TIME, TIME), period);
