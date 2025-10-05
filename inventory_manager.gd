@@ -63,6 +63,15 @@ func drink_from_ground(potion_type: Constants.potion_type):
 	_update()
 	
 	
+func remove_current_item() -> Variant:
+	if is_empty[current_slot_index]:
+		return null
+	var value = entries[current_slot_index]
+	is_empty[current_slot_index] = true
+	_update()
+	return value
+
+	
 func pickup_item(potion_type: Constants.potion_type) -> bool:
 	for i in range(num_slots):
 		if is_empty[i]:

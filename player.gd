@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
-@export var MAX_SPEED = 400
+@export var MAX_SPEED: int = 400
 @export var ACCELERATION = 20
 @onready var BOOK = $book
 const BOOK_DISTANCE = 50
 const FIREBALL_SCENE = preload("res://fireball.tscn")
-#const POTION_SCENE = preload("res://potion_pickup.tscn")
+const POTION_SCENE = preload("res://potion_pickup.tscn")
 const HEALTH_SCRIPT = preload("res://health.gd")
 const PLAYER_DEATH_SCRIPT = preload("res://death.gd")
 
 const ATTACK_INTERVAL = 0.7
+const THROW_DISTANCE = 3
 var attack_timer = 0.0
 
 var health = HEALTH_SCRIPT.new(100)
@@ -49,6 +50,14 @@ func _process(delta):
 		is_drinking = true
 	if Input.is_action_just_released("drink"):
 		is_drinking = false
+		
+	if Input.is_action_just_pressed("throw"):
+		var item = INVENTORY_MANAGER.remove_current_item()
+		if item != null:
+			var pot = POTION_SCENE.instantiate()
+			pot.set_potion_type(item)
+			print('new potion ', pot)
+			get_parent().add_child(pot)
 	
 	if Input.is_action_pressed("shoot"):
 		if attack_timer >= ATTACK_INTERVAL:
