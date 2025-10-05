@@ -118,7 +118,6 @@ func find_path(global_start_point: Vector2i, global_end_point: Vector2i) -> Pack
 
 	# Check if start/end points are blocked by a dynamic obstacle.
 	if _astar.is_point_solid(_start_point) or _astar.is_point_solid(_end_point):
-		print("Start or end point is blocked!")
 		return PackedVector2Array() # Return empty path
   
 	_path = _astar.get_point_path(_start_point, _end_point)
