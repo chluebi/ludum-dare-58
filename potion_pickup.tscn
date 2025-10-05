@@ -1,18 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6888bgnahqbh"]
+[gd_scene load_steps=5 format=3 uid="uid://c6888bgnahqbh"]
 
 [ext_resource type="Script" uid="uid://c14k57glxcn2a" path="res://potion.gd" id="1_f5fje"]
 [ext_resource type="PackedScene" uid="uid://byf16yhs85nnc" path="res://potion_sprite.tscn" id="2_d2ggp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5fje"]
+size = Vector2(49, 71)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_174ht"]
 radius = 59.008472
 
-[node name="potion" type="Area2D"]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
+[node name="potion" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 11
+mass = 0.1
+gravity_scale = 0.0
 script = ExtResource("1_f5fje")
 
 [node name="sprite" parent="." instance=ExtResource("2_d2ggp")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_f5fje")
+
+[node name="Pickup" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
 shape = SubResource("CircleShape2D_174ht")
