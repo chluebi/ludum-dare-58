@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://lc1ycy0ilj02"]
+
+[ext_resource type="Script" uid="uid://blg6uh3sdf1nr" path="res://item_source.gd" id="1_jlb8q"]
+[ext_resource type="PackedScene" uid="uid://d281lsqavd45o" path="res://item_sprite.tscn" id="2_tnce7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6tcl"]
+bg_color = Color(0.60192096, 0.5099987, 0.30167386, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43k02"]
+size = Vector2(53.33333, 40)
+
+[node name="Source" type="Node2D"]
+scale = Vector2(0.15, 0.15)
+script = ExtResource("1_jlb8q")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -25.0
+offset_top = -20.0
+offset_right = 25.0
+offset_bottom = 20.0
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p6tcl")
+
+[node name="Result" parent="Control" instance=ExtResource("2_tnce7")]
+position = Vector2(25, 20)
+scale = Vector2(3, 3)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_43k02")

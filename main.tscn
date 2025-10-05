@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bpype5vdrgnek"]
+[gd_scene load_steps=18 format=4 uid="uid://bpype5vdrgnek"]
 
 [ext_resource type="Texture2D" uid="uid://b75j101henfac" path="res://test_background.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="2_0xm2m"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4s8ah7fjsuyp" path="res://hud.tscn" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://cbnnke38dp7y2" path="res://enemy_spawner.gd" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://coq16sep4c0sq" path="res://skullpile.tscn" id="8_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://vyidsfr10l6k" path="res://glass_shelf.tscn" id="9_vivmo"]
 [ext_resource type="Script" uid="uid://b7tk7wyyonbao" path="res://effect_manager.gd" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://tfuqtyafw6be" path="res://inventory_manager.gd" id="11_efxa6"]
 [ext_resource type="Script" uid="uid://cfwmkj2ko26yv" path="res://cauldron_manager.gd" id="12_ycdy4"]
@@ -90,6 +91,9 @@ position = Vector2(2000, 1200)
 [node name="Ghost" parent="Environment" instance=ExtResource("13_ycdy4")]
 z_index = 1
 position = Vector2(1670, 395)
+
+[node name="Shelf" parent="Environment" instance=ExtResource("9_vivmo")]
+position = Vector2(880, 879.99994)
 
 [node name="HUD" parent="." instance=ExtResource("8_5vw27")]
 
