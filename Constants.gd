@@ -5,7 +5,7 @@ enum item_type {
 }
 
 static func random_potion() -> item_type:
-	return randi_range(0, item_type.empty - 1)
+	return randi_range(0, item_type.empty - 1) as item_type
 
 static func is_drinkable_potion(i: item_type) -> bool:
 	return 0 <= i and i < item_type.empty

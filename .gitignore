@@ -4,3 +4,5 @@
 # nix specific ignores
 .envrc
 .direnv/*
+# ignore build
+build

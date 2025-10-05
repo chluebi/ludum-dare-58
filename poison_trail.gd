@@ -3,7 +3,7 @@ extends Area2D
 const COLLISION = preload("res://poison_collision.tscn")
 const PARTICLES = preload("res://poison_particles.tscn")
 
-const DURATION = 5.0
+const DURATION = 3.0
 var damage = 5
 
 class EmittedPoint:
