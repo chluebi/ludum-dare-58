@@ -8,7 +8,7 @@ class EffectState:
 	var start_time: float = -INF
 	var strength: int = 0 # for stacking
 	func _init(d):
-		duration = d
+		duration = d + Persistent.duration_extension
 	
 	func start(time) -> float:
 		if !is_active(time):

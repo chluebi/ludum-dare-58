@@ -29,6 +29,7 @@ func _ready() -> void:
 		$Return/Gold.text = "Gold: " + str(Persistent.gold)
 		
 		$Return/BagUpgrade/Upgrade.setup()
+		$Return/DurationUpgrade/Upgrade.setup()
 	else:
 		$Return.hide()
 		$Start.show()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://250fbunu3v0d"]
+[gd_scene load_steps=15 format=3 uid="uid://250fbunu3v0d"]
 
 [ext_resource type="Texture2D" uid="uid://dtcp2y1ocpuve" path="res://shelf_screen.png" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://befw0k4txuq7a" path="res://menu.gd" id="1_ouk20"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://h0cxdn5e2ft0" path="res://slime0.png" id="4_l48gv"]
 [ext_resource type="Texture2D" uid="uid://da612gx1jqwko" path="res://slime1.png" id="5_ecwwl"]
 [ext_resource type="Script" uid="uid://dj865drgtuh2y" path="res://upgrade.gd" id="6_l48gv"]
+[ext_resource type="Script" uid="uid://dhlthnl6758fx" path="res://duration_upgrade.gd" id="7_ecwwl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ouk20"]
 
@@ -134,7 +135,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.025
 anchor_bottom = 0.026
-offset_left = 646.0
+offset_left = 620.0
 offset_top = 664.0
 offset_right = 868.0
 offset_bottom = 712.0
@@ -153,6 +154,53 @@ offset_left = 929.0
 offset_top = 660.0
 offset_right = 1054.0
 offset_bottom = 719.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+text = "Upgrade for
+10 Gold"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DurationUpgrade" type="Control" parent="Return"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Upgrade" type="Button" parent="Return/DurationUpgrade"]
+layout_mode = 0
+offset_left = 874.0
+offset_top = 733.0
+offset_right = 925.0
+offset_bottom = 787.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+text = "+"
+script = ExtResource("7_ecwwl")
+
+[node name="Duration" type="Label" parent="Return/DurationUpgrade"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.026
+offset_left = 619.0
+offset_top = 734.0
+offset_right = 868.0
+offset_bottom = 782.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_kk3ma")
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="Label" parent="Return/DurationUpgrade"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.026
+offset_left = 931.0
+offset_top = 730.0
+offset_right = 1056.0
+offset_bottom = 789.0
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
 text = "Upgrade for
@@ -191,4 +239,5 @@ text = "Potion Collector"
 
 [connection signal="pressed" from="Return/Return" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Return/BagUpgrade/Upgrade" to="Return/BagUpgrade/Upgrade" method="_on_pressed"]
+[connection signal="pressed" from="Return/DurationUpgrade/Upgrade" to="Return/DurationUpgrade/Upgrade" method="_on_pressed"]
 [connection signal="pressed" from="Start/Start" to="." method="_on_start_pressed"]
