@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 
 
 func setup(
-	empty_in: bool,
+	bottle_type: Constants.item_type, empty_in: bool,
 	ingredient1_type: Constants.item_type, ingredient1_in: bool,
 	recipe_has_ingredient2: bool,
 	ingredient2_type: Constants.item_type, ingredient2_in: bool,
@@ -50,7 +50,7 @@ func setup(
 	set_brew_time: float):
 	
 	var empty = $Control/Empty
-	empty.set_item_type(Constants.item_type.empty)
+	empty.set_item_type(bottle_type)
 	empty.modulate = Color(empty.modulate.r, empty.modulate.g, empty.modulate.b, 1.0 if empty_in else 0.2)
 	
 	var ingredient1 = $Control/Ingredient1

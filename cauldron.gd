@@ -10,6 +10,7 @@ const POTION_SCENE = preload("res://potion_pickup.tscn")
 
 var empty_in = false
 
+var ingredient0_type = Constants.item_type.empty
 var ingredient1_type = Constants.item_type.empty
 var ingredient1_in = false
 
@@ -59,12 +60,14 @@ func collect_item(body):
 			return
 	
 func setup(
+	set_ingredient0_type: Constants.item_type,
 	set_ingredient1_type: Constants.item_type,
 	set_recipe_has_ingredient2: bool,
 	set_ingredient2_type: Constants.item_type,
 	set_result_type: Constants.item_type,
 	set_brew_time: float):
-		
+	
+	ingredient0_type = set_ingredient0_type
 	ingredient1_type = set_ingredient1_type
 	recipe_has_ingredient2 = set_recipe_has_ingredient2
 	ingredient2_type = set_ingredient2_type
@@ -81,7 +84,7 @@ func update_recipe_ui():
 	else:
 		brewing = false
 		
-	$Recipe.setup(empty_in,
+	$Recipe.setup(ingredient0_type, empty_in,
 		ingredient1_type, ingredient1_in,
 		recipe_has_ingredient2,
 		ingredient2_type, ingredient2_in,
@@ -108,7 +111,7 @@ func _process(delta: float) -> void:
 			ingredient2_in = false
 			brewing = false
 			
-			$Recipe.setup(empty_in,
+			$Recipe.setup(ingredient0_type, empty_in,
 				ingredient1_type, ingredient1_in,
 				recipe_has_ingredient2,
 				ingredient2_type, ingredient2_in,
