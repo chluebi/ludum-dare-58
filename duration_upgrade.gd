@@ -1,5 +1,30 @@
-extends Button
+extends Control
 
+var duration_upgrades_text = {
+	0: "Short Potion Duration",
+	1: "Medium Potion Duration",
+	2: "Long Potion Duration",
+	3: "Longest Potion Duration",
+	4: "These Potions are crazy",
+	5: "Potions that last...",
+	6: "Worldchanging Potions",
+	7: ":-}",
+}
+
+var duration_upgrades_value = {
+	0: 0,
+	1: 1,
+	2: 2,
+	3: 3,
+	4: 4,
+	5: 5,
+	6: 6,
+	7: 7
+}
+
+func setup():
+	Persistent.duration_extension = duration_upgrades_value[len(Persistent.escaped)]
+	$Duration.text = duration_upgrades_text[Persistent.duration_extension]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,31 +34,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-var duration_upgrades_text = {
-	0: "Short Potion Duration",
-	1: "Longer Potion Duration",
-	2: "Long Potion Duration",
-	3: "Longest Potion Duration",
-	4: "These Potions are crazy"
-}
-
-var duration_upgrades_cost = {
-	0: 10,
-	1: 20,
-	2: 50,
-	3: 100,
-	4: 1000000
-}
-
-func setup():
-	$"../Duration".text = duration_upgrades_text[Persistent.duration_extension]
-	$"../Cost".text = "Upgrade for\n" + str(duration_upgrades_cost[Persistent.duration_extension]) + " Gold"
-
-func _on_pressed() -> void:
-	if Persistent.gold >= duration_upgrades_cost[Persistent.duration_extension]:
-		Persistent.gold -= duration_upgrades_cost[Persistent.duration_extension]
-		if Persistent.duration_extension < 4:
-			Persistent.duration_extension += 1
-		setup()
-		

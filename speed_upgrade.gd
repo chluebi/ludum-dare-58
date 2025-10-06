@@ -1,4 +1,4 @@
-extends Button
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,25 +15,25 @@ var speed_upgrades_text = {
 	1: "Move slightly faster",
 	2: "Move significantly faster",
 	3: "Speed",
-	4: "Sonic"
+	4: "Sonic",
+	5: "Supersonic",
+	6: "Mach 100",
+	7: "c",
 }
 
-var duration_upgrades_cost = {
-	0: 0,
-	1: 0,
-	2: 50,
-	3: 100,
-	4: 1000000
-}
 
 func setup():
-	$"../Speed".text = speed_upgrades_text[Persistent.duration_extension]
-	#$"../Cost".text = "Upgrade for\n" + str(duration_upgrades_cost[Persistent.duration_extension]) + " Gold"
+	$Speed.text = speed_upgrades_text[Persistent.duration_extension]
 
-func _on_pressed() -> void:
-	print("pressed")
-	if Persistent.gold >= duration_upgrades_cost[Persistent.duration_extension]:
-		Persistent.gold -= duration_upgrades_cost[Persistent.duration_extension]
-		if Persistent.speed_upgrade < 4:
-			Persistent.speed_upgrade += 1
-		setup()
+
+
+var duration_upgrades_text = {
+	0: "Short Potion Duration",
+	1: "Medium Potion Duration",
+	2: "Long Potion Duration",
+	3: "Longest Potion Duration",
+	4: "These Potions are crazy",
+	5: "Potions that last...",
+	6: "Worldchanging Potions",
+	7: ":-}",
+}
