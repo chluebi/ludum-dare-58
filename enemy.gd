@@ -48,7 +48,7 @@ func _process(real_delta: float) -> void:
 const offset := Vector2i(160, 160) * 0.5 # enemy is 16x16 scaled by 10
 
 func _physics_process(_delta: float) -> void:
-	if $"../../tutorial_manager" and !$"../../tutorial_manager".enemy_activity:
+	if get_node_or_null("../../tutorial_manager") != null and !$"../../tutorial_manager".enemy_activity:
 		return
 		
 	if can_go_through_walls:

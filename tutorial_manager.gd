@@ -90,7 +90,6 @@ func _process(delta: float) -> void:
 		and !INVENTORY_MANAGER.inventory_contains(Constants.item_type.orange):
 		current_step = tutorial_mouse
 		MOUSE_INPUTS = 0
-		$"../enemy_spawner".spawn_enemy(Vector2(1200, 560))
 		show_current()
 		
 	if current_step == tutorial_mouse \
