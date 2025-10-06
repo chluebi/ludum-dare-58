@@ -38,7 +38,7 @@ func collect_item(body):
 		return
 		
 	if "type" in body:
-		if !empty_in and body.type == Constants.item_type.empty:
+		if !empty_in and body.type == ingredient0_type:
 			empty_in = true
 			$insert.play()
 			body.queue_free()
