@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://be1xpy1oklpuh"]
+[gd_scene load_steps=4 format=3 uid="uid://be1xpy1oklpuh"]
 
 [ext_resource type="PackedScene" uid="uid://250fbunu3v0d" path="res://menu.tscn" id="2_7vrkn"]
 
 [sub_resource type="GDScript" id="GDScript_06t4h"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
+bg_color = Color(0.8023494, 0.5301193, 0.2894932, 1)
+
 [node name="MainMenu" type="Node2D"]
 script = SubResource("GDScript_06t4h")
 
 [node name="Menu" parent="." instance=ExtResource("2_7vrkn")]
+
+[node name="Button" type="Button" parent="Menu"]
+offset_left = 614.0
+offset_top = 348.0
+offset_right = 919.0
+offset_bottom = 422.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
+text = "Start Game"
