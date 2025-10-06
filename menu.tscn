@@ -94,7 +94,7 @@ offset_right = 926.0
 offset_bottom = 558.6
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_l48gv")
-text = "Potion Collector
+text = "Potion Mania
 Test"
 
 [node name="BagUpgrade" type="Control" parent="Return"]
@@ -236,7 +236,7 @@ offset_top = 325.0
 offset_right = 963.0
 offset_bottom = 392.96
 theme_override_font_sizes/font_size = 50
-text = "Potion Collector"
+text = "Potion Mania"
 
 [connection signal="pressed" from="Return/Return" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Start/Start" to="." method="_on_start_pressed"]
