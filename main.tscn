@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://da6hjhpeubx5h" path="res://poison_trail.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://cfwmkj2ko26yv" path="res://cauldron_manager.gd" id="12_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bssldjs2broyd" path="res://ghost.tscn" id="13_ycdy4"]
-[ext_resource type="PackedScene" path="res://tutorial_manager.tscn" id="15_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://e0cdf5w3sj71" path="res://tutorial_manager.tscn" id="15_2cqfq"]
 [ext_resource type="Script" uid="uid://wo72nnhfgwvx" path="res://exit.gd" id="19_cegan"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
