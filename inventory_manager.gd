@@ -30,7 +30,7 @@ func _input(event):
 		if event.is_action_pressed("ui_scroll_down"):
 			var new_slot_index := current_slot_index - 1
 			while new_slot_index < 0:
-				new_slot_index += 6
+				new_slot_index += num_slots
 			_select_slot_by_index(new_slot_index)
 			get_viewport().set_input_as_handled()
 			break
