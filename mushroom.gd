@@ -40,7 +40,7 @@ func _process(real_delta: float) -> void:
 		poison_trail.poison_tick()
 	if spawn_timer >= SPAWN_INTERVAL and (player.position - position).length_squared() < RANGE * RANGE:
 		spawn_timer = 0
-		poison_trail.update_carrier(player.position)
+		poison_trail.update_carrier(player.position + 150 * Vector2.from_angle(randf_range(-PI, PI)))
 
 func on_death():
 	poison_trail.force_cleanup()
