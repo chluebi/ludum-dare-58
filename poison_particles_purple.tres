@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dgvy8trxd6hya"]
+
+[ext_resource type="Shader" uid="uid://cy00tqn3dsc4p" path="res://poison_trail.gdshader" id="1_jt4w8"]
+
+[resource]
+shader = ExtResource("1_jt4w8")
+shader_parameter/cell_amount = 20
+shader_parameter/period = Vector2(6, 6)
+shader_parameter/purple = Color(0.7, 0.2, 0.8, 0.8)

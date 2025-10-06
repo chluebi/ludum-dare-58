@@ -11,8 +11,8 @@ func _ready() -> void:
 	for i in range(num_slots):
 		is_empty.append(true)
 		entries.append(0)
-	pickup_item(Constants.item_type.orange)
-	pickup_item(Constants.item_type.orange)
+	pickup_item(Constants.item_type.purple)
+	#pickup_item(Constants.item_type.orange)
 	_update()
 
 func _input(event):

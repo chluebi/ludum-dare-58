@@ -21,9 +21,6 @@ var all_tutorials = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if !tutorial_enabled:
-		queue_free()
-		return
 	all_tutorials.append(tutorial_movement)
 	all_tutorials.append(tutorial_find)
 	all_tutorials.append(tutorial_drop)
@@ -31,6 +28,8 @@ func _ready() -> void:
 	all_tutorials.append(tutorial_wait)
 	all_tutorials.append(tutorial_drink)
 	all_tutorials.append(tutorial_mouse)
+	if !tutorial_enabled:
+		stop_tutorial()
 	show_current()
 
 func show_current():
@@ -45,6 +44,7 @@ var MOUSE_INPUTS = 0
 
 func stop_tutorial():
 	enemy_activity = true
+	current_step = null
 	for node in get_tree().get_nodes_in_group("tutorial_blockers"):
 		node.queue_free()
 

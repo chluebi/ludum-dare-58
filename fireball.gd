@@ -62,14 +62,14 @@ func on_collision(body):
 	particles.direction = direction
 	particles.emitting = true
 	get_parent().get_parent().add_child(particles)
+	var destroy = true
 	var audio = $soft_audio
 	if "health" in body:
 		if size > 0:
 			audio = $hard_audio
 		if body.health.take_damage(damage * (1 + size)) and size > 0:
 			damage *= 2
-			audio.play()
-			return
+			destroy = false
 	# sometimes, the audio players are not ready when the collision happens, so this check avoids a crash
 	if audio:
 		remove_child(audio)
@@ -77,4 +77,6 @@ func on_collision(body):
 		audio.position = position
 		audio.play()
 		audio.finished.connect(audio.queue_free)
-	queue_free()
+	
+	if destroy:
+		queue_free()

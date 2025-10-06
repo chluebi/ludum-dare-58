@@ -2,14 +2,14 @@
 
 [ext_resource type="Shader" uid="uid://cy00tqn3dsc4p" path="res://poison_trail.gdshader" id="1_pek08"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_labkj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pek08"]
 shader = ExtResource("1_pek08")
 shader_parameter/cell_amount = 20
 shader_parameter/period = Vector2(6, 6)
-shader_parameter/purple = Color(0.7, 0.2, 0.8, 0.8)
+shader_parameter/purple = Color(0.8627451, 0.105882354, 0.12156863, 0.8)
 
 [node name="poison_particles" type="CPUParticles2D"]
-material = SubResource("ShaderMaterial_labkj")
+material = SubResource("ShaderMaterial_pek08")
 amount = 100
 emission_shape = 1
 emission_sphere_radius = 50.0

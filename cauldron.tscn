@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://wmwgnv10gs56"]
+[gd_scene load_steps=9 format=3 uid="uid://wmwgnv10gs56"]
 
 [ext_resource type="Script" uid="uid://digbukh8ije7" path="res://cauldron.gd" id="1_0t22i"]
 [ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_5qdwy"]
 [ext_resource type="PackedScene" uid="uid://d0emiyo3ie8fq" path="res://recipe.tscn" id="3_q3ljf"]
 [ext_resource type="AudioStream" uid="uid://bihsdylmynmdg" path="res://sfx/cooked.wav" id="4_a7jlv"]
+[ext_resource type="AudioStream" uid="uid://davggtt7885vv" path="res://sfx/inserted.wav" id="5_ju8ne"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0t22i"]
 atlas = ExtResource("1_5qdwy")
@@ -44,3 +45,6 @@ shape = SubResource("CircleShape2D_q3ljf")
 
 [node name="finish" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_a7jlv")
+
+[node name="insert" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ju8ne")

@@ -43,6 +43,7 @@ func _process(real_delta: float) -> void:
 		poison_trail.update_carrier(player.position)
 
 func on_death():
+	poison_trail.force_cleanup()
 	for x in range(2):
 		var i = ITEM_SCENE.instantiate()
 		var t = Constants.item_type.mushroom

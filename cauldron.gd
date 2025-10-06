@@ -34,12 +34,14 @@ func collect_item(body):
 	if "type" in body:
 		if !empty_in and body.type == Constants.item_type.empty:
 			empty_in = true
+			$insert.play()
 			body.queue_free()
 			update_recipe_ui()
 			return
 			
 		if !ingredient1_in and body.type == ingredient1_type:
 			ingredient1_in = true
+			$insert.play()
 			body.queue_free()
 			update_recipe_ui()
 			return
@@ -47,6 +49,7 @@ func collect_item(body):
 		if recipe_has_ingredient2 and !ingredient2_in and body.type == ingredient2_type:
 			ingredient2_in = true
 			body.queue_free()
+			$insert.play()
 			update_recipe_ui()
 			return
 	

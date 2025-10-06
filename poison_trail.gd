@@ -17,8 +17,8 @@ class EmittedPoint:
 		particles = PARTICLES.instantiate()
 		shape.position = pos
 		particles.position = pos
-		if parent.evil:
-			particles.material.set_shader_parameter("purple", Vector4(0.8, 0.2, 0.3, 0.8))
+		if !parent.evil:
+			particles.material = preload("res://poison_particles_purple.tres")
 		parent.add_child.call_deferred(shape)
 		parent.add_child.call_deferred(particles)
 		
@@ -53,3 +53,8 @@ func set_strength(strength):
 
 func _process(delta: float) -> void:
 	timer += delta
+
+func force_cleanup():
+	for p in points:
+		p.shape.queue_free()
+		p.particles.queue_free()
