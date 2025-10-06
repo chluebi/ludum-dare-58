@@ -23,6 +23,7 @@ var speed_upgrades_text = {
 
 
 func setup():
+	Persistent.speed_upgrade = len(Persistent.escaped)
 	$Speed.text = speed_upgrades_text[Persistent.duration_extension]
 
 

@@ -64,6 +64,8 @@ var potion_values = {
 
 func render_log():
 	var text: String = ""
+	if len(Persistent.escaped) == 7:
+		text += "You collected all potions and won the game!\n"
 	if Persistent.last_run_escaped:
 		text += "Successfully Escaped...\n"
 		for potion in Persistent.just_drunk:
