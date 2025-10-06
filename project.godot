@@ -27,6 +27,9 @@ static_obstacles=""
 dynamic_obstacles=""
 important_entities=""
 tutorial_blockers=""
+spawn_location=""
+pile_location=""
+mushroom_location=""
 
 [input]
 

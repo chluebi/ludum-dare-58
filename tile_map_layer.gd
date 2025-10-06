@@ -18,7 +18,7 @@ var _obstacle_positions: Dictionary = {}
 func _ready() -> void:
 	# Region should match the size of the playable area plus one (in tiles).
 	# In this demo, the playable area is 17x9 tiles, so the rect size is 18x10.
-	_astar.region = Rect2i(0, 0, 100, 100)
+	_astar.region = Rect2i(-50, -50, 100, 100)
 	_astar.cell_size = BASE_TILE_SIZE 
 	_astar.offset = BASE_TILE_SIZE * 0.5 
 	_astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
@@ -39,11 +39,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Check for moving obstacles and update the AStarGrid2D.
 	_update_dynamic_obstacles()
-	
-	# Optional: Recompute the path if an obstacle moved onto the current path.
-	# This logic is more complex and depends on your game's needs (e.g.,
-	# if the player character is waiting for a path to open).
-	# For now, we'll assume pathfinding is triggered only by the 'find_path' call.
 
 
 func _update_dynamic_obstacles() -> void:

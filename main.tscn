@@ -157,6 +157,51 @@ position = Vector2(1000, 500)
 [node name="enemy_spawner" type="Node2D" parent="."]
 script = ExtResource("8_kek77")
 
+[node name="location1" type="Node2D" parent="enemy_spawner" groups=["spawn_location"]]
+position = Vector2(2001, 80)
+
+[node name="location2" type="Node2D" parent="enemy_spawner" groups=["spawn_location"]]
+position = Vector2(240, 2000)
+
+[node name="location3" type="Node2D" parent="enemy_spawner" groups=["spawn_location"]]
+position = Vector2(1040, 2000)
+
+[node name="location4" type="Node2D" parent="enemy_spawner" groups=["spawn_location"]]
+position = Vector2(3120, -80)
+
+[node name="location5" type="Node2D" parent="enemy_spawner" groups=["spawn_location"]]
+position = Vector2(1035, 2800)
+
+[node name="location6" type="Node2D" parent="enemy_spawner" groups=["spawn_location"]]
+position = Vector2(-1520, 3120)
+
+[node name="location7" type="Node2D" parent="enemy_spawner" groups=["spawn_location"]]
+position = Vector2(-1520, 1114)
+
+[node name="location8" type="Node2D" parent="enemy_spawner" groups=["spawn_location"]]
+position = Vector2(-1040, -1040)
+
+[node name="location9" type="Node2D" parent="enemy_spawner" groups=["spawn_location"]]
+position = Vector2(2480, -1265)
+
+[node name="pile_location1" type="Node2D" parent="enemy_spawner" groups=["pile_location"]]
+position = Vector2(2001, 1520)
+
+[node name="pile_location2" type="Node2D" parent="enemy_spawner" groups=["pile_location"]]
+position = Vector2(2169, 1678)
+
+[node name="pile_location3" type="Node2D" parent="enemy_spawner" groups=["pile_location"]]
+position = Vector2(2000, 1840)
+
+[node name="pile_location4" type="Node2D" parent="enemy_spawner" groups=["pile_location"]]
+position = Vector2(720, 1840)
+
+[node name="mushroom_location1" type="Node2D" parent="enemy_spawner" groups=["mushroom_location"]]
+position = Vector2(2480, 2960)
+
+[node name="mushroom_location2" type="Node2D" parent="enemy_spawner" groups=["mushroom_location"]]
+position = Vector2(1680, 3600)
+
 [node name="effect_manager" type="Node" parent="."]
 script = ExtResource("10_4c57u")
 
