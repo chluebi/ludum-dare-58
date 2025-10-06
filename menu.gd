@@ -14,6 +14,8 @@ func _ready() -> void:
 	add_child(t)
 	t.timeout.connect(start_game)
 	t.start(2.0)
+	if Constants.item_type.green in Persistent.drunk:
+		show_slime()
 
 func start_game():
 	get_tree().change_scene_to_packed(MAIN_SCENE)
@@ -38,3 +40,7 @@ func render_potions(potions: Array[Constants.item_type]) -> void:
 		
 		container.add_child(child)
 		
+
+func show_slime():
+	$Slime.visible = true
+	$Slime.play()
