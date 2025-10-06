@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dwklrk08g7n6" path="res://crate.png" id="1_uep05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0jf"]
-size = Vector2(12.800003, 12.700002)
+size = Vector2(15.100002, 12.700002)
 
 [node name="Crate" type="StaticBody2D" groups=["static_obstacles"]]
 scale = Vector2(10, 10)
@@ -13,6 +13,6 @@ position = Vector2(0.099999994, -2.6)
 texture = ExtResource("1_uep05")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.293956e-23, 0)
+position = Vector2(-0.049999923, 0)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mo0jf")

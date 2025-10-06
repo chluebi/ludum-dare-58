@@ -52,6 +52,7 @@ func _physics_process(_delta: float) -> void:
 		return
 		
 	if can_go_through_walls:
+		set_collision_mask_value(3, false)
 		_move_to(player.position)
 		return
 	var tile_pos := _tile_map.local_to_map(_tile_map.to_local(position))
