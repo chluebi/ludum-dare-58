@@ -7,6 +7,8 @@ func _ready():
 	body_entered.connect(leave_map)
 
 func leave_map(body):
+	if !body.is_in_group("player"):
+		return
 	print("before leaving: ", Persistent.tutorial_completed)
 	for i in range(inventory.num_slots):
 		if !inventory.is_empty[i]:

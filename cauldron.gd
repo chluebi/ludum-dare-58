@@ -3,7 +3,7 @@ extends StaticBody2D
 const POTION_DISTANCE = 150
 const POTION_SCENE = preload("res://potion_pickup.tscn")
 
-
+@export var color: Constants.item_type = Constants.item_type.orange
 
 @onready var player = $"../player"
 @onready var recipe = $Recipe
@@ -25,6 +25,11 @@ var timer = 0
 
 func _ready() -> void:
 	$CollectionRange.body_entered.connect(collect_item)
+	if color < Constants.item_type.empty:
+		var c = color
+		if c >= Constants.item_type.rainbow:
+			c -= 1
+		$Sprite2D.region_rect.position = 12 * Vector2(c % 2, c / 2)
 	
 func collect_item(body):
 	print('collect item', body)
