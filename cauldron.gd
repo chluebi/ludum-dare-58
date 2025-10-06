@@ -89,7 +89,7 @@ func update_recipe_ui():
 		brew_time)
 
 func spawn_potion():
-	var r = randf_range(-PI, PI)
+	var r = randf_range(0, PI)
 	var pot = POTION_SCENE.instantiate()
 	pot.set_potion_type(result_type)
 	pot.position = Vector2.from_angle(r) * POTION_DISTANCE + position
@@ -101,7 +101,6 @@ func _process(delta: float) -> void:
 		if timer >= brew_time:
 			$finish.play()
 			spawn_potion()
-	
 			timer = 0
 			
 			empty_in = false
