@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckfm6t0c3o1es"]
+
+[ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="2_t2kmy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbetm"]
+atlas = ExtResource("2_t2kmy")
+
+[node name="plant" type="Sprite2D" groups=["important_entities"]]
+z_index = 10
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_mbetm")
+region_enabled = true
+region_rect = Rect2(48, 0, 9, 11)
+metadata/_edit_group_ = true

@@ -68,3 +68,6 @@ func activate(drinker, color: Constants.item_type):
 		var slime = SLIME.instantiate()
 		slime.position = drinker.position
 		$"../Environment".add_child(slime)
+	if color == Constants.item_type.rainbow:
+		if drinker.has_method("turn_into_plant"):
+			drinker.turn_into_plant()

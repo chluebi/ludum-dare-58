@@ -123,3 +123,13 @@ func drink():
 
 func pickup_sound():
 	$pickup.play()
+
+func turn_into_plant():
+	var plant = preload("res://plant.tscn").instantiate()
+	for child in get_children():
+		if child.is_in_group("keep"):
+			continue
+		child.queue_free()
+	add_child(plant)
+	Persistent.game_completed = true
+	process_mode = Node.PROCESS_MODE_DISABLED

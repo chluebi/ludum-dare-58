@@ -30,7 +30,7 @@ func _ready() -> void:
 func _process(real_delta: float) -> void:
 	if get_node_or_null("../tutorial_manager") != null and !$"../../tutorial_manager".enemy_activity:
 		return
-		
+	
 	var delta = slow_mo * real_delta
 	health.animate_damage(self, real_delta)
 	spawn_timer += delta

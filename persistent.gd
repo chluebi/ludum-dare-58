@@ -3,6 +3,7 @@ extends Node
 var tutorial_completed = false
 var drunk: Array[Constants.item_type] = []
 var escaped: Array[Constants.item_type] = []
+var game_completed = false
 
 
 func add_drunk(i: Constants.item_type):

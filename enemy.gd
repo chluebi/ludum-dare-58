@@ -50,15 +50,18 @@ const offset := Vector2i(160, 160) * 0.5 # enemy is 16x16 scaled by 10
 func _physics_process(_delta: float) -> void:
 	if get_node_or_null("../../tutorial_manager") != null and !$"../../tutorial_manager".enemy_activity:
 		return
-		
+	
+	var target = player.position
+	if Persistent.game_completed:
+		target = player.position + Vector2.from_angle(Time.get_ticks_msec() * 0.001) * 300
 	if can_go_through_walls:
 		set_collision_mask_value(3, false)
-		_move_to(player.position)
+		_move_to(target)
 		return
 	var tile_pos := _tile_map.local_to_map(_tile_map.to_local(position))
-	var path = _tile_map.find_path(_tile_map.to_global(_tile_map.map_to_local(tile_pos)) - offset, player.position)
+	var path = _tile_map.find_path(_tile_map.to_global(_tile_map.map_to_local(tile_pos)) - offset, target)
 	if len(path) < 1:
-		_move_to(player.position)
+		_move_to(target)
 		return
 	
 	var tile_target := _tile_map.local_to_map(path[0])
@@ -67,7 +70,7 @@ func _physics_process(_delta: float) -> void:
 		if len(path) > 1:
 			tile_target = _tile_map.local_to_map(path[1])
 		else:
-			_move_to(player.position)
+			_move_to(target)
 			return
 	
 	if (abs(tile_pos.x - tile_target.x) > abs(tile_pos.y - tile_target.y)):
@@ -75,7 +78,7 @@ func _physics_process(_delta: float) -> void:
 	elif (abs(tile_pos.x - tile_target.x) < abs(tile_pos.y - tile_target.y)):
 		_move_to(_tile_map.to_global(_tile_map.map_to_local(Vector2(tile_pos.x, tile_target.y))))
 	else: 
-		_move_to(player.position)
+		_move_to(target)
 
 func attack_player(body):
 	if "health" in body:

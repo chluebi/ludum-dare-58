@@ -18,7 +18,6 @@ region = Rect2(8, 0, 2, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("3_i3pqv")
-region = Rect2(0, 0, 8, 10)
 
 [node name="player" type="CharacterBody2D" groups=["important_entities"]]
 collision_layer = 2
@@ -30,7 +29,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_sweqy")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["keep"]]
 position_smoothing_enabled = true
 
 [node name="book" type="Sprite2D" parent="."]
@@ -42,6 +41,8 @@ texture = SubResource("AtlasTexture_onrkg")
 scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_i3pqv")
 offset = Vector2(0, -2)
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 10)
 
 [node name="healthbar" parent="." instance=ExtResource("3_hqtel")]
 position = Vector2(0, -80)
