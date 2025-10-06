@@ -22,7 +22,6 @@ func frame_to_rect(animation_frame):
 
 func set_sprite_region():
 	if is_enemy:
-		print(animation_frame)
 		ENEMY_SPRITE.frame = animation_frame
 		return
 	if size == 0:

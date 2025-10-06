@@ -27,8 +27,9 @@ var _velocity := Vector2()
 @export var can_drop: Array[Constants.item_type] = []
 
 var attack_timer = 0.0
-const ATTACK_INTERVAL = 3.0
+const ATTACK_INTERVAL = 2.0
 var slow_mo = 1.0
+var standing_still = false
 
 func _ready() -> void:
 	health.death_signal.connect(on_death)
@@ -49,9 +50,11 @@ func _process(real_delta: float) -> void:
 	var delta = slow_mo * real_delta
 	health.animate_damage(self, real_delta)
 	attack_timer += delta
-	if attack_timer >= ATTACK_INTERVAL:
-		spawn_fireball((player.position + randf_range(-0.2, 1.0) * player.velocity - position).normalized())
-		attack_timer -= ATTACK_INTERVAL
+	if attack_timer >= ATTACK_INTERVAL and standing_still:
+		var distance = (player.position - position).length()
+		var pred_time = distance / 800.0
+		spawn_fireball((player.position + pred_time * player.velocity - position).normalized())
+		attack_timer = 0
 
 
 const offset := Vector2i(160, 160) * 0.5 # enemy is 16x16 scaled by 10
@@ -61,7 +64,9 @@ func _physics_process(_delta: float) -> void:
 		return
 	
 	if (position - player.position).length_squared() <= shoot_range * shoot_range:
+		standing_still = true
 		return
+	standing_still = false
 	var target_position = player.position + (position - player.position).normalized() * 500.0
 	if can_go_through_walls:
 		_move_to(target_position)
