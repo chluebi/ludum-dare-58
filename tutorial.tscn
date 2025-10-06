@@ -1,24 +1,23 @@
-[gd_scene load_steps=19 format=4 uid="uid://bpype5vdrgnek"]
+[gd_scene load_steps=18 format=4 uid="uid://b3dyf1t7va1hu"]
 
-[ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="2_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://bw4v2c3mih1f1" path="res://floor1(5).png" id="2_272bh"]
-[ext_resource type="Script" uid="uid://rnjhn3gu636t" path="res://tile_map_layer.gd" id="3_272bh"]
-[ext_resource type="PackedScene" uid="uid://nhwhlhpm51nv" path="res://crate.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://wmwgnv10gs56" path="res://cauldron.tscn" id="7_kek77"]
-[ext_resource type="PackedScene" uid="uid://b4s8ah7fjsuyp" path="res://hud.tscn" id="8_5vw27"]
-[ext_resource type="Script" uid="uid://cbnnke38dp7y2" path="res://enemy_spawner.gd" id="8_kek77"]
-[ext_resource type="PackedScene" uid="uid://coq16sep4c0sq" path="res://skullpile.tscn" id="8_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://dwn0n5fcpx51w" path="res://glass_shelf.tscn" id="9_vivmo"]
-[ext_resource type="PackedScene" uid="uid://ci1p6hoypx4li" path="res://stone_shelf.tscn" id="10_2cqfq"]
-[ext_resource type="Script" uid="uid://b7tk7wyyonbao" path="res://effect_manager.gd" id="10_4c57u"]
-[ext_resource type="Script" uid="uid://tfuqtyafw6be" path="res://inventory_manager.gd" id="11_efxa6"]
-[ext_resource type="PackedScene" uid="uid://da6hjhpeubx5h" path="res://poison_trail.tscn" id="12_dg77c"]
-[ext_resource type="Script" uid="uid://cfwmkj2ko26yv" path="res://cauldron_manager.gd" id="12_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://bssldjs2broyd" path="res://ghost.tscn" id="13_ycdy4"]
-[ext_resource type="PackedScene" path="res://tutorial_manager.tscn" id="15_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://bw4v2c3mih1f1" path="res://floor1(5).png" id="1_dl7dh"]
+[ext_resource type="Script" uid="uid://rnjhn3gu636t" path="res://tile_map_layer.gd" id="2_r4o0u"]
+[ext_resource type="PackedScene" uid="uid://nhwhlhpm51nv" path="res://crate.tscn" id="3_k08xv"]
+[ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="4_g52lx"]
+[ext_resource type="PackedScene" uid="uid://wmwgnv10gs56" path="res://cauldron.tscn" id="5_0lped"]
+[ext_resource type="PackedScene" uid="uid://coq16sep4c0sq" path="res://skullpile.tscn" id="6_dudfa"]
+[ext_resource type="PackedScene" uid="uid://dwn0n5fcpx51w" path="res://glass_shelf.tscn" id="7_5gpbq"]
+[ext_resource type="PackedScene" uid="uid://ci1p6hoypx4li" path="res://stone_shelf.tscn" id="8_tfgte"]
+[ext_resource type="PackedScene" uid="uid://b4s8ah7fjsuyp" path="res://hud.tscn" id="9_dyhf1"]
+[ext_resource type="Script" uid="uid://cbnnke38dp7y2" path="res://enemy_spawner.gd" id="10_53tq2"]
+[ext_resource type="Script" uid="uid://b7tk7wyyonbao" path="res://effect_manager.gd" id="11_4ods2"]
+[ext_resource type="Script" uid="uid://tfuqtyafw6be" path="res://inventory_manager.gd" id="12_0gmok"]
+[ext_resource type="Script" uid="uid://cfwmkj2ko26yv" path="res://cauldron_manager.gd" id="13_ns12n"]
+[ext_resource type="PackedScene" path="res://tutorial_manager.tscn" id="14_nghrg"]
+[ext_resource type="PackedScene" uid="uid://da6hjhpeubx5h" path="res://poison_trail.tscn" id="15_qs7l5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
-texture = ExtResource("2_272bh")
+texture = ExtResource("1_dl7dh")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -49,7 +48,7 @@ custom_data_layer_0/name = "solid"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_5vw27")
 
-[node name="Main" type="Node2D"]
+[node name="Tutorial" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -10
@@ -57,59 +56,56 @@ position = Vector2(0, 1.2621775e-29)
 scale = Vector2(10, 10)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAACAAEAAAAAAAEAAAADAAEAAAAAAAEAAAAEAAEAAAAAAAEAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAABAAAAAAAFAAIAAAABAAAAAAAEAAIAAAAAAAEAAAADAAIAAAAAAAEAAAACAAIAAAAAAAEAAAAAAAIAAAACAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAFAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAJAAMAAAAAAAEAAAAKAAMAAAAAAAEAAAALAAAAAAAAAAAAAAALAAEAAAACAAAAAAALAAIAAAACAAAAAAALAAMAAAAAAAEAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAEAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAABAAAAAAAHAAQAAAAAAAEAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAACAAAAAAAMAAIAAAAAAAEAAAAMAAMAAAAAAAEAAAANAAMAAAAAAAEAAAANAAQAAAAAAAEAAAANAAUAAAAAAAAAAAANAAYAAAACAAEAAAANAAcAAAAAAAAAAAAMAAYAAAACAAEAAAAMAAUAAAAAAAAAAAAMAAQAAAAAAAEAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAEAAAADAAUAAAAAAAEAAAAEAAUAAAAAAAEAAAAFAAUAAAABAAAAAAAGAAUAAAABAAAAAAAHAAUAAAAAAAEAAAAIAAUAAAAAAAAAAAAJAAUAAAACAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAgAAAAAAAAAAAANAAkAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAACAAEAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAEAAAAGAAgAAAAAAAAAAAAFAAgAAAABAAAAAAAEAAgAAAABAAAAAAADAAgAAAABAAAAAAADAAcAAAACAAEAAAACAAcAAAACAAEAAAACAAYAAAAAAAEAAAABAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAADAAYAAAAAAAEAAAAEAAYAAAAAAAEAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAEAAAAIAAYAAAACAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAACAAEAAAALAAcAAAAAAAAAAAAKAAcAAAACAAEAAAAJAAcAAAACAAEAAAAIAAcAAAAAAAAAAAAHAAcAAAAAAAEAAAAGAAcAAAAAAAAAAAAFAAcAAAACAAEAAAAEAAcAAAACAAEAAAAAAAcAAAABAAAAAAAAAAgAAAABAAAAAAABAAcAAAACAAEAAAABAAgAAAABAAAAAAABAAkAAAAAAAEAAAAAAAkAAAABAAAAAAACAAkAAAAAAAEAAAADAAkAAAAAAAEAAAAEAAkAAAAAAAEAAAAFAAkAAAAAAAEAAAAGAAkAAAAAAAEAAAAHAAkAAAAAAAEAAAAIAAkAAAAAAAAAAAAJAAkAAAACAAEAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAYAAAACAAEAAAAOAAUAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAEAAAAOAAMAAAAAAAEAAAAOAAQAAAAAAAEAAAAOAAIAAAAAAAEAAAAOAAEAAAAAAAAAAAAOAAAAAAAAAAAAAAACAAgAAAABAAAAAAAAAP//AAABAAEAAAABAP//AAACAAEAAAACAP//AAACAAEAAAADAP//AAACAAEAAAAEAP//AAACAAEAAAAFAP//AAACAAEAAAAGAP//AAACAAEAAAAHAP//AAACAAEAAAAIAP//AAACAAEAAAAJAP//AAACAAEAAAAKAP//AAACAAEAAAALAP//AAACAAEAAAALAP7/AAAAAAIAAAAMAP7/AAAAAAIAAAANAP7/AAAAAAIAAAAMAP//AAACAAEAAAANAP//AAACAAEAAAAOAP//AAABAAEAAAD/////AAABAAIAAAD//wAAAAABAAIAAAD//wEAAAABAAIAAAD//wIAAAABAAIAAAD//wMAAAABAAIAAAD//wQAAAABAAIAAAD//wUAAAABAAIAAAD//wYAAAABAAIAAAD//wcAAAABAAIAAAD//wgAAAABAAIAAAD//wkAAAABAAIAAAAAAAoAAAABAAAAAAABAAoAAAABAAAAAAACAAoAAAABAAAAAAADAAoAAAABAAAAAAAEAAoAAAABAAAAAAAFAAoAAAABAAAAAAAGAAoAAAABAAAAAAAHAAoAAAABAAAAAAAIAAoAAAABAAAAAAAJAAoAAAACAAEAAAAKAAoAAAAAAAMAAAALAAoAAAAAAAMAAAAMAAoAAAAAAAMAAAANAAoAAAAAAAMAAAAOAAoAAAAAAAMAAAAPAAkAAAACAAAAAAAPAAgAAAACAAAAAAAPAAcAAAACAAAAAAAPAAYAAAACAAEAAAAPAAUAAAAAAAMAAAAPAAQAAAACAAAAAAAPAAIAAAACAAAAAAAPAAEAAAACAAEAAAAPAAAAAAACAAIAAAAPAP//AAACAAIAAAABAP7/AAAAAAIAAAACAP7/AAAAAAIAAAADAP7/AAAAAAIAAAAEAP7/AAAAAAIAAAAFAP7/AAAAAAIAAAAGAP7/AAAAAAIAAAAHAP7/AAAAAAIAAAAIAP7/AAAAAAIAAAAJAP7/AAAAAAIAAAAKAP7/AAAAAAIAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAAPAAMAAAAAAAEAAAAQAAQAAAACAAAAAAAQAAMAAAAAAAEAAAAQAAIAAAACAAAAAAARAAIAAAACAAAAAAARAAMAAAAAAAAAAAARAAQAAAACAAAAAAAQAAUAAAAAAAMAAAARAAUAAAAAAAMAAAAQAAEAAAACAAEAAAARAAEAAAACAAEAAAASAAIAAAACAAAAAAASAAMAAAAAAAAAAAASAAQAAAACAAAAAAASAAUAAAACAAAAAAATAAQAAAACAAAAAAATAAMAAAAAAAAAAAATAAIAAAACAAAAAAATAAUAAAACAAAAAAAUAAUAAAACAAAAAAAUAAQAAAACAAAAAAAUAAMAAAAAAAAAAAAUAAIAAAACAAAAAAAUAAEAAAACAAAAAAATAAEAAAACAAAAAAASAAEAAAACAAAAAAAVAAEAAAACAAAAAAAVAAIAAAACAAAAAAAVAAMAAAAAAAAAAAAVAAQAAAACAAAAAAAVAAUAAAACAAAAAAAWAAEAAAACAAAAAAAWAAIAAAACAAAAAAAWAAMAAAACAAAAAAAWAAQAAAACAAAAAAAWAAUAAAACAAAAAAASAAAAAAACAAEAAAATAAAAAAACAAEAAAAUAAAAAAACAAEAAAAVAAAAAAACAAEAAAAWAAAAAAACAAEAAAASAP//AAAAAAIAAAATAP//AAAAAAIAAAAUAP//AAAAAAIAAAAVAP//AAAAAAIAAAAWAP//AAAAAAIAAAARAAAAAAAAAAIAAAAXAAEAAAACAAIAAAAXAAIAAAACAAIAAAAXAAMAAAACAAIAAAAXAAQAAAACAAIAAAAXAAUAAAACAAIAAAAXAAAAAAACAAIAAAAXAAYAAAACAAIAAAAXAAcAAAACAAIAAAAXAAgAAAACAAIAAAAXAAkAAAACAAIAAAASAAYAAAACAAAAAAATAAYAAAACAAAAAAAUAAYAAAACAAAAAAAVAAYAAAACAAAAAAAWAAYAAAACAAAAAAAWAAcAAAACAAAAAAAVAAcAAAACAAAAAAAUAAcAAAACAAAAAAATAAcAAAACAAAAAAATAAgAAAACAAAAAAASAAgAAAACAAAAAAASAAcAAAACAAAAAAAUAAgAAAACAAAAAAAVAAgAAAACAAAAAAAWAAgAAAACAAAAAAAWAAkAAAACAAAAAAAVAAkAAAACAAAAAAAUAAkAAAACAAAAAAATAAkAAAACAAAAAAASAAkAAAACAAAAAAAQAAkAAAACAAAAAAARAAkAAAACAAAAAAARAAgAAAACAAAAAAARAAcAAAACAAAAAAAQAAcAAAACAAAAAAAQAAgAAAACAAAAAAAQAAYAAAACAAEAAAARAAYAAAACAAEAAAAPAAoAAAAAAAMAAAAQAAoAAAAAAAMAAAARAAoAAAAAAAMAAAASAAoAAAAAAAMAAAATAAoAAAAAAAMAAAAUAAoAAAAAAAMAAAAVAAoAAAAAAAMAAAAWAAoAAAAAAAMAAAD//woAAAABAAIAAAAAAAsAAAAAAAMAAAABAAsAAAAAAAMAAAACAAsAAAAAAAMAAAADAAsAAAAAAAMAAAAEAAsAAAAAAAMAAAAFAAsAAAAAAAMAAAAGAAsAAAAAAAMAAAAHAAsAAAAAAAMAAAAIAAsAAAAAAAMAAAAJAAsAAAAAAAMAAAA=")
 tile_set = SubResource("TileSet_kek77")
-script = ExtResource("3_272bh")
+script = ExtResource("2_r4o0u")
 
 [node name="Environment" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Crate" parent="Environment" instance=ExtResource("4_1bvp3")]
+[node name="Crate" parent="Environment" instance=ExtResource("3_k08xv")]
 position = Vector2(565, 1360.9999)
 
-[node name="Crate2" parent="Environment" instance=ExtResource("4_1bvp3")]
+[node name="Crate2" parent="Environment" instance=ExtResource("3_k08xv")]
 position = Vector2(721, 1364)
 
-[node name="Crate3" parent="Environment" instance=ExtResource("4_1bvp3")]
+[node name="Crate3" parent="Environment" instance=ExtResource("3_k08xv")]
 position = Vector2(1031, 1686)
 
-[node name="Crate4" parent="Environment" instance=ExtResource("4_1bvp3")]
+[node name="Crate4" parent="Environment" instance=ExtResource("3_k08xv")]
 position = Vector2(76.000015, 1512)
 
-[node name="player" parent="Environment" instance=ExtResource("2_0xm2m")]
+[node name="player" parent="Environment" instance=ExtResource("4_g52lx")]
 position = Vector2(114, 190)
 
-[node name="cauldron" parent="Environment" instance=ExtResource("7_kek77")]
+[node name="cauldron" parent="Environment" instance=ExtResource("5_0lped")]
 position = Vector2(560, 400)
 
-[node name="cauldron2" parent="Environment" instance=ExtResource("7_kek77")]
+[node name="cauldron2" parent="Environment" instance=ExtResource("5_0lped")]
 position = Vector2(2160, 560)
 
-[node name="Skullpile" parent="Environment" instance=ExtResource("8_ycdy4")]
+[node name="Skullpile" parent="Environment" instance=ExtResource("6_dudfa")]
 position = Vector2(2000, 1360)
 
-[node name="Ghost" parent="Environment" instance=ExtResource("13_ycdy4")]
-z_index = 1
-position = Vector2(1670, 395)
-
-[node name="Shelf" parent="Environment" instance=ExtResource("9_vivmo")]
+[node name="Shelf" parent="Environment" instance=ExtResource("7_5gpbq")]
 position = Vector2(554.0002, 880)
 
-[node name="StoneShelf" parent="Environment" instance=ExtResource("10_2cqfq")]
+[node name="StoneShelf" parent="Environment" instance=ExtResource("8_tfgte")]
 position = Vector2(245.00006, 1680.9999)
 
-[node name="HUD" parent="." instance=ExtResource("8_5vw27")]
+[node name="HUD" parent="." instance=ExtResource("9_dyhf1")]
 
 [node name="enemy_spawner" type="Node2D" parent="."]
-script = ExtResource("8_kek77")
+script = ExtResource("10_53tq2")
 
 [node name="effect_manager" type="Node" parent="."]
-script = ExtResource("10_4c57u")
+script = ExtResource("11_4ods2")
 
 [node name="inventory_manager" type="Node" parent="."]
-script = ExtResource("11_efxa6")
+script = ExtResource("12_0gmok")
 
 [node name="cauldron_manager" type="Node" parent="."]
-script = ExtResource("12_ycdy4")
+script = ExtResource("13_ns12n")
 
-[node name="tutorial_manager" parent="." instance=ExtResource("15_2cqfq")]
+[node name="tutorial_manager" parent="." instance=ExtResource("14_nghrg")]
+tutorial_enabled = false
 
-[node name="poison_trail" parent="." instance=ExtResource("12_dg77c")]
+[node name="poison_trail" parent="." instance=ExtResource("15_qs7l5")]

@@ -28,7 +28,7 @@ script = ExtResource("1_4gyqm")
 max_health = 25.0
 speed = 220.0
 damage = 10.0
-can_drop = Array[int]([9])
+can_drop = Array[int]([9, 14])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(10, 10)

@@ -15,10 +15,15 @@ var enemy_activity = false
 
 @onready var current_step = tutorial_movement
 
+@export var tutorial_enabled = true
+
 var all_tutorials = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if !tutorial_enabled:
+		queue_free()
+		return
 	all_tutorials.append(tutorial_movement)
 	all_tutorials.append(tutorial_find)
 	all_tutorials.append(tutorial_drop)
@@ -82,6 +87,7 @@ func _process(delta: float) -> void:
 		and !INVENTORY_MANAGER.inventory_contains(Constants.item_type.orange):
 		current_step = tutorial_mouse
 		MOUSE_INPUTS = 0
+		$"../enemy_spawner".spawn_enemy(Vector2(1200, 560))
 		show_current()
 		
 	if current_step == tutorial_mouse \
@@ -89,4 +95,3 @@ func _process(delta: float) -> void:
 		current_step = null
 		enemy_activity = true
 		show_current()
-	

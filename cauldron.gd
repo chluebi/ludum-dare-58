@@ -91,6 +91,7 @@ func _process(delta: float) -> void:
 	if brewing:
 		timer += delta
 		if timer >= brew_time:
+			$finish.play()
 			spawn_potion()
 	
 			timer = 0

@@ -62,6 +62,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("throw"):
 		var item = INVENTORY_MANAGER.remove_current_item()
 		if item != null:
+			$throw.play()
 			var pot: RigidBody2D = POTION_SCENE.instantiate()
 			pot.position = position + BOOK.position * 0.2
 			pot.apply_impulse(BOOK.position.normalized() * THROW_FORCE)

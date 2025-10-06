@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4vun81r65hwg"]
+[gd_scene load_steps=12 format=3 uid="uid://c4vun81r65hwg"]
 
 [ext_resource type="Script" uid="uid://601lsav1i4s2" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://douxwd3qcg1hw" path="res://healthbar.tscn" id="3_hqtel"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dsfniaff5opjk" path="res://sfx/pickup.wav" id="4_sweqy"]
 [ext_resource type="AudioStream" uid="uid://bq4gykgvomiy7" path="res://sfx/shoot.wav" id="6_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://wt8dlno1wvxo" path="res://sfx/drink.wav" id="7_1jxqw"]
+[ext_resource type="AudioStream" uid="uid://3vy0tmpmeg16" path="res://sfx/throw.wav" id="8_dw050"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sweqy"]
 size = Vector2(20, 50)
@@ -56,3 +57,6 @@ stream = ExtResource("6_2hs0m")
 
 [node name="drink" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_1jxqw")
+
+[node name="throw" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_dw050")
