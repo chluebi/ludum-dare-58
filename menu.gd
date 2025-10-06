@@ -12,6 +12,9 @@ func _ready() -> void:
 	render_potions(Persistent.escaped)
 	if Constants.item_type.green in Persistent.drunk:
 		show_slime()
+		
+	if Persistent.tutorial_completed:
+		$Start.text = "Continue"
 	
 	
 func _on_start_pressed() -> void:
