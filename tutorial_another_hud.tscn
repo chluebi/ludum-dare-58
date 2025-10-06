@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc653w6cu1lqk"]
+
+[ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_vts7q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jl5vs"]
+bg_color = Color(0.60192096, 0.5099987, 0.30167386, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5odpg"]
+atlas = ExtResource("1_vts7q")
+
+[node name="TutorialAnotherHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -257.0
+offset_top = -88.0
+
+[node name="ColorRect" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 257.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jl5vs")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 20.0
+offset_right = 305.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
+text = "Brew another
+Orange Potion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(53.999996, 39.999996)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_5odpg")
+region_enabled = true
+region_rect = Rect2(0, 18, 13, 13)

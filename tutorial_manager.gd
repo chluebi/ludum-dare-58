@@ -11,7 +11,10 @@ var enemy_activity = false
 @onready var tutorial_return = $Control/Node2D/TutorialReturnHUD
 @onready var tutorial_wait = $Control/Node2D/TutorialWaitHUD
 @onready var tutorial_drink = $Control/Node2D/TutorialDrinkHUD
+@onready var tutorial_another = $Control/Node2D/TutorialAnotherHUD
+@onready var tutorial_leave = $Control/Node2D/TutorialLeaveHUD
 @onready var tutorial_mouse = $Control/Node2D/TutorialMouseHUD
+
 
 @onready var current_step = tutorial_movement
 
@@ -26,6 +29,8 @@ func _ready() -> void:
 	all_tutorials.append(tutorial_wait)
 	all_tutorials.append(tutorial_drink)
 	all_tutorials.append(tutorial_mouse)
+	all_tutorials.append(tutorial_leave)
+	all_tutorials.append(tutorial_another)
 	if Persistent.tutorial_completed:
 		stop_tutorial()
 	show_current()
@@ -94,8 +99,17 @@ func _process(delta: float) -> void:
 	
 	if current_step == tutorial_drink \
 		and !INVENTORY_MANAGER.inventory_contains(Constants.item_type.orange):
-		current_step = tutorial_mouse
+		current_step = tutorial_another
+		show_current()
+		
+	if current_step == tutorial_another \
+		and INVENTORY_MANAGER.inventory_contains(Constants.item_type.orange):
+		current_step = tutorial_leave
+		show_current()
+		
+	if Persistent.number_of_runs > 1 and len(Persistent.escaped) > 0 and !Persistent.tutorial_completed and current_step == tutorial_movement:
 		MOUSE_INPUTS = 0
+		current_step = tutorial_mouse
 		show_current()
 		
 	if current_step == tutorial_mouse \
@@ -103,3 +117,5 @@ func _process(delta: float) -> void:
 		current_step = null
 		stop_tutorial()
 		show_current()
+		
+	
