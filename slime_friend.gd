@@ -34,6 +34,7 @@ func _ready() -> void:
 	health.health_percentage.connect($healthbar.set_health_percentage)
 	$healthbar.set_color_slime()
 	$healthbar.set_health_percentage(1.0)
+	$AnimatedSprite2D.play()
 
 func _process(real_delta: float) -> void:
 	var delta = slow_mo * real_delta
@@ -48,7 +49,8 @@ func _process(real_delta: float) -> void:
 const offset := Vector2i(160, 160) * 0.5 # enemy is 16x16 scaled by 10
 
 func _physics_process(_delta: float) -> void:
-	_move_to(player.position) # slime is very dumb, does not know pathfinding
+	if (player.position - position).length_squared() > 150 * 150:
+		_move_to(player.position) # slime is very dumb, does not know pathfinding
 
 func attack_enemy(body):
 	if "health" in body:
