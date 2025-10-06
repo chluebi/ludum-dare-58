@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ecyrdn2fbt37"]
+
+[ext_resource type="Texture2D" uid="uid://dtcp2y1ocpuve" path="res://shelf_screen.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://befw0k4txuq7a" path="res://menu.gd" id="1_ouk20"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ouk20"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_ouk20")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lti8b")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 560.0
+offset_top = 162.0
+offset_right = 999.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ouk20")
