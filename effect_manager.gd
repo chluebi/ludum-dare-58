@@ -1,6 +1,7 @@
 extends Node
 
 const SLOWMO = preload("res://slowmo_area.tscn")
+const SLIME = preload("res://slime_friend.tscn")
 
 class EffectState:
 	var duration: float
@@ -63,3 +64,7 @@ func activate(drinker, color: Constants.item_type):
 		var s = SLOWMO.instantiate()
 		s.position = drinker.position
 		get_parent().add_child(s)
+	if color == Constants.item_type.green:
+		var slime = SLIME.instantiate()
+		slime.position = drinker.position
+		$"../Environment".add_child(slime)

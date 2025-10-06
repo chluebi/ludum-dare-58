@@ -10,3 +10,6 @@ func set_health_percentage(percent: float):
 
 func set_color_enemy():
 	cur.default_color = Color8(222, 99, 38)
+	
+func set_color_slime():
+	cur.default_color = Color8(99, 160, 38)

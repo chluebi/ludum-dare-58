@@ -29,6 +29,7 @@ func _ready() -> void:
 	if Persistent.tutorial_completed:
 		stop_tutorial()
 	show_current()
+	INVENTORY_MANAGER.pickup_item(Constants.item_type.green)
 
 func show_current():
 	for tutorial in all_tutorials:

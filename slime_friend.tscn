@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://bn11gh4r6vyo1"]
+
+[ext_resource type="Script" uid="uid://djefs38cyrc13" path="res://slime_friend.gd" id="1_vhtwl"]
+[ext_resource type="Texture2D" uid="uid://d2pykpk28xp2e" path="res://slime3.png" id="2_vhtwl"]
+[ext_resource type="Texture2D" uid="uid://h0cxdn5e2ft0" path="res://slime0.png" id="3_7or7b"]
+[ext_resource type="PackedScene" uid="uid://douxwd3qcg1hw" path="res://healthbar.tscn" id="3_vhtwl"]
+[ext_resource type="Texture2D" uid="uid://da612gx1jqwko" path="res://slime1.png" id="4_u7hxy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iifgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vhtwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7or7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u7hxy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(69, 60)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k104"]
+radius = 66.007576
+
+[node name="Slime" type="CharacterBody2D" groups=["important_entities"]]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_vhtwl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_iifgy")
+frame = 2
+frame_progress = 0.033748236
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 0)
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="damage_hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_hitbox"]
+shape = SubResource("CircleShape2D_7k104")
+
+[node name="healthbar" parent="." instance=ExtResource("3_vhtwl")]
+position = Vector2(0, -80)
