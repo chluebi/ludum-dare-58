@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2xd0n1l6kpip"]
+
+[ext_resource type="Script" uid="uid://7pb4r78vcj38" path="res://rainbow_cauldron.gd" id="1_v12yw"]
+[ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="2_qvwx4"]
+[ext_resource type="PackedScene" uid="uid://bffnxxwlpiv0m" path="res://rainbow_recipe.tscn" id="3_v12yw"]
+[ext_resource type="AudioStream" uid="uid://bihsdylmynmdg" path="res://sfx/cooked.wav" id="4_5hh8q"]
+[ext_resource type="AudioStream" uid="uid://davggtt7885vv" path="res://sfx/inserted.wav" id="5_1xs1q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t22i"]
+atlas = ExtResource("2_qvwx4")
+region = Rect2(0, 18, 25, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0jf"]
+size = Vector2(130, 130)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3ljf"]
+radius = 100.0
+
+[node name="rainbow_cauldron" type="StaticBody2D" groups=["static_obstacles"]]
+position = Vector2(7.6293945e-06, 7.6293945e-06)
+script = ExtResource("1_v12yw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_0t22i")
+region_enabled = true
+region_rect = Rect2(0, 0, 13, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.629394e-07, -7.599592e-07)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_mo0jf")
+
+[node name="Recipe" parent="." instance=ExtResource("3_v12yw")]
+
+[node name="CollectionRange" type="Area2D" parent="."]
+position = Vector2(-7.629394e-07, -7.629394e-07)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionRange"]
+shape = SubResource("CircleShape2D_q3ljf")
+
+[node name="finish" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5hh8q")
+
+[node name="insert" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_1xs1q")

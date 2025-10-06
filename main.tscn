@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bpype5vdrgnek"]
+[gd_scene load_steps=25 format=4 uid="uid://bpype5vdrgnek"]
 
 [ext_resource type="Texture2D" uid="uid://be87dbphfqqjm" path="res://floor6.png" id="1_074og"]
 [ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="2_0xm2m"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dnau6wk1cdf4h" path="res://mushroom.tscn" id="10_yaehf"]
 [ext_resource type="Script" uid="uid://tfuqtyafw6be" path="res://inventory_manager.gd" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cem2pbe5lt302" path="res://flower_bed.tscn" id="11_yaehf"]
+[ext_resource type="PackedScene" uid="uid://d2xd0n1l6kpip" path="res://rainbow_cauldron.tscn" id="12_82xsv"]
 [ext_resource type="PackedScene" uid="uid://da6hjhpeubx5h" path="res://poison_trail.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://cfwmkj2ko26yv" path="res://cauldron_manager.gd" id="12_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bssldjs2broyd" path="res://ghost.tscn" id="13_ycdy4"]
@@ -164,6 +165,9 @@ position = Vector2(2000, 3760)
 
 [node name="FlowerBed" parent="Environment" instance=ExtResource("11_yaehf")]
 position = Vector2(3194, 3519)
+
+[node name="rainbow_cauldron" parent="Environment" instance=ExtResource("12_82xsv")]
+position = Vector2(716, 1682)
 
 [node name="HUD" parent="." instance=ExtResource("8_5vw27")]
 

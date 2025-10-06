@@ -50,6 +50,8 @@ func _ready() -> void:
 		Constants.item_type.green,
 		12.0
 	)
+	
+	$"../Environment/rainbow_cauldron".setup()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
