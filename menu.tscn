@@ -26,7 +26,7 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
-bg_color = Color(0.8023494, 0.5301193, 0.2894932, 1)
+bg_color = Color(0.30363548, 0.18050444, 0.18540952, 1)
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_ouk20")
