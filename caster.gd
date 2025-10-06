@@ -14,7 +14,7 @@ const MASS: float = 10.0
 const ARRIVE_DISTANCE: float = 10.0
 
 @export_range(10, 500, 0.1, "or_greater") var speed: float = 200.0
-@export_range(0, 100, 0.1, "or_greater") var damage: float = 15.0
+@export_range(0, 100, 0.1, "or_greater") var damage: float = 10.0
 @export_range(100.0, 800, 10.0, "or_greater") var shoot_range: float = 700
 
 @export var can_go_through_walls: bool = false
@@ -39,6 +39,7 @@ func _ready() -> void:
 
 func spawn_fireball(aim_direction):
 	var fireball = FIREBALL_SCENE.instantiate()
+	fireball.damage = damage
 	fireball.position = position
 	fireball.direction = aim_direction
 	fireball.size = 0
