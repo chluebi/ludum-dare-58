@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bedigpny8daia"]
+
+[ext_resource type="Texture2D" uid="uid://bfygts20gb638" path="res://big-sheet.png" id="1_nydgi"]
+[ext_resource type="Texture2D" uid="uid://be87dbphfqqjm" path="res://floor6.png" id="2_2cufp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jl5vs"]
+bg_color = Color(0.60192096, 0.5099987, 0.30167386, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5odpg"]
+atlas = ExtResource("1_nydgi")
+
+[node name="TutorialLeaveHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -304.0
+offset_top = -98.0
+offset_right = 14.0
+
+[node name="ColorRect" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -14.0
+offset_right = 303.0
+offset_bottom = 98.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jl5vs")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 318.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
+text = "Put potions in your collection
+and collect upgrades
+by taking them back upstairs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.999996, 15.999998)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_5odpg")
+region_enabled = true
+region_rect = Rect2(0, 10, 5, 8)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-4.9999957, 66)
+scale = Vector2(3, 3)
+texture = ExtResource("2_2cufp")
+region_enabled = true
+region_rect = Rect2(16.283955, 48.295116, 15.634933, 15.02578)

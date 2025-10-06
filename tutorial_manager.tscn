@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://e0cdf5w3sj71"]
+[gd_scene load_steps=11 format=3 uid="uid://e0cdf5w3sj71"]
 
 [ext_resource type="Script" uid="uid://cchmvrpualm86" path="res://tutorial_manager.gd" id="1_msvax"]
 [ext_resource type="PackedScene" uid="uid://couv1s2el5sp8" path="res://tutorial_movement_hud.tscn" id="2_08hqh"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://6res8aw4482b" path="res://tutorial_wait_hud.tscn" id="6_21v4s"]
 [ext_resource type="PackedScene" uid="uid://ded7p2ji4j251" path="res://tutorial_drink_hud.tscn" id="6_yb7sm"]
 [ext_resource type="PackedScene" uid="uid://y81rw14v3icr" path="res://tutorial_mouse_hud.tscn" id="7_wjgg5"]
+[ext_resource type="PackedScene" uid="uid://bedigpny8daia" path="res://tutorial_leave_hud.tscn" id="9_yb7sm"]
+[ext_resource type="PackedScene" uid="uid://bc653w6cu1lqk" path="res://tutorial_another_hud.tscn" id="10_wjgg5"]
 
 [node name="tutorial_manager" type="CanvasLayer"]
 script = ExtResource("1_msvax")
@@ -71,3 +73,15 @@ offset_left = 3.5
 offset_top = 38.5
 offset_right = 400.5
 offset_bottom = 226.5
+
+[node name="TutorialLeaveHUD" parent="Control/Node2D" instance=ExtResource("9_yb7sm")]
+offset_left = 78.0
+offset_top = 122.0
+offset_right = 396.0
+offset_bottom = 220.0
+
+[node name="TutorialAnotherHUD" parent="Control/Node2D" instance=ExtResource("10_wjgg5")]
+offset_left = 122.5
+offset_top = 126.5
+offset_right = 379.5
+offset_bottom = 214.5
