@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ludum-dare-58"
-run/main_scene="uid://bpype5vdrgnek"
+run/main_scene="uid://250fbunu3v0d"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Persistent="*res://persistent.gd"
 
 [display]
 

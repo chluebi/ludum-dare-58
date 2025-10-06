@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dtngkfnnu3p1h" path="res://mushroom.gd" id="1_pl5ep"]
 [ext_resource type="Texture2D" uid="uid://c0p638us6khf7" path="res://Mushroom.png" id="2_pl5ep"]
 [ext_resource type="PackedScene" uid="uid://douxwd3qcg1hw" path="res://healthbar.tscn" id="3_4gvq0"]
-[ext_resource type="PackedScene" path="res://poison_trail.tscn" id="4_jg55k"]
+[ext_resource type="PackedScene" uid="uid://da6hjhpeubx5h" path="res://poison_trail.tscn" id="4_jg55k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
 size = Vector2(117, 103)

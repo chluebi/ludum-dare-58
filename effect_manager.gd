@@ -46,6 +46,9 @@ func activity_strength(color) -> int:
 	return effect_dictionary[color].activity_strength(time)
 
 func activate(drinker, color: Constants.item_type):
+	if color >= Constants.item_type.empty:
+		return
+	Persistent.add_drunk(color)
 	if drinker.has_method("drink"):
 		drinker.drink()
 	if color in effect_dictionary:

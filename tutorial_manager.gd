@@ -15,8 +15,6 @@ var enemy_activity = false
 
 @onready var current_step = tutorial_movement
 
-@export var tutorial_enabled = true
-
 var all_tutorials = []
 
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +26,7 @@ func _ready() -> void:
 	all_tutorials.append(tutorial_wait)
 	all_tutorials.append(tutorial_drink)
 	all_tutorials.append(tutorial_mouse)
-	if !tutorial_enabled:
+	if Persistent.tutorial_completed:
 		stop_tutorial()
 	show_current()
 
@@ -43,6 +41,7 @@ var WASD_INPUTS = 0
 var MOUSE_INPUTS = 0
 
 func stop_tutorial():
+	Persistent.tutorial_completed = true
 	enemy_activity = true
 	current_step = null
 	for node in get_tree().get_nodes_in_group("tutorial_blockers"):
