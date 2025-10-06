@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://250fbunu3v0d"]
+[gd_scene load_steps=9 format=3 uid="uid://250fbunu3v0d"]
 
 [ext_resource type="Texture2D" uid="uid://dtcp2y1ocpuve" path="res://shelf_screen.png" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://befw0k4txuq7a" path="res://menu.gd" id="1_ouk20"]
@@ -25,6 +25,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0.8023494, 0.5301193, 0.2894932, 1)
+
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_ouk20")
 
@@ -49,3 +52,25 @@ position = Vector2(1540, 564)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_kk3ma")
 metadata/_edit_group_ = true
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.026
+offset_left = 579.0
+offset_top = 325.0
+offset_right = 924.0
+offset_bottom = 370.6
+theme_override_font_sizes/font_size = 50
+text = "Potion Collector"
+
+[node name="Start" type="Button" parent="."]
+offset_left = 618.0
+offset_top = 416.0
+offset_right = 923.0
+offset_bottom = 490.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+text = "Start Game"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
