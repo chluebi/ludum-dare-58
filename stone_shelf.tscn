@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ci1p6hoypx4li"]
 
-[ext_resource type="Script" uid="uid://cgdhyyrtnh6jm" path="res://shelf.gd" id="1_ttlqn"]
+[ext_resource type="Script" uid="uid://bbw8b8hjil6t4" path="res://stone_shelf.gd" id="1_ttlqn"]
 [ext_resource type="Texture2D" uid="uid://d4ckrsjrtc30u" path="res://stone_shelf.png" id="2_ttlqn"]
 [ext_resource type="PackedScene" uid="uid://lc1ycy0ilj02" path="res://item_source.tscn" id="3_yurn5"]
 
@@ -11,8 +11,8 @@ size = Vector2(12.800003, 12.700002)
 
 [node name="StoneShelf" type="StaticBody2D" groups=["static_obstacles"]]
 scale = Vector2(10, 10)
-collision_layer = 255
-collision_mask = 255
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_ttlqn")
 item_type = 8
 
