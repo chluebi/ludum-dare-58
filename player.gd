@@ -112,7 +112,6 @@ func _process(delta):
 func on_potion_pickup(pot):
 	var successful_pickup = INVENTORY_MANAGER.pickup_item(pot.type)
 	if successful_pickup:
-		pickup_sound()
 		pot.queue_free()
 	elif is_drinking:
 		if pot.type <= Constants.item_type.pink:

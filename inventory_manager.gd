@@ -76,6 +76,7 @@ func remove_current_item() -> Variant:
 func pickup_item(potion_type: Constants.item_type) -> bool:
 	if potion_type == Constants.item_type.none:
 		return false
+	player.pickup_sound()
 	for i in range(num_slots):
 		if is_empty[i]:
 			is_empty[i] = false
