@@ -30,6 +30,7 @@ tutorial_blockers=""
 spawn_location=""
 pile_location=""
 mushroom_location=""
+caster_location=""
 
 [input]
 

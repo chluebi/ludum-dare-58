@@ -9,26 +9,30 @@ const SKULL_SCENE = preload("res://skull.tscn")
 const PILE_SCENE = preload("res://skullpile.tscn")
 const GHOST_SCENE = preload("res://ghost.tscn")
 const MUSHROOM_SCENE = preload("res://mushroom.tscn")
+const CASTER_SCENE = preload("res://caster.tscn")
 
 const FIRST_WAVE = {
 	SKULL_SCENE: 0,
 	PILE_SCENE: 4,
 	GHOST_SCENE: 1,
-	MUSHROOM_SCENE: 6
+	MUSHROOM_SCENE: 6,
+	CASTER_SCENE: 2,
 }
 
 const COSTS = {
 	SKULL_SCENE: 1,
 	PILE_SCENE: 15,
 	GHOST_SCENE: 3,
-	MUSHROOM_SCENE: 10
+	MUSHROOM_SCENE: 10,
+	CASTER_SCENE: 6,
 }
 
 const LOCATIONS = {
 	SKULL_SCENE: "spawn_location",
 	PILE_SCENE: "pile_location",
 	GHOST_SCENE: "spawn_location",
-	MUSHROOM_SCENE: "mushroom_location"
+	MUSHROOM_SCENE: "mushroom_location",
+	CASTER_SCENE: "caster_location"
 }
 
 

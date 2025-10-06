@@ -206,6 +206,15 @@ position = Vector2(2480, 2961)
 [node name="mushroom_location2" type="Node2D" parent="enemy_spawner" groups=["mushroom_location"]]
 position = Vector2(1680, 3600)
 
+[node name="caster1" type="Node2D" parent="enemy_spawner" groups=["caster_location"]]
+position = Vector2(2100, -752)
+
+[node name="caster2" type="Node2D" parent="enemy_spawner" groups=["caster_location"]]
+position = Vector2(-414, -725)
+
+[node name="caster3" type="Node2D" parent="enemy_spawner" groups=["caster_location"]]
+position = Vector2(3182, -898)
+
 [node name="effect_manager" type="Node" parent="."]
 script = ExtResource("10_4c57u")
 
