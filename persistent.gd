@@ -15,6 +15,7 @@ var just_bagged: Array[Constants.item_type] = []
 var gold: int = 0
 var slots: int = 5
 var duration_extension: int = 0
+var speed_upgrade: int = 0
 
 func add_drunk(i: Constants.item_type):
 	if i in drunk:

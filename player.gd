@@ -87,7 +87,7 @@ func _process(delta):
 	if acceleration_vec.length_squared() > 1:
 		acceleration_vec = acceleration_vec.normalized()
 	
-	var effective_max = MAX_SPEED
+	var effective_max = MAX_SPEED + Persistent.speed_upgrade * 20.0
 	var mul = 1 + 0.5 * float(EFFECT_MANAGER.activity_strength(Constants.item_type.yellow))
 	#if EFFECT_MANAGER.is_active(Constants.potion_type.yellow):
 	effective_max *= mul
