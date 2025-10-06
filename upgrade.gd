@@ -10,13 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-var bag_upgrades_text = {
-	5: "Small Wizard Pouch",
-	6: "Big Wizard Pouch",
-	7: "Mage Backpack",
-	8: "Bag of Things",
-	9: "Pocket Dimension"
-}
+
 
 var bag_upgrades_cost = {
 	5: 10,
