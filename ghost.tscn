@@ -15,8 +15,8 @@ radius = 59.008472
 radius = 98.0
 
 [node name="Ghost" type="CharacterBody2D" groups=["important_entities"]]
-collision_layer = 4
-collision_mask = 6
+collision_layer = 36
+collision_mask = 38
 script = ExtResource("1_obmiq")
 max_health = 20.0
 speed = 270.0

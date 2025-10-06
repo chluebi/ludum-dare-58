@@ -1,6 +1,6 @@
 extends Node2D
 
-const WAVE_INTERVAL = 30.0
+const WAVE_INTERVAL = 10.0
 const SPAWN_INTERVAL = 4.0
 
 const ALLOWED_REGION = Rect2(0,0,2400, 1500)
@@ -12,16 +12,16 @@ const MUSHROOM_SCENE = preload("res://mushroom.tscn")
 
 const FIRST_WAVE = {
 	SKULL_SCENE: 0,
-	PILE_SCENE: 2,
-	GHOST_SCENE: 4,
+	PILE_SCENE: 4,
+	GHOST_SCENE: 1,
 	MUSHROOM_SCENE: 6
 }
 
 const COSTS = {
 	SKULL_SCENE: 1,
-	PILE_SCENE: 5,
+	PILE_SCENE: 15,
 	GHOST_SCENE: 3,
-	MUSHROOM_SCENE: 6
+	MUSHROOM_SCENE: 10
 }
 
 const LOCATIONS = {
