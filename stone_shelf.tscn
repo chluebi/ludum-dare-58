@@ -11,8 +11,6 @@ size = Vector2(12.800003, 12.700002)
 
 [node name="StoneShelf" type="StaticBody2D" groups=["static_obstacles"]]
 scale = Vector2(10, 10)
-collision_layer = 15
-collision_mask = 15
 script = ExtResource("1_ttlqn")
 item_type = 8
 
