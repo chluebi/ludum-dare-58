@@ -50,6 +50,7 @@ func spawn_enemy(pos, scene):
 	environment.add_child.call_deferred(enemy)
 
 func try_spawn_enemy(enemy_scene) -> bool:
+	camera_region.position = player.position - camera_region.size / 2
 	for node in get_tree().get_nodes_in_group(LOCATIONS[enemy_scene]):
 		if camera_region.has_point(node.position):
 			continue
