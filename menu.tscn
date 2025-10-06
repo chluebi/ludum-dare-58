@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://250fbunu3v0d"]
+[gd_scene load_steps=10 format=3 uid="uid://250fbunu3v0d"]
 
 [ext_resource type="Texture2D" uid="uid://dtcp2y1ocpuve" path="res://shelf_screen.png" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://befw0k4txuq7a" path="res://menu.gd" id="1_ouk20"]
@@ -28,6 +28,13 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
 bg_color = Color(0.30363548, 0.18050444, 0.18540952, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l48gv"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.76028055, 0.37304658, 0.24596363, 1)
+
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_ouk20")
 
@@ -53,18 +60,43 @@ scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_kk3ma")
 metadata/_edit_group_ = true
 
-[node name="Title" type="Label" parent="."]
+[node name="Return" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Return" type="Button" parent="Return"]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 803.0
+offset_right = 947.0
+offset_bottom = 877.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+text = "Return to Brew More"
+
+[node name="Log" type="Label" parent="Return"]
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.025
 anchor_bottom = 0.026
-offset_left = 579.0
-offset_top = 325.0
-offset_right = 924.0
-offset_bottom = 370.6
-theme_override_font_sizes/font_size = 50
-text = "Potion Collector"
+offset_left = 581.0
+offset_top = 328.0
+offset_right = 926.0
+offset_bottom = 558.6
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_l48gv")
+text = "Potion Collector
+Test"
 
-[node name="Start" type="Button" parent="."]
+[node name="Start" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="Start"]
+layout_mode = 0
 offset_left = 618.0
 offset_top = 416.0
 offset_right = 923.0
@@ -73,4 +105,17 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
 text = "Start Game"
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[node name="Title" type="Label" parent="Start"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.026
+offset_left = 579.0
+offset_top = 325.0
+offset_right = 963.0
+offset_bottom = 392.96
+theme_override_font_sizes/font_size = 50
+text = "Potion Collector"
+
+[connection signal="pressed" from="Return/Return" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Start/Start" to="." method="_on_start_pressed"]
