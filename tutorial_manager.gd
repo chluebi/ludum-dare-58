@@ -43,7 +43,10 @@ func show_current():
 var WASD_INPUTS = 0
 var MOUSE_INPUTS = 0
 
-	
+func stop_tutorial():
+	enemy_activity = true
+	for node in get_tree().get_nodes_in_group("tutorial_blockers"):
+		node.queue_free()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("move_right"):
@@ -69,12 +72,12 @@ func _process(delta: float) -> void:
 		show_current()
 		
 	if current_step == tutorial_return \
-		and ($"../Environment/player".position - $"../Environment/cauldron".position).length() < 160:
+		and ($"../Environment/player".position - $"../Environment/cauldron_orange".position).length() < 160:
 		current_step = tutorial_drop
 		show_current()
 		
 	if current_step == tutorial_drop \
-		and $"../Environment/cauldron".brewing:
+		and $"../Environment/cauldron_orange".brewing:
 		current_step = tutorial_wait
 		show_current()
 		
@@ -93,5 +96,5 @@ func _process(delta: float) -> void:
 	if current_step == tutorial_mouse \
 		and MOUSE_INPUTS > 2:
 		current_step = null
-		enemy_activity = true
+		stop_tutorial()
 		show_current()

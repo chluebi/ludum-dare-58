@@ -18,7 +18,7 @@ var _obstacle_positions: Dictionary = {}
 func _ready() -> void:
 	# Region should match the size of the playable area plus one (in tiles).
 	# In this demo, the playable area is 17x9 tiles, so the rect size is 18x10.
-	_astar.region = Rect2i(0, 0, 30, 20)
+	_astar.region = Rect2i(0, 0, 100, 100)
 	_astar.cell_size = BASE_TILE_SIZE 
 	_astar.offset = BASE_TILE_SIZE * 0.5 
 	_astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
