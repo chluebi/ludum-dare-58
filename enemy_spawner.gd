@@ -1,7 +1,7 @@
 extends Node2D
 
-const WAVE_INTERVAL = 10.0
-const SPAWN_INTERVAL = 4.0
+const WAVE_INTERVAL = 30.0
+const SPAWN_INTERVAL = 1.0
 
 const ALLOWED_REGION = Rect2(0,0,2400, 1500)
 
@@ -54,9 +54,27 @@ func try_spawn_enemy(enemy_scene) -> bool:
 	for node in get_tree().get_nodes_in_group(LOCATIONS[enemy_scene]):
 		if camera_region.has_point(node.position):
 			continue
-		else:
-			spawn_enemy(node.position, enemy_scene)
-			return true
+		
+		var space_state = get_world_2d().direct_space_state
+		var query = PhysicsShapeQueryParameters2D.new()
+		query.shape = CircleShape2D.new()
+		query.shape.radius = 160
+		query.transform.origin = node.position
+		
+		var results = space_state.intersect_shape(query)
+
+		var collision = false
+		for result in results:
+			var body = result.get("collider")
+			if body and "health" in body:
+				collision = true
+				break
+		
+		if collision:
+			continue
+		
+		spawn_enemy(node.position, enemy_scene)
+		return true
 	
 	return false
 
@@ -79,16 +97,6 @@ func spawn_wave():
 	WAVE += 1
 	current_wave_value = 0
 	current_wave_max_value *= 1.1
-	while current_wave_value < current_wave_max_value/2:
-		var enemy_scene = COSTS.keys().pick_random()
-		if FIRST_WAVE[enemy_scene] > WAVE:
-			continue
-		if current_wave_value + COSTS[enemy_scene] > current_wave_max_value * 2:
-			continue
-		
-		if try_spawn_enemy(enemy_scene):
-			print('wave spawned ', COSTS[enemy_scene])
-			current_wave_value += COSTS[enemy_scene]	
 
 
 func _process(delta: float) -> void:
