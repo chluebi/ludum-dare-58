@@ -68,7 +68,7 @@ func on_collision(body):
 		if size > 0:
 			audio = $hard_audio
 		if body.health.take_damage(damage * (1 + size)) and size > 0:
-			damage *= 2
+			#damage *= 2
 			destroy = false
 	# sometimes, the audio players are not ready when the collision happens, so this check avoids a crash
 	if audio:

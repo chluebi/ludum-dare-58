@@ -149,9 +149,6 @@ position = Vector2(2000, 3760)
 [node name="FlowerBed" parent="Environment" instance=ExtResource("11_yaehf")]
 position = Vector2(3194, 3519)
 
-[node name="Caster" parent="Environment" instance=ExtResource("10_yaehf")]
-position = Vector2(1000, 500)
-
 [node name="HUD" parent="." instance=ExtResource("8_5vw27")]
 
 [node name="enemy_spawner" type="Node2D" parent="."]
@@ -197,7 +194,7 @@ position = Vector2(2000, 1840)
 position = Vector2(720, 1840)
 
 [node name="mushroom_location1" type="Node2D" parent="enemy_spawner" groups=["mushroom_location"]]
-position = Vector2(2480, 2960)
+position = Vector2(2480, 2961)
 
 [node name="mushroom_location2" type="Node2D" parent="enemy_spawner" groups=["mushroom_location"]]
 position = Vector2(1680, 3600)
@@ -212,6 +209,5 @@ script = ExtResource("11_efxa6")
 script = ExtResource("12_ycdy4")
 
 [node name="tutorial_manager" parent="." instance=ExtResource("15_2cqfq")]
-tutorial_enabled = false
 
 [node name="poison_trail" parent="." instance=ExtResource("12_dg77c")]
