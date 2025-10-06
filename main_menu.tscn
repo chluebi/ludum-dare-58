@@ -12,11 +12,24 @@ script = SubResource("GDScript_06t4h")
 
 [node name="Menu" parent="." instance=ExtResource("2_7vrkn")]
 
-[node name="Button" type="Button" parent="Menu"]
-offset_left = 614.0
-offset_top = 348.0
-offset_right = 919.0
-offset_bottom = 422.0
+[node name="Title" type="Label" parent="Menu"]
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.026
+offset_left = 579.0
+offset_top = 325.0
+offset_right = 924.0
+offset_bottom = 370.6
+theme_override_font_sizes/font_size = 50
+text = "Potion Collector"
+
+[node name="Start" type="Button" parent="Menu"]
+offset_left = 618.0
+offset_top = 416.0
+offset_right = 923.0
+offset_bottom = 490.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 text = "Start Game"
+
+[connection signal="pressed" from="Menu/Start" to="Menu" method="_on_start_pressed"]

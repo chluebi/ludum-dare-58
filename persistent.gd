@@ -1,6 +1,6 @@
 extends Node
 
-var tutorial_completed = true
+var tutorial_completed = false
 var drunk: Array[Constants.item_type] = []
 var escaped: Array[Constants.item_type] = []
 

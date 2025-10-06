@@ -10,12 +10,13 @@ func _ready() -> void:
 	print(Persistent.escaped)
 	print(Persistent.drunk)
 	render_potions(Persistent.escaped)
-	var t = Timer.new()
-	add_child(t)
-	t.timeout.connect(start_game)
-	t.start(2.0)
 	if Constants.item_type.green in Persistent.drunk:
 		show_slime()
+	
+	
+func _on_start_pressed() -> void:
+	start_game()
+	
 
 func start_game():
 	get_tree().change_scene_to_packed(MAIN_SCENE)
@@ -26,6 +27,7 @@ func start_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
 
 const scale_factor = Vector2(1600/96, 1600/96)
 
