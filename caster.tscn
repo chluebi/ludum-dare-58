@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjflk2akx808s"]
+
+[ext_resource type="Script" uid="uid://cal8evtcr1hgn" path="res://caster.gd" id="1_u4n58"]
+[ext_resource type="Texture2D" uid="uid://u4dcten43fiy" path="res://Caster.png" id="2_u4n58"]
+[ext_resource type="PackedScene" uid="uid://douxwd3qcg1hw" path="res://healthbar.tscn" id="3_e2mim"]
+[ext_resource type="AudioStream" uid="uid://bq4gykgvomiy7" path="res://sfx/shoot.wav" id="4_6ryrs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ryrs"]
+atlas = ExtResource("2_u4n58")
+region = Rect2(0, 0, 7, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(48, 83)
+
+[node name="Caster" type="CharacterBody2D" groups=["important_entities"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_u4n58")
+can_drop = Array[int]([11])
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_6ryrs")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 30.5)
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="healthbar" parent="." instance=ExtResource("3_e2mim")]
+position = Vector2(0, -80)
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6ryrs")

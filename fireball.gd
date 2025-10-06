@@ -10,7 +10,9 @@ var timer = 0.0
 var size = 0
 var animation_frame = 0
 var damage = 10
+var is_enemy = false
 @onready var SPRITE = $sprite
+@onready var ENEMY_SPRITE = $enemy_sprite
 static var PARTICLE_SCENE = preload("res://fireball_particles.tscn")
 
 
@@ -19,27 +21,37 @@ func frame_to_rect(animation_frame):
 	return Rect2(x, 0, 4, 4)
 
 func set_sprite_region():
+	if is_enemy:
+		print(animation_frame)
+		ENEMY_SPRITE.frame = animation_frame
+		return
 	if size == 0:
 		SPRITE.region_rect = Rect2(7, 1, 2, 2)
 	elif size == 1:
-		SPRITE.region_rect = frame_to_rect(0)
+		SPRITE.region_rect = frame_to_rect(animation_frame)
 	else:
 		SPRITE.region_rect = Rect2(5 * animation_frame + 16, 0, 5, 5)
 		
 func _ready() -> void:
+	if is_enemy:
+		collision_mask = 2
+		SPRITE.visible = false
+		ENEMY_SPRITE.visible = true
 	body_entered.connect(on_collision)
-	SPRITE.region_enabled = true
 	set_sprite_region()
 	
 	
 func _process(delta: float) -> void:
 	timer += delta
-	if timer > TIME_BETWEEN_ANIMATION_FRAMES and size > 0:
+	if timer > TIME_BETWEEN_ANIMATION_FRAMES and (is_enemy or size > 0):
 		timer -= TIME_BETWEEN_ANIMATION_FRAMES
 		animation_frame += 1
 		animation_frame %= 4
-		SPRITE.region_rect = frame_to_rect(animation_frame)
+		set_sprite_region()
+		#SPRITE.region_rect = frame_to_rect(animation_frame)
 	position += direction * SPEED * delta
+	if timer > 15.0:
+		queue_free()
 	#if position.x < WORLD_BOUND_MIN.x or position.x > WORLD_BOUND_MAX.x:
 		#queue_free()
 	#elif position.y < WORLD_BOUND_MIN.y or position.y > WORLD_BOUND_MAX.y:

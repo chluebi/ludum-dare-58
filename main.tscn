@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bpype5vdrgnek"]
+[gd_scene load_steps=20 format=4 uid="uid://bpype5vdrgnek"]
 
 [ext_resource type="PackedScene" uid="uid://c4vun81r65hwg" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://bw4v2c3mih1f1" path="res://floor1(5).png" id="2_272bh"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dwn0n5fcpx51w" path="res://glass_shelf.tscn" id="9_vivmo"]
 [ext_resource type="PackedScene" uid="uid://ci1p6hoypx4li" path="res://stone_shelf.tscn" id="10_2cqfq"]
 [ext_resource type="Script" uid="uid://b7tk7wyyonbao" path="res://effect_manager.gd" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://bjflk2akx808s" path="res://caster.tscn" id="10_yaehf"]
 [ext_resource type="Script" uid="uid://tfuqtyafw6be" path="res://inventory_manager.gd" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://da6hjhpeubx5h" path="res://poison_trail.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://cfwmkj2ko26yv" path="res://cauldron_manager.gd" id="12_ycdy4"]
@@ -96,6 +97,9 @@ position = Vector2(554.0002, 880)
 [node name="StoneShelf" parent="Environment" instance=ExtResource("10_2cqfq")]
 position = Vector2(245.00006, 1680.9999)
 
+[node name="Caster" parent="Environment" instance=ExtResource("10_yaehf")]
+position = Vector2(1000, 500)
+
 [node name="HUD" parent="." instance=ExtResource("8_5vw27")]
 
 [node name="enemy_spawner" type="Node2D" parent="."]
@@ -111,5 +115,6 @@ script = ExtResource("11_efxa6")
 script = ExtResource("12_ycdy4")
 
 [node name="tutorial_manager" parent="." instance=ExtResource("15_2cqfq")]
+tutorial_enabled = false
 
 [node name="poison_trail" parent="." instance=ExtResource("12_dg77c")]
