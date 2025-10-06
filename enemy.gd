@@ -70,9 +70,9 @@ func _physics_process(_delta: float) -> void:
 			_move_to(player.position)
 			return
 	
-	if (tile_pos.x != tile_target.x):
+	if (abs(tile_pos.x - tile_target.x) > abs(tile_pos.y - tile_target.y)):
 		_move_to(_tile_map.to_global(_tile_map.map_to_local(Vector2(tile_target.x, tile_pos.y))))
-	elif (tile_pos.y != tile_target.y):
+	elif (abs(tile_pos.x - tile_target.x) < abs(tile_pos.y - tile_target.y)):
 		_move_to(_tile_map.to_global(_tile_map.map_to_local(Vector2(tile_pos.x, tile_target.y))))
 	else: 
 		_move_to(player.position)

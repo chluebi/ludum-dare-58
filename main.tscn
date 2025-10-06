@@ -141,16 +141,14 @@ position = Vector2(3280, 1874)
 [node name="Ghost" parent="Environment" instance=ExtResource("13_ycdy4")]
 z_index = 1
 position = Vector2(3281, -1840)
+max_health = 1.0
+speed = 180.0
 
 [node name="Shelf" parent="Environment" instance=ExtResource("9_vivmo")]
 position = Vector2(560.00006, 1040)
-collision_layer = 15
-collision_mask = 15
 
 [node name="StoneShelf" parent="Environment" instance=ExtResource("10_2cqfq")]
 position = Vector2(2159.9998, 570.0001)
-collision_layer = 15
-collision_mask = 15
 
 [node name="Mushroom" parent="Environment" instance=ExtResource("10_yaehf")]
 position = Vector2(2000, 3760)
