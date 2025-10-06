@@ -1,7 +1,7 @@
 extends Node
 
 
-const num_slots = 6
+var num_slots = Persistent.slots
 
 var current_slot_index: int = 0
 var is_empty: Array[bool] = []

@@ -24,6 +24,11 @@ func _ready() -> void:
 		
 		Persistent.just_escaped = []
 		Persistent.just_drunk = []
+		Persistent.just_bagged = []
+		
+		$Return/Gold.text = "Gold: " + str(Persistent.gold)
+		
+		$Return/BagUpgrade/Upgrade.setup()
 	else:
 		$Return.hide()
 		$Start.show()
@@ -48,6 +53,16 @@ var potion_usage_names = {
 	Constants.item_type.rainbow: "The Greatest Magic of All"
 }
 
+var potion_values = {
+	Constants.item_type.orange: 2,
+	Constants.item_type.yellow: 3,
+	Constants.item_type.pink: 4,
+	Constants.item_type.blue: 6,
+	Constants.item_type.purple: 8,
+	Constants.item_type.green: 12,
+	Constants.item_type.rainbow: 42
+}
+
 func render_log():
 	var text: String = ""
 	if Persistent.last_run_escaped:
@@ -56,11 +71,23 @@ func render_log():
 			text += "Felt the effects of " + potion_usage_names[potion] + "\n"
 		for potion in Persistent.just_escaped:
 			text += "Collected " + potion_visual_names[potion] + "\n"
+			
+		if Persistent.just_bagged != []:
+			var earned = calculate_gold()
+			text += "Earned " + str(earned) + " from selling duplicate potions\n"
+			Persistent.gold += earned
 	else:
 		text += "All potions were lost...\n"
 		
 	$Return/Log.text = text
 
+
+func calculate_gold() -> int:
+	var sum = 0
+	for potion in Persistent.just_bagged:
+		sum += potion_values[potion]
+	return sum
+	
 	
 func _on_start_pressed() -> void:
 	start_game()

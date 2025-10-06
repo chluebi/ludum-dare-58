@@ -10,7 +10,10 @@ var game_completed = false
 
 var just_drunk: Array[Constants.item_type] = []
 var just_escaped: Array[Constants.item_type] = []
+var just_bagged: Array[Constants.item_type] = []
 
+var gold: int = 0
+var slots: int = 5
 
 func add_drunk(i: Constants.item_type):
 	if i in drunk:
@@ -23,6 +26,7 @@ func add_escaped(i: Constants.item_type):
 	if i >= Constants.item_type.empty:
 		return
 	if i in escaped:
+		just_bagged.append(i)
 		return
 	escaped.push_back(i)
 	just_escaped.push_back(i)
