@@ -1,7 +1,7 @@
 extends Node2D
 
-const WAVE_INTERVAL = 60.0
-const SPAWN_INTERVAL = 8.0
+const WAVE_INTERVAL = 30.0
+const SPAWN_INTERVAL = 4.0
 
 const ALLOWED_REGION = Rect2(0,0,2400, 1500)
 
@@ -69,6 +69,7 @@ func spawn_leftovers():
 			continue
 		
 		if try_spawn_enemy(enemy_scene):
+			print('leftover spawned ', COSTS[enemy_scene])
 			current_wave_value += COSTS[enemy_scene]
 			break
 
@@ -76,7 +77,7 @@ func spawn_leftovers():
 func spawn_wave():
 	WAVE += 1
 	current_wave_value = 0
-	current_wave_max_value *= 1.2
+	current_wave_max_value *= 1.1
 	while current_wave_value < current_wave_max_value/2:
 		var enemy_scene = COSTS.keys().pick_random()
 		if FIRST_WAVE[enemy_scene] > WAVE:
@@ -85,11 +86,12 @@ func spawn_wave():
 			continue
 		
 		if try_spawn_enemy(enemy_scene):
+			print('wave spawned ', COSTS[enemy_scene])
 			current_wave_value += COSTS[enemy_scene]	
 
 
 func _process(delta: float) -> void:
-	if $"../tutorial_manager" and !$"../tutorial_manager".enemy_activity:
+	if get_node_or_null("../tutorial_manager") != null and !$"../tutorial_manager".enemy_activity:
 		return
 	
 

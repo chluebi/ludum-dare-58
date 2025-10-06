@@ -28,7 +28,7 @@ func _ready() -> void:
 
 
 func _process(real_delta: float) -> void:
-	if $"../../tutorial_manager" and !$"../../tutorial_manager".enemy_activity:
+	if get_node_or_null("../tutorial_manager") != null and !$"../../tutorial_manager".enemy_activity:
 		return
 		
 	var delta = slow_mo * real_delta
